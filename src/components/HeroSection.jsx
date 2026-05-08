@@ -1,173 +1,191 @@
-import { useTypewriter, Cursor } from "react-simple-typewriter";
-import { Link } from "react-router-dom";
-import { Link as ScrollLink } from "react-scroll";
-import { FiArrowDown } from "react-icons/fi";
-import { BsStarFill } from "react-icons/bs";
+import React, { useState, useEffect } from "react";
+import { ArrowRight, ShoppingBag, Star, ShieldCheck, Zap } from "lucide-react";
 
-export default function HeroSection() {
-  // react-simple-typewriter hook configuration
-  const [text] = useTypewriter({
-    words: ["IMPRESS.", "INSPIRE.", "EXPRESS.", "SUCCEED."],
-    loop: true,
-    typeSpeed: 80,
-    deleteSpeed: 50,
-    delaySpeed: 1800,
-  });
+const HeroSection = () => {
+  const brandBlue = "#0070f3";
+
+  // --- Typewriter Logic ---
+  const words = ["Speaks", "Refines", "Resonates", "Inspires"];
+  const [index, setIndex] = useState(0);
+  const [subIndex, setSubIndex] = useState(0);
+  const [reverse, setReverse] = useState(false);
+
+  useEffect(() => {
+    if (subIndex === words[index].length + 1 && !reverse) {
+      setTimeout(() => setReverse(true), 2000);
+      return;
+    }
+    if (subIndex === 0 && reverse) {
+      setReverse(false);
+      setIndex((prev) => (prev + 1) % words.length);
+      return;
+    }
+    const timeout = setTimeout(
+      () => {
+        setSubIndex((prev) => prev + (reverse ? -1 : 1));
+      },
+      reverse ? 75 : 150,
+    );
+    return () => clearTimeout(timeout);
+  }, [subIndex, index, reverse]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
-      {/* Background */}
-      <div className="absolute inset-0 bg-brand-black" />
+    <section className="relative w-full min-h-screen bg-[#020202] flex items-center overflow-hidden px-6 md:px-16 py-24">
+      {/* --- EXTRA DECORATIVE ELEMENTS (The "Much Things" aspect) --- */}
+      <div className="absolute top-20 left-10 text-[14vw] font-black text-white/[0.02] select-none pointer-events-none uppercase">
+        Premium
+      </div>
+      <div className="absolute bottom-10 right-10 text-[10vw] font-black text-white/[0.02] select-none pointer-events-none uppercase italic">
+        Boutique
+      </div>
 
-      {/* Blue glow top-left */}
-      <div className="absolute top-0 left-0 w-125 h-125 bg-brand-blue/10 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/4" />
-
-      {/* Red glow bottom-right */}
-      <div className="absolute bottom-0 right-0 w-100 h-100 bg-brand-red/10 rounded-full blur-[100px] translate-x-1/3 translate-y-1/4" />
-
-      {/* Diagonal lines overlay */}
+      {/* Ambient Glows */}
       <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(60deg,#fff 0,#fff 1px,transparent 1px,transparent 60px)",
-        }}
+        className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] opacity-20"
+        style={{ backgroundColor: brandBlue }}
+      />
+      <div
+        className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] rounded-full blur-[130px] opacity-10"
+        style={{ backgroundColor: brandBlue }}
       />
 
-      {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-12 w-full">
-        {/* Badge */}
-        <div className="flex items-center gap-2 mb-6 animate-fadeUp">
-          <span className="flex gap-0.5">
-            {[...Array(5)].map((_, i) => (
-              <BsStarFill key={i} className="text-brand-blue" size={10} />
-            ))}
-          </span>
-          <span className="text-white/40 text-xs tracking-[0.2em] uppercase">
-            Trusted by 10,000+ customers
-          </span>
-        </div>
-
-        {/* Headline */}
-        <h1
-          className="font-display text-6xl sm:text-7xl md:text-9xl leading-none mb-2 animate-fadeUp text-white"
-          style={{ animationDelay: "0.1s" }}
-        >
-          DRESS TO
-        </h1>
-
-        <div
-          className="font-display text-6xl sm:text-7xl md:text-9xl leading-none mb-6 animate-fadeUp flex flex-wrap items-center gap-4"
-          style={{ animationDelay: "0.15s" }}
-        >
-          {/* Updated Typewriter Implementation */}
-          <span className="text-brand-blue min-h-[1em]">
-            {text}
-            <Cursor cursorStyle="_" cursorColor="#E0190F" />
-          </span>
-        </div>
-
-        <p
-          className="text-white/40 max-w-md text-sm md:text-base leading-relaxed mb-10 animate-fadeUp"
-          style={{ animationDelay: "0.2s" }}
-        >
-          Premium fashion for men, women and kids. Curated styles that turn
-          heads — delivered to your door across Nigeria.
-        </p>
-
-        {/* CTAs */}
-        <div
-          className="flex flex-col sm:flex-row gap-4 mb-16 animate-fadeUp"
-          style={{ animationDelay: "0.3s" }}
-        >
-          <Link
-            to="/order"
-            className="bg-brand-blue hover:bg-blue-700 text-white text-xs tracking-[0.2em] uppercase font-medium px-8 py-4 transition-all duration-200 hover:-translate-y-1 text-center"
-          >
-            Shop Now
-          </Link>
-          <Link
-            to="/women"
-            className="border border-white/20 hover:border-brand-red text-white hover:text-brand-red text-xs tracking-[0.2em] uppercase px-8 py-4 transition-all duration-200 text-center"
-          >
-            Explore Collections
-          </Link>
-        </div>
-
-        {/* Stats row */}
-        <div
-          className="flex flex-wrap gap-8 animate-fadeUp border-t border-white/10 pt-8"
-          style={{ animationDelay: "0.4s" }}
-        >
-          {[
-            ["10K+", "Happy Customers"],
-            ["500+", "Styles Available"],
-            ["48h", "Delivery in Lagos"],
-            ["100%", "Authentic Pieces"],
-          ].map(([val, label]) => (
-            <div key={label}>
-              <p className="font-display text-3xl text-brand-blue">{val}</p>
-              <p className="text-white/30 text-xs tracking-wider uppercase mt-1">
-                {label}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Category Circles */}
-      <div className="relative z-10 max-w-7xl mx-auto px-5 md:px-12 w-full mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-8">
-        {[
-          {
-            label: "Women",
-            to: "/women",
-            img: "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=400&q=80",
-            accent: "border-brand-blue",
-          },
-          {
-            label: "Men",
-            to: "/men",
-            img: "https://images.unsplash.com/photo-1516826957135-700dedea698c?w=400&q=80",
-            accent: "border-brand-red",
-          },
-          {
-            label: "Kids",
-            to: "/kids",
-            img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=400&q=80",
-            accent: "border-white/40",
-          },
-        ].map((cat) => (
-          <Link
-            key={cat.to}
-            to={cat.to}
-            className={`group relative w-32 h-32 md:w-48 md:h-48 rounded-full overflow-hidden border-2 ${cat.accent} hover:scale-105 transition-all duration-300 flex-shrink-0`}
-          >
-            <img
-              src={cat.img}
-              alt={cat.label}
-              className="w-full h-full object-cover opacity-60 group-hover:opacity-90 transition-opacity duration-500"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-              <span className="font-display text-white text-2xl md:text-3xl tracking-[0.15em]">
-                {cat.label}
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+        {/* --- TEXT CONTENT --- */}
+        <div className="space-y-10 order-2 lg:order-1">
+          <div className="space-y-6">
+            <div className="inline-flex items-center gap-3 px-5 py-2 border border-white/10 bg-white/5 rounded-full backdrop-blur-xl">
+              <Zap size={14} className="text-yellow-400 fill-yellow-400" />
+              <span className="text-[10px] tracking-[0.4em] uppercase font-black text-white/90">
+                StylerHub Exclusive 2026
               </span>
             </div>
-          </Link>
-        ))}
+
+            <h1 className="text-6xl md:text-8xl font-black text-white leading-[0.95] tracking-tighter uppercase italic">
+              Quality That <br />
+              <span
+                className="relative inline-block"
+                style={{ color: brandBlue }}
+              >
+                {words[index].substring(0, subIndex)}
+                <span className="absolute right-[-12px] top-0 h-full w-[5px] bg-white animate-pulse" />
+              </span>
+              <br />
+              Before You Do.
+            </h1>
+
+            <p className="text-white/40 text-lg max-w-lg leading-relaxed font-medium">
+              Redefining the African fashion landscape with artisanal precision
+              and silhouettes that command respect in any room.
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-5">
+            <button className="group relative overflow-hidden flex items-center justify-center gap-3 px-10 py-5 text-white font-black text-xs uppercase tracking-[0.2em] transition-all bg-blue-600 hover:shadow-[0_0_40px_rgba(0,112,243,0.6)] active:scale-95">
+              <ShoppingBag size={18} />
+              Shop Now
+              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
+            </button>
+            <button className="flex items-center justify-center gap-2 px-10 py-5 text-white border-2 border-white/10 font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+              See Lookbook <ArrowRight size={16} />
+            </button>
+          </div>
+
+          {/* Stats & Trust */}
+          <div className="grid grid-cols-2 gap-8 pt-10 border-t border-white/5 max-w-sm">
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2 text-white font-black text-3xl">
+                15K <span className="text-blue-500 text-sm">+</span>
+              </div>
+              <p className="text-[9px] uppercase tracking-[0.3em] text-white/30 font-bold">
+                Orders Delivered
+              </p>
+            </div>
+            <div className="flex flex-col gap-1">
+              <div className="flex items-center gap-2 text-white font-black text-3xl">
+                4.9{" "}
+                <Star size={16} className="text-yellow-500 fill-yellow-500" />
+              </div>
+              <p className="text-[9px] uppercase tracking-[0.3em] text-white/30 font-bold">
+                User Feedback
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* --- IMAGE COMPOSITION (Attractive & Much More) --- */}
+        <div className="relative order-1 lg:order-2 group">
+          {/* Decorative Floating Circle */}
+          <div className="absolute -top-10 -right-10 w-32 h-32 border border-white/10 rounded-full animate-spin-slow pointer-events-none" />
+
+          {/* Main Photo Container */}
+          <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_60px_100px_-20px_rgba(0,0,0,1)]">
+            <img
+              src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974&auto=format&fit=crop"
+              alt="Fashion Model"
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+            />
+            {/* Dark Overlay for Depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent opacity-70" />
+          </div>
+
+          {/* OVERLAPPING ARTISAN CARD (Made more obvious) */}
+          <div className="absolute -bottom-10 -left-6 md:-left-16 bg-white/10 backdrop-blur-2xl p-7 rounded-[2rem] shadow-2xl z-30 max-w-[260px] border border-white/20 transform hover:-rotate-2 transition-transform">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="p-2 bg-blue-600 rounded-lg">
+                <ShieldCheck size={18} className="text-white" />
+              </div>
+              <p className="text-white font-black text-xs uppercase tracking-widest leading-none">
+                Authentic <br />{" "}
+                <span className="text-white/50">Nigerian Craft</span>
+              </p>
+            </div>
+
+            <p className="text-white/60 text-[10px] leading-relaxed mb-5 font-medium">
+              Each thread is hand-picked and verified for premium texture.
+            </p>
+
+            {/* OVERLAPPING IMAGES (VERY OBVIOUS VERSION) */}
+            <div className="flex items-center gap-4">
+              <div className="flex -space-x-4">
+                {[1, 2, 3, 4].map((i) => (
+                  <div
+                    key={i}
+                    className="w-10 h-10 rounded-full border-[3px] border-[#1a1a1a] bg-stone-800 overflow-hidden shadow-xl transition-transform hover:scale-110 hover:z-50 relative"
+                    style={{ zIndex: 10 - i }} // Ensures clear stacking
+                  >
+                    <img
+                      src={`https://i.pravatar.cc/100?img=${i + 10}`}
+                      alt="Artisan"
+                      className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all"
+                    />
+                  </div>
+                ))}
+              </div>
+              <span className="text-[9px] text-white/50 font-black uppercase tracking-widest">
+                +12 Experts
+              </span>
+            </div>
+          </div>
+
+          {/* FLOATING TOP BADGE */}
+          <div className="absolute top-10 -right-4 bg-white text-black p-4 rounded-2xl shadow-2xl z-20 animate-bounce-slow hidden sm:block">
+            <p className="text-[10px] font-black uppercase tracking-tighter leading-none">
+              Limitless
+            </p>
+            <p className="text-[18px] font-black leading-none">STYLE</p>
+          </div>
+        </div>
       </div>
 
-      {/* Scroll down cue */}
-      <ScrollLink
-        to="marquee"
-        spy
-        smooth
-        offset={0}
-        duration={600}
-        className="relative z-10 mx-auto mt-12 flex flex-col items-center gap-2 cursor-pointer text-white/30 hover:text-brand-blue transition-colors"
-      >
-        <span className="text-xs tracking-[0.2em] uppercase">Scroll</span>
-        <FiArrowDown className="animate-bounce" size={16} />
-      </ScrollLink>
+      {/* Tailwind Specific Animations */}
+      <style>{`
+        .animate-spin-slow { animation: spin 10s linear infinite; }
+        .animate-bounce-slow { animation: bounce 3s ease-in-out infinite; }
+        @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+      `}</style>
     </section>
   );
-}
+};
+
+export default HeroSection;

@@ -1,92 +1,67 @@
-import { Link } from "react-router-dom";
-import { FiArrowRight } from "react-icons/fi";
+import React from "react";
 
-const cats = [
+const categories = [
   {
     name: "Women",
-    sub: "124 Styles",
-    desc: "Bold, elegant and curated for every occasion.",
-    to: "/women",
-    img: "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600&q=80",
-    accent: "bg-brand-blue",
+    desc: "Elegant, trendy and bold styles for every woman.",
+    img: "https://images.unsplash.com/photo-1520975916090-3105956dac38",
   },
   {
     name: "Men",
-    sub: "98 Styles",
-    desc: "Sharp tailoring meets modern streetwear.",
-    to: "/men",
-    img: "https://images.unsplash.com/photo-1516826957135-700dedea698c?w=600&q=80",
-    accent: "bg-brand-red",
+    desc: "Classic and modern outfits for the confident man.",
+    img: "https://images.unsplash.com/photo-1516826957135-700dedea698c",
   },
   {
     name: "Kids",
-    sub: "67 Styles",
-    desc: "Colorful, comfy styles little ones love.",
-    to: "/kids",
-    img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80",
-    accent: "bg-white",
+    desc: "Fun, colorful and comfy outfits for kids.",
+    img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9",
   },
 ];
 
-export default function CategoriesSection() {
+const Categories = () => {
   return (
-    <section
-      id="categories"
-      className="bg-brand-black py-20 px-5 md:px-12 border-t border-white/10"
-    >
+    <section className="bg-stone-50 py-16 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-          <div>
-            <span className="text-xs tracking-[0.3em] uppercase text-brand-blue">
-              Collections
-            </span>
-            <h2 className="font-display text-5xl md:text-7xl text-white mt-1 leading-none">
-              SHOP BY<br />
-              <span className="text-brand-red">CATEGORY</span>
-            </h2>
-          </div>
-          <p className="text-white/40 text-sm max-w-xs leading-relaxed">
-            Three worlds, one destination. Discover styles crafted for everyone in your family.
+        <div className="text-center mb-12">
+          <h2
+            className="text-3xl md:text-5xl font-bold text-stone-900"
+            style={{ fontFamily: "'Georgia', serif" }}
+          >
+            Shop by Category
+          </h2>
+          <p className="text-stone-500 mt-3 italic">
+            Discover styles for everyone at StyleHub
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {cats.map((cat) => (
-            <Link
-              key={cat.name}
-              to={cat.to}
-              className="group relative overflow-hidden aspect-[3/4] block"
+        <div className="grid gap-6 md:grid-cols-3">
+          {categories.map((item, index) => (
+            <div
+              key={index}
+              className="relative group overflow-hidden rounded-xl shadow-md h-[450px]"
             >
               <img
-                src={cat.img}
-                alt={cat.name}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src={item.img}
+                alt={item.name}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-              {/* Tag top */}
-              <span
-                className={`absolute top-4 left-4 ${cat.accent} ${cat.accent === "bg-white" ? "text-black" : "text-white"} text-xs font-medium px-3 py-1 tracking-wider uppercase`}
-              >
-                {cat.sub}
-              </span>
-
-              {/* Bottom content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
-                <h3 className="font-display text-4xl text-white mb-1">
-                  {cat.name}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-8">
+                <h3 className="text-white text-2xl font-bold mb-2">
+                  {item.name}
                 </h3>
-                <p className="text-white/50 text-sm mb-5">{cat.desc}</p>
-                <span
-                  className={`inline-flex items-center gap-2 text-xs tracking-[0.18em] uppercase font-medium ${cat.accent === "bg-white" ? "text-white" : "text-white"} border-b border-white/30 pb-0.5 group-hover:border-white transition-colors`}
-                >
-                  Explore <FiArrowRight size={12} />
-                </span>
+                <p className="text-stone-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {item.desc}
+                </p>
+                <button className="bg-white text-black hover:bg-amber-400 px-6 py-2 rounded-full w-fit text-sm font-semibold transition-colors">
+                  Explore
+                </button>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default Categories;

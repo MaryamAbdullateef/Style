@@ -1,117 +1,150 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { HiMenu, HiX } from "react-icons/hi";
-import { FiShoppingBag } from "react-icons/fi";
-import { Link as ScrollLink } from "react-scroll";
+import { ShoppingBag, Menu, X, Search, User } from "lucide-react";
 
-const navLinks = [
-  { label: "Women", to: "/women", type: "route" },
-  { label: "Men", to: "/men", type: "route" },
-  { label: "Kids", to: "/kids", type: "route" },
-  { label: "About", to: "about", type: "scroll" },
-  { label: "Contact", to: "/contact", type: "route" },
-];
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
-export default function Navbar() {
-  const [open, setOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const { pathname } = useLocation();
+  // Dynamic Logic: Fetch user and cart status
+  const user = JSON.parse(localStorage.getItem("styler_user"));
+  const cartCount =
+    JSON.parse(localStorage.getItem("styler_cart"))?.length || 0;
+  const brandBlue = "#0070f3";
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const navLinks = [
+    { name: "New Arrivals", path: "/new" },
+    { name: "Men", path: "/men" },
+    { name: "Women", path: "/women" },
+    { name: "Kids", path: "/kids" },
+    { name: "Collections", path: "/collections" },
+  ];
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-brand-black/95 backdrop-blur-md border-b border-white/10 py-3"
-          : "bg-transparent py-5"
+      className={`fixed top-0 w-full z-[100] transition-all duration-300 px-5 md:px-12 py-4 ${
+        isScrolled
+          ? "bg-[#040404]/80 backdrop-blur-md border-b border-white/10"
+          : "bg-transparent text-white"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-10 flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="/"
-          className="font-display text-2xl tracking-[0.15em] text-white"
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Mobile Menu Toggle */}
+        <button
+          className="lg:hidden text-white transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          STYLER<span className="text-brand-blue">HUB</span>
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+
+        {/* Logo */}
+        <Link to="/" className="flex items-center">
+          <span
+            className="text-2xl font-bold tracking-[0.15em] text-white"
+            style={{ fontFamily: "serif" }}
+          >
+            STYLER<span style={{ color: brandBlue }}>HUB</span>
+          </span>
         </Link>
 
-        {/* Desktop Links */}
-        <ul className="hidden md:flex items-center gap-8">
-          {navLinks.map((l) =>
-            l.type === "scroll" && pathname === "/" ? (
-              <li key={l.label}>
-                <ScrollLink
-                  to={l.to}
-                  spy smooth offset={-80} duration={600}
-                  className={`text-xs tracking-[0.18em] uppercase cursor-pointer transition-colors duration-200 hover:text-brand-blue text-white/70`}
-                >
-                  {l.label}
-                </ScrollLink>
-              </li>
-            ) : (
-              <li key={l.label}>
-                <Link
-                  to={l.type === "scroll" ? "/" : l.to}
-                  className={`text-xs tracking-[0.18em] uppercase transition-colors duration-200 ${
-                    pathname === l.to
-                      ? "text-brand-blue"
-                      : "text-white/70 hover:text-brand-blue"
-                  }`}
-                >
-                  {l.label}
-                </Link>
-              </li>
-            )
-          )}
-        </ul>
-
-        {/* Right */}
-        <div className="hidden md:flex items-center gap-4">
-          <FiShoppingBag className="text-white/60 hover:text-brand-blue cursor-pointer transition-colors" size={20} />
-          <Link
-            to="/order"
-            className="bg-brand-blue hover:bg-blue-700 text-white text-xs tracking-[0.15em] uppercase font-medium px-6 py-2.5 transition-all duration-200 hover:-translate-y-0.5"
-          >
-            Order Now
-          </Link>
-        </div>
-
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-white"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <HiX size={24} /> : <HiMenu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Menu */}
-      {open && (
-        <div className="md:hidden bg-brand-black border-t border-white/10 px-5 py-6 space-y-4 animate-fadeUp">
-          {navLinks.map((l) => (
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
             <Link
-              key={l.label}
-              to={l.type === "scroll" ? "/" : l.to}
-              onClick={() => setOpen(false)}
-              className="block text-sm tracking-[0.15em] uppercase text-white/70 hover:text-brand-blue transition-colors py-1"
+              key={link.name}
+              to={link.path}
+              className={`text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors relative group ${location.pathname === link.path ? "text-white" : "text-blue-400"}`}
             >
-              {l.label}
+              {link.name}
+              <span
+                className={`absolute -bottom-1 left-0 h-[1px] transition-all duration-300 group-hover:w-full ${location.pathname === link.path ? "w-full" : "w-0"}`}
+                style={{ backgroundColor: brandBlue }}
+              />
             </Link>
           ))}
+        </div>
+
+        {/* Action Icons */}
+        <div className="flex items-center gap-5">
+          {/* Search Icon */}
           <Link
-            to="/order"
-            onClick={() => setOpen(false)}
-            className="block mt-2 bg-brand-blue text-white text-center text-sm tracking-[0.15em] uppercase font-medium px-6 py-3 w-full"
+            to="/search"
+            className="hidden sm:block text-white/70 hover:text-white transition-colors"
           >
-            Order Now
+            <Search size={20} />
+          </Link>
+
+          {/* Account Icon */}
+          <Link
+            to="/account"
+            className="hidden sm:block text-white/70 hover:text-white transition-colors flex items-center gap-2"
+          >
+            <User size={20} />
+            {user && (
+              <span className="text-[10px] font-bold uppercase text-blue-400 hidden lg:block">
+                {user.name.split(" ")[0]}
+              </span>
+            )}
+          </Link>
+
+          {/* Cart Icon with Dynamic Badge */}
+          <Link
+            to="/cart"
+            className="relative text-white hover:text-blue-500 transition-colors"
+          >
+            <ShoppingBag size={22} />
+            {cartCount > 0 && (
+              <span
+                className="absolute -top-1 -right-2 w-4 h-4 rounded-full text-[10px] flex items-center justify-center font-bold text-white animate-pulse"
+                style={{ backgroundColor: brandBlue }}
+              >
+                {cartCount}
+              </span>
+            )}
+          </Link>
+
+          {/* Order Now Button */}
+          <Link to="/order">
+            <button className="bg-blue-700 rounded-2xl p-3 animate-bounce hover:bg-white text-white hover:text-blue-700 font-bold text-sm transition-colors">
+              Order Now
+            </button>
           </Link>
         </div>
-      )}
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-[#040404] z-[-1] transition-transform duration-500 flex flex-col justify-center items-center gap-8 ${isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}`}
+      >
+        {navLinks.map((link) => (
+          <Link
+            key={link.name}
+            to={link.path}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="text-2xl uppercase tracking-widest font-bold text-white hover:text-blue-500"
+          >
+            {link.name}
+          </Link>
+        ))}
+        <Link
+          to="/order"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="bg-blue-700 px-8 py-3 rounded-2xl text-white font-bold uppercase tracking-widest"
+        >
+          Order Now
+        </Link>
+      </div>
     </nav>
   );
-}
+};
+
+export default Navbar;
