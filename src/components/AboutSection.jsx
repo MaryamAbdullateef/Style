@@ -19,7 +19,7 @@ const AboutSection = () => {
             <img
               src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d"
               alt="Fashion Editorial"
-              className="rounded-2xl shadow-2xl w-full h-[600px] object-cover"
+              className="rounded-2xl shadow-2xl w-full h-150 object-cover"
             />
             <div className="absolute -bottom-8 -right-8 bg-stone-900 text-white p-8 rounded-xl hidden md:block max-w-xs">
               <p className="text-amber-400 font-serif italic text-xl mb-2">

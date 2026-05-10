@@ -139,7 +139,7 @@ function WishlistBtn({ active, onClick }) {
 function SkeletonCard() {
   return (
     <div className="rounded-xl overflow-hidden border border-[#E8E3DA] animate-pulse">
-      <div className="aspect-[4/5] bg-[#E8E3DA]" />
+      <div className="aspect-4/5 bg-[#E8E3DA]" />
       <div className="p-4 space-y-2">
         <div className="h-3 bg-[#E8E3DA] rounded w-3/4" />
         <div className="h-4 bg-[#E8E3DA] rounded w-1/2" />
@@ -204,7 +204,7 @@ function SectionHeading({ eyebrow, title }) {
 function FeaturedCard({ p, onCart }) {
   return (
     <div className="group relative overflow-hidden rounded-2xl cursor-pointer">
-      <div className="aspect-[3/4] overflow-hidden">
+      <div className="aspect-3/4 overflow-hidden">
         <img src={p.img} alt={p.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
         />
@@ -383,7 +383,7 @@ export default function Man() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.08]"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <p className="text-white font-bold text-sm leading-snug">{p.name}</p>
                   <p className="text-[#C9A84C] font-black text-sm">{fmt(p.price)}</p>

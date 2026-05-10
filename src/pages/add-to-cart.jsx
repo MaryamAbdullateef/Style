@@ -64,7 +64,7 @@ const AddToCart = () => {
               key={item.id}
               className="flex gap-8 border-b border-gray-100 pb-10"
             >
-              <div className="w-32 h-44 bg-gray-100 rounded-[2rem] overflow-hidden flex-shrink-0 shadow-lg">
+              <div className="w-32 h-44 bg-gray-100 rounded-4xl overflow-hidden shrink-0 shadow-lg">
                 <img src={item.image} className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 flex flex-col justify-between py-2">

@@ -177,7 +177,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Tailwind Specific Animations */}
+    
       <style>{`
         .animate-spin-slow { animation: spin 10s linear infinite; }
         .animate-bounce-slow { animation: bounce 3s ease-in-out infinite; }

@@ -28,8 +28,7 @@ const Search = () => {
     },
   ];
 
-  // SEARCH FUNCTION
-  // SEARCH FUNCTION - REVISED
+
   const handleSearch = (e) => {
     e.preventDefault();
     const searchText = query.toLowerCase().trim();

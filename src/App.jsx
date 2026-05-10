@@ -16,6 +16,10 @@ import ContactPage from "./pages/ContactPage";
 import Order from "./pages/Order";
 import Collections from "./pages/Collections";
 
+// New Feature Pages (The ones we just created)
+import TrackOrder from "./pages/TrackOrder";
+import ReturnsPolicy from "./pages/ReturnsPolicy";
+
 // Feature Pages
 import Account from "./pages/account";
 import Search from "./pages/search";
@@ -47,17 +51,11 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/men" element={<Men />} />
           <Route path="/kids" element={<Kids />} />
-
-          {/* --- THE WOMEN ROUTE --- */}
-          {/* This is the standard route */}
           <Route path="/women" element={<Women />} />
 
-          {/* --- SEARCH PROTECTION (ROUTING FIX) --- */}
-          {/* If your search sends "Women" (Capital) or "woman" (Singular), 
-              these lines catch it and force it to load the Women component */}
-          <Route path="/women" element={<Women />} />
-          {/* <Route path="/woman" element={<Women />} />
-          <Route path="/Woman" element={<Women />} /> */}
+          {/* --- NEW SUPPORT ROUTES --- */}
+          <Route path="/track-order" element={<TrackOrder />} />
+          <Route path="/returns-policy" element={<ReturnsPolicy />} />
 
           {/* --- OTHER ROUTES --- */}
           <Route path="/collections" element={<Collections />} />
@@ -85,8 +83,6 @@ export default function App() {
           />
 
           {/* --- CATCH-ALL REDIRECT --- */}
-          {/* If a search generates a path that doesn't exist, it goes back home 
-              instead of breaking the app */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
