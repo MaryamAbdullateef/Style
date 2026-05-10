@@ -58,7 +58,7 @@ const Search = () => {
         {/* SEARCH BAR */}
         <form onSubmit={handleSearch} className="relative group">
           <div className="flex items-center gap-3 sm:gap-5">
-            <div className="bg-gradient-to-r from-blue-600 to-red-600 p-3 rounded-2xl shadow-lg">
+            <div className="bg-linear-to-r from-blue-600 to-red-600 p-3 rounded-2xl shadow-lg">
               <FiSearch className="text-white text-xl sm:text-2xl" />
             </div>
             <input
