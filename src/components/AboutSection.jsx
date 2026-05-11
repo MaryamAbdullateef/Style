@@ -1,10 +1,11 @@
 import React from "react";
 import { Award, Globe, Users, Zap } from "lucide-react";
+import CountUp from "react-countup";
 
 const stats = [
   { label: "Founded", value: "2018", icon: Zap },
   { label: "Global Stores", value: "12", icon: Globe },
-  { label: "Happy Clients", value: "50k+", icon: Users },
+  { label: "Happy Clients", value: "50k+", icon: Users, isCountUp: true },
   { label: "Design Awards", value: "08", icon: Award },
 ];
 
@@ -62,7 +63,7 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* BOTTOM SECTION: Stats Grid */}
+        {/* STATS SECTION */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 py-16 border-y border-stone-100">
           {stats.map((stat, index) => (
             <div key={index} className="text-center group">
@@ -73,7 +74,14 @@ const AboutSection = () => {
                 />
               </div>
               <h4 className="text-3xl font-bold text-stone-900 mb-1">
-                {stat.value}
+                {stat.label === "Happy Clients" ? (
+                  <div className="flex justify-center">
+                    <CountUp end={50} duration={3} enableScrollSpy scrollSpyOnce />
+                    <span>k+</span>
+                  </div>
+                ) : (
+                  stat.value
+                )}
               </h4>
               <p className="text-[10px] uppercase tracking-[0.2em] text-stone-400 font-semibold">
                 {stat.label}

@@ -92,8 +92,8 @@ const Account = () => {
   return (
     <div className="min-h-screen w-full flex bg-[#050505] text-white font-sans overflow-hidden relative">
       {/* REDUCED BACKGROUND GLOWS - Now subtle accents */}
-      <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-900/10 blur-[120px] rounded-full"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-red-900/10 blur-[120px] rounded-full"></div>
+      <div className="absolute top-[-10%] left-[-10%] w-125 h-125 bg-blue-900/10 blur-[120px] rounded-full"></div>
+      <div className="absolute bottom-[-10%] right-[-10%] w-125 h-125 bg-red-900/10 blur-[120px] rounded-full"></div>
 
       {/* LEFT SIDE - Hero Image */}
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden border-r border-white/5">
@@ -103,7 +103,7 @@ const Account = () => {
           className="absolute inset-0 w-full h-full object-cover grayscale-[20%]"
         />
         {/* Cleaner Overlay - Simple fade to black */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent"></div>
 
         <div className="absolute bottom-16 left-12 z-10">
           <h1 className="text-7xl font-black tracking-tighter text-white">
@@ -127,9 +127,9 @@ const Account = () => {
         </button>
 
         {/* CARD */}
-        <div className="relative z-10 w-full max-w-md bg-white/[0.02] backdrop-blur-2xl border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl">
+        <div className="relative z-10 w-full max-w-md bg-white/2 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 md:p-10 shadow-2xl">
           {/* REFINED TOP ACCENT */}
-          <div className="absolute top-0 left-0 w-full h-[2px] bg-red-600 rounded-t-2xl"></div>
+          <div className="absolute top-0 left-0 w-full h-0.5 bg-red-600 rounded-t-2xl"></div>
 
           <div className="mb-8 text-center">
             <h2 className="text-3xl font-bold tracking-tight">
@@ -165,7 +165,7 @@ const Account = () => {
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-white/[0.03] border border-white/10 py-4 pl-12 pr-4 rounded-xl outline-none focus:border-red-600/50 transition-colors text-sm"
+                className="w-full bg-white/3 border border-white/10 py-4 pl-12 pr-4 rounded-xl outline-none focus:border-red-600/50 transition-colors text-sm"
               />
             </div>
 
@@ -180,7 +180,7 @@ const Account = () => {
                   isForgotPassword ? formData.newPassword : formData.password
                 }
                 onChange={handleChange}
-                className="w-full bg-white/[0.03] border border-white/10 py-4 pl-12 pr-14 rounded-xl outline-none focus:border-red-600/50 transition-colors text-sm"
+                className="w-full bg-white/3 border border-white/10 py-4 pl-12 pr-14 rounded-xl outline-none focus:border-red-600/50 transition-colors text-sm"
               />
               <button
                 type="button"

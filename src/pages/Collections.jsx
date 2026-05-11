@@ -84,7 +84,7 @@ function CollectionCard({ col, height = "400px", className = "" }) {
       // Added touch support for mobile "hover" effect
       onTouchStart={() => setHovered(true)}
       onTouchEnd={() => setHovered(false)}
-      className={`relative overflow-hidden rounded-[2rem] cursor-pointer bg-[#1a1a1a] transition-all duration-700 ${className}`}
+      className={`relative overflow-hidden rounded-4xl cursor-pointer bg-[#1a1a1a] transition-all duration-700 ${className}`}
       style={{
         height,
         opacity: visible ? 1 : 0,
@@ -99,7 +99,7 @@ function CollectionCard({ col, height = "400px", className = "" }) {
         style={{ transform: hovered ? "scale(1.1) rotate(1deg)" : "scale(1)" }}
       />
       <div
-        className={`absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent transition-opacity duration-500 ${hovered ? "opacity-90" : "opacity-70"}`}
+        className={`absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent transition-opacity duration-500 ${hovered ? "opacity-90" : "opacity-70"}`}
       />
 
       <div className="absolute top-4 left-4 md:top-6 md:left-6">

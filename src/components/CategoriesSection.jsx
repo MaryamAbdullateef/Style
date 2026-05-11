@@ -38,14 +38,14 @@ const Categories = () => {
           {categories.map((item, index) => (
             <div
               key={index}
-              className="relative group overflow-hidden rounded-xl shadow-md h-[450px]"
+              className="relative group overflow-hidden rounded-xl shadow-md h-112.5"
             >
               <img
                 src={item.img}
                 alt={item.name}
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-8">
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent flex flex-col justify-end p-8">
                 <h3 className="text-white text-2xl font-bold mb-2">
                   {item.name}
                 </h3>

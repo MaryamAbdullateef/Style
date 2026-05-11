@@ -31,7 +31,7 @@ const NewsletterSection = () => {
     <section className="bg-[#040404] py-24 px-6 relative overflow-hidden " data-aos="fade-up">
       {/* Decorative background glow */}
       <div 
-        className="absolute bottom-[-20%] left-[-10%] w-[400px] h-[400px] rounded-full blur-[120px] opacity-10 pointer-events-none"
+        className="absolute bottom-[-20%] left-[-10%] w-100 h-100 rounded-full blur-[120px] opacity-10 pointer-events-none"
         style={{ backgroundColor: brandBlue }}
       />
 

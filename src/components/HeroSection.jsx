@@ -32,20 +32,20 @@ const HeroSection = () => {
   return (
     <section className="relative w-full min-h-screen bg-[#020202] flex items-center overflow-hidden px-6 md:px-16 py-24">
       {/* --- EXTRA DECORATIVE ELEMENTS (The "Much Things" aspect) --- */}
-      <div className="absolute top-20 left-10 text-[14vw] font-black text-white/[0.02] select-none pointer-events-none uppercase">
+      <div className="absolute top-20 left-10 text-[14vw] font-black text-white/2 select-none pointer-events-none uppercase">
         Premium
       </div>
-      <div className="absolute bottom-10 right-10 text-[10vw] font-black text-white/[0.02] select-none pointer-events-none uppercase italic">
+      <div className="absolute bottom-10 right-10 text-[10vw] font-black text-white/2 select-none pointer-events-none uppercase italic">
         Boutique
       </div>
 
       {/* Ambient Glows */}
       <div
-        className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full blur-[150px] opacity-20"
+        className="absolute top-[-10%] right-[-5%] w-150 h-150 rounded-full blur-[150px] opacity-20"
         style={{ backgroundColor: brandBlue }}
       />
       <div
-        className="absolute bottom-[10%] left-[-10%] w-[400px] h-[400px] rounded-full blur-[130px] opacity-10"
+        className="absolute bottom-[10%] left-[-10%] w-100 h-100 rounded-full blur-[130px] opacity-10"
         style={{ backgroundColor: brandBlue }}
       />
 
@@ -67,7 +67,7 @@ const HeroSection = () => {
                 style={{ color: brandBlue }}
               >
                 {words[index].substring(0, subIndex)}
-                <span className="absolute right-[-12px] top-0 h-full w-[5px] bg-white animate-pulse" />
+                <span className="absolute -right-3 top-0 h-full w-1.25 bg-white animate-pulse" />
               </span>
               <br />
               Before You Do.
@@ -125,11 +125,11 @@ const HeroSection = () => {
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             />
             {/* Dark Overlay for Depth */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent opacity-70" />
+            <div className="absolute inset-0 bg-linear-to-t from-[#020202] via-transparent to-transparent opacity-70" />
           </div>
 
           {/* OVERLAPPING ARTISAN CARD (Made more obvious) */}
-          <div className="absolute -bottom-10 -left-6 md:-left-16 bg-white/10 backdrop-blur-2xl p-7 rounded-[2rem] shadow-2xl z-30 max-w-[260px] border border-white/20 transform hover:-rotate-2 transition-transform">
+          <div className="absolute -bottom-10 -left-6 md:-left-16 bg-white/10 backdrop-blur-2xl p-7 rounded-4xl shadow-2xl z-30 max-w-[260px] border border-white/20 transform hover:-rotate-2 transition-transform">
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-blue-600 rounded-lg">
                 <ShieldCheck size={18} className="text-white" />
@@ -144,7 +144,7 @@ const HeroSection = () => {
               Each thread is hand-picked and verified for premium texture.
             </p>
 
-            {/* OVERLAPPING IMAGES (VERY OBVIOUS VERSION) */}
+
             <div className="flex items-center gap-4">
               <div className="flex -space-x-4">
                 {[1, 2, 3, 4].map((i) => (
