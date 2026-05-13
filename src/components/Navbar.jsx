@@ -31,17 +31,17 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-100 transition-all duration-300 px-5 md:px-12 py-4 flex items-center h-20 ${
+      className={`fixed top-0 w-full z-[1000] transition-all duration-300 px-5 md:px-12 flex items-center h-20 ${
         isScrolled
-          ? "bg-[#040404]/90 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent text-white"
+          ? "bg-[#040404]/95 backdrop-blur-md border-b border-white/10 shadow-xl"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto w-full flex items-center justify-between">
-        {/* Left Side: Mobile Toggle & Logo Group */}
-        <div className="flex items-center gap-4">
+      <div className="max-w-7xl mx-auto w-full flex items-center justify-between relative">
+        {/* Left Side: Mobile Toggle & Logo */}
+        <div className="flex items-center gap-4 flex-1 lg:flex-none">
           <button
-            className="lg:hidden text-white transition-colors p-1"
+            className="lg:hidden text-white transition-colors p-1 z-[1001]"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -57,14 +57,16 @@ const Navbar = () => {
           </Link>
         </div>
 
-        {/* Center: Desktop Navigation (Stable Position) */}
-        <div className="hidden lg:flex items-center gap-8">
+        {/* Center: Desktop Navigation */}
+        <div className="hidden lg:flex items-center justify-center gap-8 flex-1">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               to={link.path}
               className={`text-[11px] uppercase tracking-[0.2em] font-semibold transition-colors relative group ${
-                location.pathname === link.path ? "text-white" : "text-blue-400"
+                location.pathname === link.path
+                  ? "text-white"
+                  : "text-white/70 hover:text-white"
               }`}
             >
               {link.name}
@@ -79,7 +81,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Side: Action Icons & Order Button */}
-        <div className="flex items-center gap-3 md:gap-6">
+        <div className="flex items-center justify-end gap-3 md:gap-6 flex-1 lg:flex-none">
           <div className="hidden sm:flex items-center gap-5">
             <Link
               to="/search"
@@ -116,38 +118,45 @@ const Navbar = () => {
             )}
           </Link>
 
-          {/* Optimized Order Button (Responsive Positioning) */}
-          <Link to="/order" className="hidden xs:block">
-            <button className="bg-blue-700 rounded-full px-4 py-2 md:px-6 md:py-2.5 hover:bg-white text-white hover:text-blue-700 font-bold text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-blue-900/20 active:scale-95">
+          {/* Restored Order Button with Bounce Animation */}
+          <Link
+            to="/order"
+            className={`${isMobileMenuOpen ? "hidden" : "flex"}`}
+          >
+            <button className="animate-bounce bg-blue-600 rounded-full px-4 py-2 md:px-6 md:py-2.5 hover:bg-white text-white hover:text-blue-600 font-bold text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-blue-900/40 active:scale-95 whitespace-nowrap">
               Order Now
             </button>
           </Link>
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Menu Overlay - Properly Positioned */}
       <div
-        className={`fixed inset-0 bg-[#040404] z-[-1] transition-transform duration-500 flex flex-col justify-center items-center gap-8 ${
-          isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
+        className={`fixed inset-0 bg-[#040404] transition-all duration-500 flex flex-col justify-center items-center gap-8 z-[900] ${
+          isMobileMenuOpen
+            ? "opacity-100 visible translate-y-0"
+            : "opacity-0 invisible -translate-y-full"
         }`}
       >
-        {navLinks.map((link) => (
+        <div className="flex flex-col items-center gap-6 pt-20">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-xl uppercase tracking-[0.3em] font-bold text-white hover:text-blue-500 transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
           <Link
-            key={link.name}
-            to={link.path}
+            to="/order"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="text-2xl uppercase tracking-widest font-bold text-white hover:text-blue-500"
+            className="mt-4 bg-blue-600 px-10 py-4 rounded-full text-white font-bold uppercase tracking-widest animate-pulse shadow-2xl shadow-blue-600/20"
           >
-            {link.name}
+            Order Now
           </Link>
-        ))}
-        <Link
-          to="/order"
-          onClick={() => setIsMobileMenuOpen(false)}
-          className="bg-blue-700 px-8 py-3 rounded-2xl text-white font-bold uppercase tracking-widest"
-        >
-          Order Now
-        </Link>
+        </div>
       </div>
     </nav>
   );

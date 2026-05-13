@@ -76,7 +76,7 @@ export default function Order() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         
         {/* --- HERO SECTION --- */}
-        <div className="bg-gradient-to-br from-[#001B3D] via-[#000c1d] to-black rounded-[1.5rem] md:rounded-[2.5rem] p-8 md:p-16 mb-10 border border-white/5 shadow-2xl">
+        <div className="bg-linear-to-br from-[#001B3D] via-[#000c1d] to-black rounded-3xl md:rounded-[2.5rem] p-8 md:p-16 mb-10 border border-white/5 shadow-2xl">
           <div className="max-w-2xl">
             <h1 className="text-3xl md:text-6xl font-black italic tracking-tighter uppercase mb-4 leading-none">
               Checkout <span className="text-blue-500 underline decoration-1">Hub.</span>
@@ -110,7 +110,7 @@ export default function Order() {
                   cart.map((item) => (
                     <div
                       key={item.id}
-                      className="bg-white/5 backdrop-blur-md rounded-2xl md:rounded-[2rem] p-4 md:p-6 flex flex-row gap-4 md:gap-6 border border-white/10 transition-all hover:border-blue-500/50"
+                      className="bg-white/5 backdrop-blur-md rounded-2xl md:rounded-4xl p-4 md:p-6 flex flex-row gap-4 md:gap-6 border border-white/10 transition-all hover:border-blue-500/50"
                     >
                       <div className="w-24 md:w-32 h-32 md:h-40 shrink-0">
                         <img
@@ -172,7 +172,7 @@ export default function Order() {
             </section>
 
             {/* Delivery Form */}
-            <section className="bg-white/5 backdrop-blur-md rounded-[2rem] p-6 md:p-10 border border-white/10">
+            <section className="bg-white/5 backdrop-blur-md rounded-4xl p-6 md:p-10 border border-white/10">
               <h2 className="text-lg md:text-xl font-black uppercase tracking-tight mb-8">
                 Delivery Details
               </h2>
@@ -233,7 +233,7 @@ export default function Order() {
 
           {/* --- RIGHT: SUMMARY --- */}
           <div className="lg:col-span-4">
-            <div className="sticky top-24 bg-white text-black rounded-[2rem] p-8 md:p-10 shadow-2xl">
+            <div className="sticky top-24 bg-white text-black rounded-4xl p-8 md:p-10 shadow-2xl">
               <h3 className="text-md font-black uppercase tracking-[0.2em] mb-8 border-b border-black/10 pb-4 flex items-center gap-2">
                 <ShoppingBag size={18} /> Summary
               </h3>

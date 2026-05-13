@@ -70,7 +70,7 @@ const Search = () => {
               className="w-full bg-transparent text-3xl sm:text-5xl lg:text-7xl font-black tracking-tight outline-none placeholder:text-gray-500"
             />
           </div>
-          <div className="h-[2px] w-full bg-gray-700 mt-5 group-focus-within:bg-gradient-to-r group-focus-within:from-blue-500 group-focus-within:to-red-500 transition-all duration-500"></div>
+          <div className="h-0.5 w-full bg-gray-700 mt-5 group-focus-within:bg-linear-to-r group-focus-within:from-blue-500 group-focus-within:to-red-500 transition-all duration-500"></div>
         </form>
 
         {/* QUICK COLLECTIONS */}
@@ -101,7 +101,7 @@ const Search = () => {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent group-hover:from-blue-900/70 group-hover:to-red-900/70 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-transparent group-hover:from-blue-900/70 group-hover:to-red-900/70 transition-all duration-500"></div>
 
                 <div className="absolute inset-0 flex flex-col justify-end p-6">
                   <h2 className="text-3xl sm:text-4xl font-black uppercase italic tracking-tight">

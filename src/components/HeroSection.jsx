@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight, ShoppingBag, Star, ShieldCheck, Zap } from "lucide-react";
 
 const HeroSection = () => {
@@ -31,7 +32,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative w-full min-h-screen bg-[#020202] flex items-center overflow-hidden px-6 md:px-16 py-24">
-      {/* --- EXTRA DECORATIVE ELEMENTS (The "Much Things" aspect) --- */}
+      {/* --- EXTRA DECORATIVE ELEMENTS (Desktop background text) --- */}
       <div className="absolute top-20 left-10 text-[14vw] font-black text-white/2 select-none pointer-events-none uppercase">
         Premium
       </div>
@@ -80,14 +81,23 @@ const HeroSection = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-5">
-            <button className="group relative overflow-hidden flex items-center justify-center gap-3 px-10 py-5 text-white font-black text-xs uppercase tracking-[0.2em] transition-all bg-blue-600 hover:shadow-[0_0_40px_rgba(0,112,243,0.6)] active:scale-95">
+            {/* SHOP NOW -> Routes to Collections */}
+            <Link
+              to="/collections"
+              className="group relative overflow-hidden flex items-center justify-center gap-3 px-10 py-5 text-white font-black text-xs uppercase tracking-[0.2em] transition-all bg-blue-600 hover:shadow-[0_0_40px_rgba(0,112,243,0.6)] active:scale-95"
+            >
               <ShoppingBag size={18} />
               Shop Now
-              <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
-            </button>
-            <button className="flex items-center justify-center gap-2 px-10 py-5 text-white border-2 border-white/10 font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all">
+              <div className="absolute inset-0 bg-white/20 translate-x-full group-hover:translate-x-[100%] transition-transform duration-500" />
+            </Link>
+
+            {/* SEE LOOKBOOK -> Routes to New Arrival */}
+            <Link
+              to="/new"
+              className="flex items-center justify-center gap-2 px-10 py-5 text-white border-2 border-white/10 font-black text-xs uppercase tracking-widest hover:bg-white hover:text-black transition-all"
+            >
               See Lookbook <ArrowRight size={16} />
-            </button>
+            </Link>
           </div>
 
           {/* Stats & Trust */}
@@ -112,24 +122,21 @@ const HeroSection = () => {
           </div>
         </div>
 
-        {/* --- IMAGE COMPOSITION (Attractive & Much More) --- */}
+        {/* --- IMAGE COMPOSITION (Responsive Image Section) --- */}
         <div className="relative order-1 lg:order-2 group">
-          {/* Decorative Floating Circle */}
           <div className="absolute -top-10 -right-10 w-32 h-32 border border-white/10 rounded-full animate-spin-slow pointer-events-none" />
 
-          {/* Main Photo Container */}
           <div className="relative z-10 rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_60px_100px_-20px_rgba(0,0,0,1)]">
             <img
               src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1974&auto=format&fit=crop"
               alt="Fashion Model"
               className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
             />
-            {/* Dark Overlay for Depth */}
             <div className="absolute inset-0 bg-linear-to-t from-[#020202] via-transparent to-transparent opacity-70" />
           </div>
 
-          {/* OVERLAPPING ARTISAN CARD (Made more obvious) */}
-          <div className="absolute -bottom-10 -left-6 md:-left-16 bg-white/10 backdrop-blur-2xl p-7 rounded-4xl shadow-2xl z-30 max-w-[260px] border border-white/20 transform hover:-rotate-2 transition-transform">
+          {/* OVERLAPPING ARTISAN CARD */}
+          <div className="absolute -bottom-10 -left-6 md:-left-16 bg-white/10 backdrop-blur-2xl p-7 rounded-4xl shadow-2xl z-30 max-w-65 border border-white/20 transform hover:-rotate-2 transition-transform">
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-blue-600 rounded-lg">
                 <ShieldCheck size={18} className="text-white" />
@@ -144,14 +151,13 @@ const HeroSection = () => {
               Each thread is hand-picked and verified for premium texture.
             </p>
 
-
             <div className="flex items-center gap-4">
               <div className="flex -space-x-4">
                 {[1, 2, 3, 4].map((i) => (
                   <div
                     key={i}
                     className="w-10 h-10 rounded-full border-[3px] border-[#1a1a1a] bg-stone-800 overflow-hidden shadow-xl transition-transform hover:scale-110 hover:z-50 relative"
-                    style={{ zIndex: 10 - i }} // Ensures clear stacking
+                    style={{ zIndex: 10 - i }}
                   >
                     <img
                       src={`https://i.pravatar.cc/100?img=${i + 10}`}
@@ -167,7 +173,6 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* FLOATING TOP BADGE */}
           <div className="absolute top-10 -right-4 bg-white text-black p-4 rounded-2xl shadow-2xl z-20 animate-bounce-slow hidden sm:block">
             <p className="text-[10px] font-black uppercase tracking-tighter leading-none">
               Limitless
@@ -177,7 +182,6 @@ const HeroSection = () => {
         </div>
       </div>
 
-    
       <style>{`
         .animate-spin-slow { animation: spin 10s linear infinite; }
         .animate-bounce-slow { animation: bounce 3s ease-in-out infinite; }

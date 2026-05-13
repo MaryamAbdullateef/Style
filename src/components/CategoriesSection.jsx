@@ -1,20 +1,25 @@
 import React from "react";
+import { Link } from "react-router-dom"; // Import Link for routing
 
 const categories = [
   {
     name: "Women",
     desc: "Elegant, trendy and bold styles for every woman.",
-    img: "https://images.unsplash.com/photo-1520975916090-3105956dac38",
+    // Updated image to a Women's fashion photo
+    img: "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop",
+    path: "/women", // Matches App.jsx route
   },
   {
     name: "Men",
     desc: "Classic and modern outfits for the confident man.",
     img: "https://images.unsplash.com/photo-1516826957135-700dedea698c",
+    path: "/men", // Matches App.jsx route
   },
   {
     name: "Kids",
     desc: "Fun, colorful and comfy outfits for kids.",
     img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9",
+    path: "/kids", // Matches App.jsx route
   },
 ];
 
@@ -52,9 +57,13 @@ const Categories = () => {
                 <p className="text-stone-200 text-sm mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {item.desc}
                 </p>
-                <button className="bg-white text-black hover:bg-amber-400 px-6 py-2 rounded-full w-fit text-sm font-semibold transition-colors">
+                {/* Changed button to Link and mapped to item.path */}
+                <Link
+                  to={item.path}
+                  className="bg-white text-black hover:bg-amber-400 px-6 py-2 rounded-full w-fit text-sm font-semibold transition-colors inline-block text-center"
+                >
                   Explore
-                </button>
+                </Link>
               </div>
             </div>
           ))}
