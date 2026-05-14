@@ -31,17 +31,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-[1000] transition-all duration-300 px-5 md:px-12 flex items-center h-20 ${
+      className={`fixed top-0 w-full z-1000 transition-all duration-300 px-5 md:px-12 flex items-center h-20 ${
         isScrolled
           ? "bg-[#040404]/95 backdrop-blur-md border-b border-white/10 shadow-xl"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto w-full flex items-center justify-between relative">
-        {/* Left Side: Mobile Toggle & Logo */}
+        
+
         <div className="flex items-center gap-4 flex-1 lg:flex-none">
           <button
-            className="lg:hidden text-white transition-colors p-1 z-[1001]"
+            className="lg:hidden text-white transition-colors p-1 z-1001"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -80,7 +81,8 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right Side: Action Icons & Order Button */}
+        
+
         <div className="flex items-center justify-end gap-3 md:gap-6 flex-1 lg:flex-none">
           <div className="hidden sm:flex items-center gap-5">
             <Link
@@ -123,7 +125,7 @@ const Navbar = () => {
             to="/order"
             className={`${isMobileMenuOpen ? "hidden" : "flex"}`}
           >
-            <button className="animate-bounce bg-blue-600 rounded-full px-4 py-2 md:px-6 md:py-2.5 hover:bg-white text-white hover:text-blue-600 font-bold text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-blue-900/40 active:scale-95 whitespace-nowrap">
+            <button className="animate-bounce bg-blue-600 rounded-full cursor-pointer px-4 py-2 md:px-6 md:py-2.5 hover:bg-white text-white hover:text-blue-600 font-bold text-[10px] md:text-xs uppercase tracking-widest transition-all duration-300 shadow-lg shadow-blue-900/40 active:scale-95 whitespace-nowrap">
               Order Now
             </button>
           </Link>
@@ -132,7 +134,7 @@ const Navbar = () => {
 
       {/* Mobile Menu Overlay - Properly Positioned */}
       <div
-        className={`fixed inset-0 bg-[#040404] transition-all duration-500 flex flex-col justify-center items-center gap-8 z-[900] ${
+        className={`fixed inset-0 bg-[#040404] transition-all duration-500 flex flex-col justify-center items-center gap-8 z-900 ${
           isMobileMenuOpen
             ? "opacity-100 visible translate-y-0"
             : "opacity-0 invisible -translate-y-full"
@@ -152,7 +154,7 @@ const Navbar = () => {
           <Link
             to="/order"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="mt-4 bg-blue-600 px-10 py-4 rounded-full text-white font-bold uppercase tracking-widest animate-pulse shadow-2xl shadow-blue-600/20"
+            className="mt-4 bg-blue-600 px-10 py-4 rounded-full cursor-pointer text-white font-bold uppercase tracking-widest animate-pulse shadow-2xl shadow-blue-600/20"
           >
             Order Now
           </Link>
