@@ -1,12 +1,12 @@
 import React, { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { Star, ShieldCheck, Zap, ShoppingBag, ArrowRight } from "lucide-react";
 
-// ─── PALETTE: Obsidian + Ivory + Burnished Gold ─────────────────────────────
-// #0D0D0D  obsidian black  |  #F7F4EF warm ivory  |  #C9A84C burnished gold
+// ─── PALETTE SYNCHRONIZED WITH HERO SECTION ─────────────────────────────────
+// brandBlack: #020202 | brandBlue: #0070f3 | Accent Text/Borders: White/Transparent mixtures
 
 // ─── ALL IMAGES ARE VERIFIED MENSWEAR-ONLY UNSPLASH PHOTOS ─────────────────
 const menProducts = [
-
   // ── SHIRTS · 15 items ────────────────────────────────────────────────────
   { id: 101, name: "Premium Linen Shirt",      price: 25000, tag: "New",       category: "Shirts",      img: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&auto=format&fit=crop&q=80" },
   { id: 102, name: "Oxford Button-Down",        price: 18500, tag: "Sale",      category: "Shirts",      img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80" },
@@ -80,7 +80,7 @@ const menProducts = [
   { id: 158, name: "Leather Weekender Bag",     price: 65000, tag: "Exclusive", category: "Accessories", img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=600&auto=format&fit=crop&q=80" },
   { id: 160, name: "Chronograph Watch",         price: 85000, tag: "Exclusive", category: "Accessories", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&auto=format&fit=crop&q=80" },
   { id: 161, name: "Crossbody Messenger Bag",   price: 28000, tag: "Trending",  category: "Accessories", img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?w=600&auto=format&fit=crop&q=80" },
-  { id: 162, name: "Merino Wool Beanie",        price: 7500,  tag: "New",       category: "Accessories", img: "https://images.unsplash.com/photo-1576871337632-b9aef4c17ab9?w=600&auto=format&fit=crop&q=80" },
+  { id: 162, name: "Merino Wool Beanie",        price: 7500,  tag: "New",       category: "Accessories", img: "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=600&auto=format&fit=crop&q=80" },
   { id: 164, name: "Aviator Sunglasses",        price: 15000, tag: "Trending",  category: "Accessories", img: "https://images.unsplash.com/photo-1508296695146-257a814070b4?w=600&auto=format&fit=crop&q=80" },
   { id: 165, name: "Leather Card Holder",       price: 5000,  tag: "Sale",      category: "Accessories", img: "https://images.unsplash.com/photo-1606503153255-59d8b8b82176?w=600&auto=format&fit=crop&q=80" },
   { id: 166, name: "Canvas Backpack",           price: 22000, tag: "New",       category: "Accessories", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80" },
@@ -89,6 +89,9 @@ const menProducts = [
   { id: 170, name: "Titanium Cufflinks",        price: 12000, tag: "New",       category: "Accessories", img: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&auto=format&fit=crop&q=80" },
   { id: 171, name: "Gym Duffel Bag",            price: 19000, tag: "Sale",      category: "Accessories", img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80" },
 ];
+
+const brandBlue = "#0070f3";
+const brandBlack = "#020202";
 
 // ─── CONFIG ─────────────────────────────────────────────────────────────────
 const CATEGORIES = ["All", "Shirts", "Tees", "Trousers", "Outerwear", "Accessories"];
@@ -123,11 +126,11 @@ function WishlistBtn({ active, onClick }) {
     <button
       onClick={onClick}
       aria-label="Toggle wishlist"
-      className="w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md transition-transform duration-200 hover:scale-110 active:scale-95"
+      className="w-8 h-8 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center border border-white/10 shadow-md transition-transform duration-200 hover:scale-110 active:scale-95"
     >
       <svg viewBox="0 0 24 24" className="w-4 h-4"
-        fill={active ? "#C9A84C" : "none"}
-        stroke={active ? "#C9A84C" : "#0D0D0D"}
+        fill={active ? brandBlue : "none"}
+        stroke={active ? brandBlue : "#FFFFFF"}
         strokeWidth={2}
       >
         <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
@@ -138,11 +141,11 @@ function WishlistBtn({ active, onClick }) {
 
 function SkeletonCard() {
   return (
-    <div className="rounded-xl overflow-hidden border border-[#E8E3DA] animate-pulse">
-      <div className="aspect-4/5 bg-[#E8E3DA]" />
+    <div className="rounded-xl overflow-hidden border border-white/5 bg-white/5 animate-pulse">
+      <div className="aspect-4/5 bg-white/10" />
       <div className="p-4 space-y-2">
-        <div className="h-3 bg-[#E8E3DA] rounded w-3/4" />
-        <div className="h-4 bg-[#E8E3DA] rounded w-1/2" />
+        <div className="h-3 bg-white/10 rounded w-3/4" />
+        <div className="h-4 bg-white/10 rounded w-1/2" />
       </div>
     </div>
   );
@@ -151,10 +154,10 @@ function SkeletonCard() {
 function ProductCard({ p, wishlist, onWishlist, onCart }) {
   const [imgLoaded, setImgLoaded] = useState(false);
   return (
-    <div className="group relative rounded-xl overflow-hidden border border-[#E8E3DA] bg-white transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/10">
+    <div className="group relative rounded-xl overflow-hidden border border-white/5 bg-[#0d0d0d] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-black/50">
       {/* ── Image area ── */}
-      <div className="relative aspect-[4/5] overflow-hidden bg-[#F0EDE6]">
-        {!imgLoaded && <div className="absolute inset-0 bg-[#E8E3DA] animate-pulse" />}
+      <div className="relative aspect-[4/5] overflow-hidden bg-white/5">
+        {!imgLoaded && <div className="absolute inset-0 bg-white/5 animate-pulse" />}
         <img
           src={p.img}
           alt={p.name}
@@ -162,7 +165,7 @@ function ProductCard({ p, wishlist, onWishlist, onCart }) {
           className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.07] ${imgLoaded ? "opacity-100" : "opacity-0"}`}
         />
         {/* hover gradient */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         {/* badge */}
         <div className="absolute top-3 left-3"><TagBadge tag={p.tag} /></div>
         {/* wishlist */}
@@ -172,19 +175,20 @@ function ProductCard({ p, wishlist, onWishlist, onCart }) {
         {/* quick add — slides up on hover */}
         <button
           onClick={() => onCart(p.name)}
-          className="absolute bottom-0 left-0 right-0 py-3 bg-[#C9A84C] text-[#0D0D0D] text-[11px] font-black tracking-[0.2em] uppercase translate-y-full group-hover:translate-y-0 transition-transform duration-300 hover:bg-[#b5923e] active:scale-[0.98]"
+          className="absolute bottom-0 left-0 right-0 py-3 text-white text-[11px] font-black tracking-[0.2em] uppercase translate-y-full group-hover:translate-y-0 transition-transform duration-300 active:scale-[0.98]"
+          style={{ backgroundColor: brandBlue }}
         >
           + Add to Cart
         </button>
       </div>
       {/* ── Info area ── */}
       <div className="p-4">
-        <p className="text-[11px] text-[#9B9189] font-semibold tracking-widest uppercase mb-1">{p.category}</p>
-        <h3 className="text-sm font-bold text-[#0D0D0D] leading-snug mb-2 line-clamp-1">{p.name}</h3>
+        <p className="text-[11px] text-white/40 Gold font-semibold tracking-widest uppercase mb-1">{p.category}</p>
+        <h3 className="text-sm font-bold text-white/90 leading-snug mb-2 line-clamp-1">{p.name}</h3>
         <div className="flex items-baseline gap-2">
-          <span className="font-black text-[#0D0D0D] text-base">{fmt(p.price)}</span>
+          <span className="font-black text-white text-base">{fmt(p.price)}</span>
           {p.tag === "Sale" && (
-            <span className="text-xs text-[#9B9189] line-through">{strikePrice(p.price)}</span>
+            <span className="text-xs text-white/40 line-through">{strikePrice(p.price)}</span>
           )}
         </div>
       </div>
@@ -195,8 +199,8 @@ function ProductCard({ p, wishlist, onWishlist, onCart }) {
 function SectionHeading({ eyebrow, title }) {
   return (
     <div className="mb-10">
-      <p className="text-[10px] tracking-[0.35em] text-[#C9A84C] font-black uppercase mb-2">{eyebrow}</p>
-      <h2 className="text-3xl md:text-4xl font-black text-[#0D0D0D] leading-tight">{title}</h2>
+      <p style={{ color: brandBlue }} className="text-[10px] tracking-[0.35em] font-black uppercase mb-2">{eyebrow}</p>
+      <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">{title}</h2>
     </div>
   );
 }
@@ -204,19 +208,20 @@ function SectionHeading({ eyebrow, title }) {
 function FeaturedCard({ p, onCart }) {
   return (
     <div className="group relative overflow-hidden rounded-2xl cursor-pointer">
-      <div className="aspect-3/4 overflow-hidden">
+      <div className="aspect-[3/4] overflow-hidden">
         <img src={p.img} alt={p.name}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.08]"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
       <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-        <TagBadge tag={p.tag} />
-        <h3 className="text-xl font-black mt-2 mb-1">{p.name}</h3>
-        <p className="text-[#C9A84C] font-black text-lg mb-4">{fmt(p.price)}</p>
+        <div className="mb-2"><TagBadge tag={p.tag} /></div>
+        <h3 className="text-xl font-black mb-1">{p.name}</h3>
+        <p style={{ color: brandBlue }} className="font-black text-lg mb-4">{fmt(p.price)}</p>
         <button
           onClick={() => onCart(p.name)}
-          className="w-full py-2.5 border border-[#C9A84C] text-[#C9A84C] text-xs font-black tracking-widest uppercase rounded-lg hover:bg-[#C9A84C] hover:text-[#0D0D0D] transition-all duration-250"
+          className="w-full py-2.5 border border-white/20 text-white text-xs font-black tracking-widest uppercase rounded-lg transition-all duration-250"
+          style={{ backgroundColor: brandBlue }}
         >
           Add to Cart
         </button>
@@ -233,7 +238,6 @@ export default function Man() {
   const [search,          setSearch]          = useState("");
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [loading,         setLoading]         = useState(true);
-  const [email,           setEmail]           = useState("");
   const gridRef = useRef(null);
 
   // Simulate page load skeleton (900 ms)
@@ -242,7 +246,6 @@ export default function Man() {
     return () => clearTimeout(t);
   }, []);
 
-  // Filter + search — runs only on menProducts (no women's items)
   const filteredItems = useMemo(() => {
     let items = activeFilter === "All"
       ? menProducts
@@ -276,68 +279,80 @@ export default function Man() {
 
   return (
     <main
-      className="min-h-screen"
-      style={{ background: "#F7F4EF", fontFamily: "'DM Sans','Helvetica Neue',Arial,sans-serif" }}
+      className="min-h-screen text-white"
+      style={{ backgroundColor: brandBlack, fontFamily: "'DM Sans','Helvetica Neue',Arial,sans-serif" }}
     >
+      {/* Toast Notification */}
+      {cartToast && (
+        <div className="fixed bottom-5 right-5 z-50 px-6 py-4 bg-white text-black font-black text-xs uppercase tracking-widest rounded-xl shadow-2xl flex items-center gap-3 border border-white/20 animate-fade-in-up">
+          <ShoppingBag size={16} style={{ color: brandBlue }} />
+          Added {cartToast} to Cart
+        </div>
+      )}
 
       {/* ══════════════════════════════════════════════════════════════
           HERO
-      ══════════════════════════════════════════════════════════════ */}
-      <section className="relative h-[92vh] min-h-[580px] overflow-hidden bg-[#0D0D0D]">
+       ══════════════════════════════════════════════════════════════ */}
+      <section className="relative h-[92vh] min-h-[580px] overflow-hidden">
         <img
           src="https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?w=1800&auto=format"
           alt="Men's Collection"
-          className="absolute inset-0 w-full h-full object-cover opacity-50"
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
         />
         {/* film-grain overlay */}
-        <div className="absolute inset-0 opacity-20" style={{
+        <div className="absolute inset-0 opacity-15" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")`
         }} />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0D0D]/85 via-[#0D0D0D]/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#020202]/95 via-[#020202]/40 to-transparent" />
 
-        <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-16 max-w-7xl mx-auto">
-          <p className="text-[#C9A84C] text-[11px] tracking-[0.5em] font-black uppercase mb-6">
+        {/* Ambient Glows */}
+        <div className="absolute top-[-10%] right-[-5%] w-150 h-150 rounded-full blur-[150px] opacity-10" style={{ backgroundColor: brandBlue }} />
+
+        <div className="relative z-10 h-full flex flex-col justify-center px-6 md:px-16 max-w-7xl mx-auto w-full">
+          <p style={{ color: brandBlue }} className="text-[11px] tracking-[0.5em] font-black uppercase mb-6">
             StylerHub · Men's Collection 2026
           </p>
           <h1
-            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.93] mb-8 max-w-2xl"
+            className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.93] mb-8 max-w-2xl uppercase italic"
             style={{ letterSpacing: "-0.03em" }}
           >
             Wear Your<br />
-            <span className="text-transparent bg-clip-text" style={{
-              backgroundImage: "linear-gradient(135deg,#C9A84C 0%,#F0D080 50%,#C9A84C 100%)"
-            }}>Story</span>.
+            <span className="relative inline-block text-white">
+              Story
+              <span className="absolute left-0 bottom-1 w-full h-2 opacity-60" style={{ backgroundColor: brandBlue }} />
+            </span>.
           </h1>
-          <p className="text-white/60 max-w-md text-base md:text-lg leading-relaxed mb-10">
+          <p className="text-white/50 max-w-md text-base md:text-lg leading-relaxed mb-10 font-medium">
             Premium menswear crafted for the modern gentleman. Quality fabrics, timeless tailoring.
           </p>
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => document.getElementById("collection")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3.5 bg-[#C9A84C] text-[#0D0D0D] font-black text-sm tracking-widest uppercase rounded-full hover:bg-[#b5923e] transition-colors active:scale-95"
+              className="px-8 py-3.5 text-white font-black text-sm tracking-widest uppercase rounded-sm transition-all active:scale-95 hover:opacity-90"
+              style={{ backgroundColor: brandBlue }}
             >
               Shop Now
             </button>
             <button
               onClick={() => document.getElementById("featured")?.scrollIntoView({ behavior: "smooth" })}
-              className="px-8 py-3.5 border border-white/30 text-white font-bold text-sm tracking-widest uppercase rounded-full hover:border-[#C9A84C] hover:text-[#C9A84C] transition-colors"
+              className="px-8 py-3.5 border-2 border-white/10 text-white font-bold text-sm tracking-widest uppercase rounded-sm hover:bg-white hover:text-black transition-colors"
             >
               View Featured
             </button>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/40">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 text-white/20">
           <p className="text-[9px] tracking-[0.4em] uppercase font-semibold">Scroll</p>
-          <div className="w-px h-12 bg-gradient-to-b from-white/40 to-transparent" />
+          <div className="w-px h-12 bg-gradient-to-b from-white/20 to-transparent" />
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
           STATS STRIP
-      ══════════════════════════════════════════════════════════════ */}
-      <div className="bg-[#0D0D0D] text-white">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-wrap gap-y-3 justify-between md:justify-around">
+       ══════════════════════════════════════════════════════════════ */}
+      <div className="border-y border-white/5 bg-[#070707]">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap gap-y-3 justify-between md:justify-around">
           {[
             { n: "72",   l: "Men's Styles"    },
             { n: "Free", l: "Lagos Delivery"  },
@@ -345,8 +360,8 @@ export default function Man() {
             { n: "24h",  l: "Customer Support" },
           ].map(({ n, l }) => (
             <div key={l} className="flex items-center gap-3">
-              <span className="text-[#C9A84C] font-black text-lg">{n}</span>
-              <span className="text-white/50 text-xs tracking-wide">{l}</span>
+              <span style={{ color: brandBlue }} className="font-black text-lg">{n}</span>
+              <span className="text-white/40 text-xs tracking-wide uppercase font-bold">{l}</span>
             </div>
           ))}
         </div>
@@ -354,28 +369,28 @@ export default function Man() {
 
       {/* ══════════════════════════════════════════════════════════════
           FEATURED COLLECTION (Exclusive picks)
-      ══════════════════════════════════════════════════════════════ */}
-      <section id="featured" className="py-20 px-6 md:px-16 max-w-7xl mx-auto">
+       ══════════════════════════════════════════════════════════════ */}
+      <section id="featured" className="py-24 px-6 md:px-16 max-w-7xl mx-auto">
         <SectionHeading eyebrow="Handpicked for you" title="Featured Collection" />
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
           {FEATURED.map((p) => <FeaturedCard key={p.id} p={p} onCart={handleCart} />)}
         </div>
       </section>
 
       {/* ══════════════════════════════════════════════════════════════
           TRENDING STRIP
-      ══════════════════════════════════════════════════════════════ */}
-      <section className="py-16 bg-[#0D0D0D]">
+       ══════════════════════════════════════════════════════════════ */}
+      <section className="py-24 bg-[#070707] border-y border-white/5">
         <div className="max-w-7xl mx-auto px-6 md:px-16">
-          <div className="mb-10">
-            <p className="text-[10px] tracking-[0.35em] text-[#C9A84C] font-black uppercase mb-2">What's Hot Right Now</p>
+          <div className="mb-12">
+            <p style={{ color: brandBlue }} className="text-[10px] tracking-[0.35em] font-black uppercase mb-2">What's Hot Right Now</p>
             <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">Trending This Week</h2>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {TRENDING.map((p) => (
               <div
                 key={p.id}
-                className="group relative overflow-hidden rounded-xl cursor-pointer"
+                className="group relative overflow-hidden rounded-xl cursor-pointer border border-white/5 bg-[#0d0d0d]"
                 onClick={() => handleCart(p.name)}
               >
                 <div className="aspect-[3/4] overflow-hidden">
@@ -383,13 +398,13 @@ export default function Man() {
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.08]"
                   />
                 </div>
-                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <p className="text-white font-bold text-sm leading-snug">{p.name}</p>
-                  <p className="text-[#C9A84C] font-black text-sm">{fmt(p.price)}</p>
+                  <p className="text-white/90 font-bold text-sm leading-snug mb-1">{p.name}</p>
+                  <p style={{ color: brandBlue }} className="font-black text-sm">{fmt(p.price)}</p>
                 </div>
                 <div className="absolute top-3 left-3">
-                  <span className="bg-emerald-500 text-white text-[9px] font-black tracking-widest px-2 py-0.5 rounded-sm">TRENDING</span>
+                  <span className="bg-emerald-600 text-white text-[9px] font-black tracking-widest px-2 py-0.5 rounded-sm">TREND</span>
                 </div>
               </div>
             ))}
@@ -399,23 +414,24 @@ export default function Man() {
 
       {/* ══════════════════════════════════════════════════════════════
           STICKY FILTER BAR + SEARCH
-      ══════════════════════════════════════════════════════════════ */}
+       ══════════════════════════════════════════════════════════════ */}
       <div
         id="collection"
-        className="sticky top-0 z-40 bg-[#F7F4EF]/90 backdrop-blur-md border-b border-[#E0D9CE]"
+        className="sticky top-0 z-40 backdrop-blur-xl border-b border-white/5 bg-[#020202]/80"
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-16 py-4 flex flex-col sm:flex-row gap-3 items-start sm:items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 md:px-16 py-5 flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
           {/* Category pills */}
-          <div className="flex gap-2 overflow-x-auto pb-0.5 w-full sm:w-auto" style={{ scrollbarWidth: "none" }}>
+          <div className="flex gap-2 overflow-x-auto pb-1 w-full sm:w-auto" style={{ scrollbarWidth: "none" }}>
             {CATEGORIES.map((f) => (
               <button
                 key={f}
                 onClick={() => handleFilter(f)}
-                className={`whitespace-nowrap px-5 py-2 rounded-full text-xs font-black tracking-wider uppercase border transition-all duration-200 ${
+                className={`whitespace-nowrap px-5 py-2 text-xs font-black tracking-wider uppercase border transition-all duration-200 ${
                   activeFilter === f
-                    ? "bg-[#0D0D0D] text-white border-[#0D0D0D]"
-                    : "bg-transparent text-[#6B6B6B] border-[#D0C9BE] hover:border-[#C9A84C] hover:text-[#C9A84C]"
+                    ? "text-white border-white"
+                    : "bg-transparent text-white/40 border-white/10 hover:border-white/30 hover:text-white"
                 }`}
+                style={{ backgroundColor: activeFilter === f ? brandBlue : "transparent", borderColor: activeFilter === f ? brandBlue : "" }}
               >
                 {f}
               </button>
@@ -424,7 +440,7 @@ export default function Man() {
 
           {/* Search */}
           <div className="relative w-full sm:w-64 shrink-0">
-            <svg className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#9B9189]"
+            <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30"
               fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
               <circle cx={11} cy={11} r={8}/><path d="m21 21-4.35-4.35"/>
             </svg>
@@ -432,130 +448,42 @@ export default function Man() {
               type="text" value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search men's styles…"
-              className="w-full pl-10 pr-4 py-2 text-sm bg-white border border-[#E0D9CE] rounded-full text-[#0D0D0D] placeholder-[#9B9189] focus:outline-none focus:border-[#C9A84C] transition-colors"
+              className="w-full pl-11 pr-4 py-2.5 text-sm bg-white/5 border border-white/10 rounded-none text-white placeholder-white/30 focus:outline-none focus:border-white transition-colors"
             />
           </div>
         </div>
         {/* Item count */}
-        <div className="max-w-7xl mx-auto px-6 md:px-16 pb-3">
-          <p className="text-[11px] text-[#9B9189] tracking-wide">
-            Showing <span className="font-bold text-[#0D0D0D]">{filteredItems.length}</span> men's items
+        <div className="max-w-7xl mx-auto px-6 md:px-16 pb-4">
+          <p className="text-[11px] text-white/40 tracking-wide uppercase font-bold">
+            Showing <span className="text-white">{filteredItems.length}</span> men's items
           </p>
         </div>
       </div>
 
       {/* ══════════════════════════════════════════════════════════════
-          PRODUCT GRID  (72 men's-only products)
-      ══════════════════════════════════════════════════════════════ */}
-      <section ref={gridRef} className="max-w-7xl mx-auto px-6 md:px-16 py-12">
-        <div className={`grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6 transition-opacity duration-300 ${isTransitioning ? "opacity-0" : "opacity-100"}`}>
+          PRODUCT GRID
+       ══════════════════════════════════════════════════════════════ */}
+      <section ref={gridRef} className="py-16 px-6 md:px-16 max-w-7xl mx-auto">
+        <div className={`grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10 transition-opacity duration-300 ${isTransitioning ? "opacity-30" : "opacity-100"}`}>
           {loading
-            ? Array.from({ length: 10 }).map((_, i) => <SkeletonCard key={i} />)
-            : filteredItems.length > 0
-              ? filteredItems.map((p) => (
-                  <ProductCard
-                    key={p.id} p={p}
-                    wishlist={wishlist}
-                    onWishlist={toggleWishlist}
-                    onCart={handleCart}
-                  />
-                ))
-              : (
-                <div className="col-span-full py-24 text-center">
-                  <p className="text-5xl mb-4">🔍</p>
-                  <p className="text-xl font-bold text-[#0D0D0D] mb-2">No results found</p>
-                  <p className="text-[#9B9189] text-sm">Try adjusting your search or filter</p>
-                  <button
-                    onClick={() => { setSearch(""); setActiveFilter("All"); }}
-                    className="mt-6 px-6 py-2.5 bg-[#0D0D0D] text-white text-xs font-black tracking-widest uppercase rounded-full hover:bg-[#C9A84C] hover:text-[#0D0D0D] transition-colors"
-                  >
-                    Reset Filters
-                  </button>
-                </div>
-              )
+            ? Array(8).fill(0).map((_, i) => <SkeletonCard key={i} />)
+            : filteredItems.map((p) => (
+                <ProductCard
+                  key={p.id}
+                  p={p}
+                  wishlist={wishlist}
+                  onWishlist={toggleWishlist}
+                  onCart={handleCart}
+                />
+              ))
           }
         </div>
+        {!loading && filteredItems.length === 0 && (
+          <div className="text-center py-24 border border-dashed border-white/10 rounded-2xl">
+            <p className="text-white/40 text-sm tracking-wide uppercase font-bold">No menswear products found matches your criteria.</p>
+          </div>
+        )}
       </section>
-
-      {/* ══════════════════════════════════════════════════════════════
-          NEWSLETTER
-      ══════════════════════════════════════════════════════════════ */}
-      <section className="py-20 px-6 md:px-16 bg-[#0D0D0D] relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: "radial-gradient(circle at 70% 50%,#C9A84C 0%,transparent 70%)"
-        }} />
-        <div className="max-w-2xl mx-auto text-center relative z-10">
-          <p className="text-[10px] tracking-[0.5em] text-[#C9A84C] font-black uppercase mb-4">Stay in the loop</p>
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-4 leading-tight">
-            Style Updates,<br />Zero Noise.
-          </h2>
-          <p className="text-white/50 mb-8 text-sm max-w-sm mx-auto">
-            Early access to new drops, exclusive deals, and curated men's edits — delivered directly.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-            <input
-              type="email" value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Your email address"
-              className="flex-1 px-5 py-3.5 bg-white/10 border border-white/20 rounded-full text-white placeholder-white/30 text-sm focus:outline-none focus:border-[#C9A84C] transition-colors"
-            />
-            <button
-              onClick={() => { if (email) { alert("You're in! 🎉"); setEmail(""); } }}
-              className="px-7 py-3.5 bg-[#C9A84C] text-[#0D0D0D] font-black text-xs tracking-widest uppercase rounded-full hover:bg-[#b5923e] transition-colors whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════
-          FOOTER
-      ══════════════════════════════════════════════════════════════ */}
-      <footer className="bg-[#0A0A0A] border-t border-white/5 text-white/40 py-10 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
-            <p className="text-white font-black text-xl tracking-tight mb-1">
-              Styler<span className="text-[#C9A84C]">Hub</span>
-            </p>
-            <p className="text-xs">Premium Fashion for the Modern Man</p>
-          </div>
-          <div className="flex flex-wrap justify-center gap-6 text-xs font-semibold tracking-wider uppercase">
-            {["Men", "Women", "Kids", "Sale", "About", "Contact"].map((l) => (
-              <a key={l} href="#" className="hover:text-[#C9A84C] transition-colors">{l}</a>
-            ))}
-          </div>
-          <p className="text-[11px]">© 2026 StylerHub. All rights reserved.</p>
-        </div>
-      </footer>
-
-      {/* ══════════════════════════════════════════════════════════════
-          CART TOAST
-      ══════════════════════════════════════════════════════════════ */}
-      {cartToast && (
-        <div
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-4 bg-[#0D0D0D] text-white px-5 py-3.5 rounded-2xl shadow-2xl shadow-black/30 border border-white/10"
-          style={{ animation: "slideUp 0.35s ease forwards" }}
-        >
-          <span className="text-[#C9A84C] text-lg">✓</span>
-          <div>
-            <p className="text-xs font-bold leading-snug">{cartToast}</p>
-            <p className="text-[10px] text-white/40">Added to your cart</p>
-          </div>
-          <Link to="/cart"
-            className="ml-2 text-[10px] font-black tracking-widest uppercase text-[#C9A84C] hover:text-white transition-colors"
-          >
-            View Cart →
-          </Link>
-        </div>
-      )}
-
-      {/* Global keyframes */}
-      <style>{`
-        @keyframes slideUp    { from { opacity:0; transform:translateY(16px);  } to { opacity:1; transform:translateY(0); } }
-        @keyframes fadeInDown { from { opacity:0; transform:translateY(-12px); } to { opacity:1; transform:translateY(0); } }
-        * { -webkit-font-smoothing: antialiased; }
-      `}</style>
     </main>
   );
 }

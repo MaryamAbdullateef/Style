@@ -9,7 +9,7 @@ import { Navigate, useLocation } from "react-router-dom";
  */
 const ProtectedRoute = ({ children }) => {
   // Check if user is logged in by looking for the key in localStorage
-  const user = localStorage.getItem("styler_user");
+  const user = localStorage.getItem("user");
   const location = useLocation();
 
   if (!user) {

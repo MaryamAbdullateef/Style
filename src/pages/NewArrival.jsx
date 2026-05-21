@@ -342,7 +342,7 @@ const products = [
     price: "₦12,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1533827432537-70133748f5c8?w=600&q=80",
+      "https://images.unsplash.com/photo-1533227432537-70133748f5c8?w=600&q=80",
   },
   {
     id: 39,
@@ -910,38 +910,36 @@ const products = [
 
 const filters = ["All", "Women", "Men", "Kids"];
 
+// Refactored to premium translucent dark tags to keep system consistency
 const categoryColors = {
-  Women: "bg-rose-100 text-rose-700",
-  Men: "bg-slate-100 text-slate-700",
-  Kids: "bg-amber-100 text-amber-700",
+  Women: "bg-white/5 text-white/80 border border-white/10",
+  Men: "bg-white/5 text-white/80 border border-white/10",
+  Kids: "bg-white/5 text-white/80 border border-white/10",
 };
 
 export default function NewArrival() {
   const [active, setActive] = useState("All");
+  const brandBlue = "#0070f3";
 
   const visible =
     active === "All" ? products : products.filter((p) => p.category === active);
 
   return (
     <section
-      className="min-h-screen py-16 px-4 sm:px-6 lg:px-12"
-      style={{
-        background:
-          "linear-gradient(160deg, #001B3D 0%, #000c1d 50%, #001B3D 100%)",
-      }}
+      className="min-h-screen py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-[#020202]"
     >
       {/* ── Header ── */}
-      <div className="max-w-7xl mx-auto mb-12 text-center">
+      <div className="max-w-7xl mx-auto mb-12 text-center px-4">
         <p
-          className="text-xs tracking-[0.35em] uppercase mb-3 font-semibold"
-          style={{ color: "#b8975a" }}
+          className="text-[10px] sm:text-xs tracking-[0.35em] uppercase mb-3 font-semibold"
+          style={{ color: brandBlue }}
         >
           Just Landed
         </p>
         <h2
-          className="text-4xl sm:text-5xl font-black tracking-tight mb-4"
+          className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight mb-4 uppercase"
           style={{
-            fontFamily: "'Georgia', 'Times New Roman', serif",
+            fontFamily: "inherit",
             color: "#ffffff",
             letterSpacing: "-0.02em",
           }}
@@ -949,38 +947,39 @@ export default function NewArrival() {
           New Arrivals
         </h2>
         <div className="flex items-center justify-center gap-3 mb-2">
-          <div className="h-px w-16" style={{ background: "#b8975a" }} />
+          <div className="h-px w-12 sm:w-16 bg-white/10" />
           <div
-            className="w-1.5 h-1.5 rounded-full"
-            style={{ background: "#b8975a" }}
+            className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+            style={{ background: brandBlue }}
           />
-          <div className="h-px w-16" style={{ background: "#b8975a" }} />
+          <div className="h-px w-12 sm:w-16 bg-white/10" />
         </div>
-        <p className="text-sm text-stone-300 mt-4 max-w-md mx-auto leading-relaxed">
+        <p className="text-xs sm:text-sm text-white/50 mt-4 max-w-md mx-auto leading-relaxed">
           Discover the freshest pieces curated for every style — from boardroom
           to playground.
         </p>
       </div>
 
       {/* ── Filter Tabs ── */}
-      <div className="max-w-7xl mx-auto flex flex-wrap justify-center gap-3 mb-12">
+      <div className="max-w-7xl mx-auto flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10 px-2">
         {filters.map((f) => (
           <button
             key={f}
             onClick={() => setActive(f)}
-            className="relative px-7 py-2.5 text-sm font-semibold rounded-full transition-all duration-300 tracking-wide overflow-hidden"
+            className="relative px-5 sm:px-7 py-2 sm:py-2.5 text-xs sm:text-sm font-black rounded-sm transition-all duration-300 tracking-widest uppercase overflow-hidden min-w-[70px] sm:min-w-[90px] text-center border"
             style={
               active === f
                 ? {
-                    background: "#b8975a",
-                    color: "#f5f0e8",
-                    boxShadow: "0 4px 20px rgba(184,151,90,0.25)",
+                    background: brandBlue,
+                    borderColor: brandBlue,
+                    color: "#ffffff",
+                    boxShadow: "0 4px 20px rgba(0,112,243,0.3)",
                     transform: "translateY(-1px)",
                   }
                 : {
-                    background: "rgba(255,255,255,0.05)",
-                    color: "#fff",
-                    border: "1.5px solid #b8975a44",
+                    background: "rgba(255,255,255,0.03)",
+                    borderColor: "rgba(255,255,255,0.08)",
+                    color: "rgba(255,255,255,0.6)",
                   }
             }
           >
@@ -990,28 +989,23 @@ export default function NewArrival() {
       </div>
 
       {/* ── Count ── */}
-      <div className="max-w-7xl mx-auto mb-6">
-        <p className="text-xs text-stone-400 tracking-widest uppercase">
+      <div className="max-w-7xl mx-auto mb-6 px-2">
+        <p className="text-[10px] sm:text-xs text-white/40 tracking-widest uppercase text-center sm:text-left font-bold">
           Showing {visible.length} item{visible.length !== 1 ? "s" : ""}
         </p>
       </div>
 
       {/* ── Grid ── */}
-      <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 px-0">
         {visible.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <ProductCard key={product.id} product={product} brandBlue={brandBlue} />
         ))}
       </div>
 
       {/* ── Footer CTA ── */}
-      <div className="max-w-7xl mx-auto text-center mt-16">
+      <div className="max-w-7xl mx-auto text-center mt-14 sm:mt-16 px-4">
         <button
-          className="px-10 py-3.5 text-sm font-semibold tracking-widest uppercase rounded-full transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
-          style={{
-            background: "linear-gradient(135deg, #b8975a 0%, #d4b47a 100%)",
-            color: "#fff",
-            boxShadow: "0 6px 24px rgba(184,151,90,0.35)",
-          }}
+          className="w-full sm:w-auto px-8 sm:px-10 py-4 text-xs sm:text-sm font-black tracking-widest uppercase rounded-sm transition-all duration-300 active:scale-95 border border-white/10 bg-white text-black hover:bg-zinc-200"
         >
           Explore All Collections
         </button>
@@ -1020,97 +1014,107 @@ export default function NewArrival() {
   );
 }
 
-function ProductCard({ product }) {
+function ProductCard({ product, brandBlue }) {
   return (
     <div
-      className="group relative bg-white rounded-2xl overflow-hidden flex flex-col cursor-pointer"
+      className="group relative bg-[#0b0b0c] rounded-2xl overflow-hidden flex flex-col cursor-pointer w-full border border-white/[0.06]"
       style={{
-        boxShadow: "0 2px 16px rgba(0,0,0,0.06)",
-        transition: "box-shadow 0.35s ease, transform 0.35s ease",
+        boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+        transition: "box-shadow 0.35s ease, transform 0.35s ease, border-color 0.35s ease",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.boxShadow = "0 16px 48px rgba(0,0,0,0.14)";
-        e.currentTarget.style.transform = "translateY(-6px)";
+        if (window.innerWidth >= 640) {
+          e.currentTarget.style.boxShadow = "0 20px 40px rgba(0,0,0,0.6)";
+          e.currentTarget.style.transform = "translateY(-6px)";
+          e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)";
+        }
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.boxShadow = "0 2px 16px rgba(0,0,0,0.06)";
+        e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.2)";
         e.currentTarget.style.transform = "translateY(0)";
+        e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)";
       }}
     >
-      <div className="relative overflow-hidden" style={{ aspectRatio: "3/4" }}>
+      <div className="relative overflow-hidden w-full" style={{ aspectRatio: "3/4" }}>
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          className="w-full h-full object-cover transition-transform duration-700 sm:group-hover:scale-105"
           loading="lazy"
         />
 
         <div
-          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
+          className="absolute inset-0 opacity-40 sm:group-hover:opacity-60 transition-opacity duration-400 pointer-events-none"
           style={{
             background:
-              "linear-gradient(to top, rgba(26,26,26,0.35) 0%, transparent 60%)",
+              "linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)",
           }}
         />
 
         {product.isNew && (
           <div
-            className="absolute top-3 left-3 px-2.5 py-1 text-[10px] font-black tracking-[0.2em] uppercase rounded-full"
+            className="absolute top-2 left-2 sm:top-3 sm:left-3 px-2.5 py-1 text-[8px] sm:text-[9px] font-black tracking-[0.2em] uppercase rounded-sm"
             style={{
-              background: "linear-gradient(135deg, #b8975a 0%, #d4b47a 100%)",
+              background: brandBlue,
               color: "#fff",
-              boxShadow: "0 2px 8px rgba(184,151,90,0.5)",
+              boxShadow: "0 2px 10px rgba(0,112,243,0.4)",
             }}
           >
             New
           </div>
         )}
 
-        <div className="absolute bottom-3 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
+        {/* Quick View Button */}
+        <div className="absolute bottom-2 sm:bottom-3 left-0 right-0 flex justify-center opacity-0 sm:group-hover:opacity-100 transition-all duration-300 translate-y-2 sm:group-hover:translate-y-0 px-3">
           <button
-            className="px-5 py-2 text-xs font-bold tracking-widest uppercase rounded-full"
-            style={{ background: "#fff", color: "#1a1a1a" }}
+            className="w-full px-3 py-2 text-[9px] sm:text-xs font-black tracking-widest uppercase rounded-sm truncate"
+            style={{ background: "#fff", color: "#000" }}
           >
             Quick View
           </button>
         </div>
       </div>
 
-      <div className="p-4 flex flex-col gap-2 flex-1">
+      <div className="p-3 sm:p-4 flex flex-col gap-2 flex-1 bg-[#0b0b0c]">
         <span
-          className={`self-start text-[10px] font-bold tracking-widest uppercase px-2.5 py-1 rounded-full ${categoryColors[product.category]}`}
+          className={`self-start text-[8px] sm:text-[9px] font-black tracking-widest uppercase px-2.5 py-1 rounded-sm ${categoryColors[product.category]}`}
         >
           {product.category}
         </span>
 
         <h3
-          className="text-sm font-semibold leading-snug line-clamp-2"
-          style={{ color: "#1a1a1a", fontFamily: "'Georgia', serif" }}
+          className="text-xs sm:text-sm font-medium leading-snug line-clamp-2 min-h-[2rem] sm:min-h-[2.5rem] text-white/80 group-hover:text-white transition-colors"
         >
           {product.name}
         </h3>
 
-        <div className="flex items-center justify-between mt-auto pt-2 border-t border-stone-100">
-          <span className="text-base font-black" style={{ color: "#1a1a1a" }}>
+        <div className="flex items-center justify-between mt-auto pt-2.5 border-t border-white/[0.06] gap-1">
+          <span className="text-sm sm:text-base font-black truncate text-white">
             {product.price}
           </span>
           <button
-            className="w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-200"
-            style={{ background: "#f5f0e8" }}
-            onMouseEnter={(e) => (e.currentTarget.style.background = "#1a1a1a")}
-            onMouseLeave={(e) => (e.currentTarget.style.background = "#f5f0e8")}
+            className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 flex-shrink-0 border border-white/10 text-white/70 hover:text-black"
+            style={{ background: "rgba(255,255,255,0.03)" }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.background = "#ffffff";
+              e.currentTarget.style.borderColor = "#ffffff";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.background = "rgba(255,255,255,0.03)";
+              e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+            }}
             aria-label="Add to cart"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              className="w-4 h-4"
+              className="w-3.5 h-3.5 sm:w-4 sm:h-4"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
-              style={{ color: "inherit", transition: "color 0.2s" }}
+              style={{ color: "inherit" }}
             >
               <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z" />
               <line x1="3" y1="6" x2="21" y2="6" />

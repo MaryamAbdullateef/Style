@@ -55,7 +55,7 @@ export default function Order() {
     address: "",
   });
 
-  // Sync state and handle navigation
+  
   useEffect(() => {
     if (user) {
       setDeliveryForm((prev) => ({ ...prev, fullName: user.name || "" }));
@@ -122,7 +122,7 @@ export default function Order() {
     <div className="min-h-screen bg-[#050505] text-white pt-20 pb-10">
       <div className="max-w-7xl mx-auto px-4 relative z-10">
         
-        {/* Header Hero */}
+  
         <div className="bg-linear-to-br from-[#001B3D] to-black rounded-3xl p-8 md:p-12 mb-10 border border-white/5 shadow-2xl">
           <h1 className="text-4xl md:text-6xl font-black italic uppercase tracking-tighter">
             Checkout{" "}
@@ -152,7 +152,7 @@ export default function Order() {
             </Link>
           </div>
         ) : !user ? (
-          /* AUTH SECTION */
+          
           <div className="max-w-md mx-auto bg-white/5 backdrop-blur-md rounded-3xl p-8 border border-white/10 shadow-2xl">
             <h2 className="text-xl font-black uppercase mb-6 tracking-tight">
               {authMode === "signup" ? "Create Account" : "Welcome Back"}
@@ -203,7 +203,7 @@ export default function Order() {
             </form>
           </div>
         ) : (
-          /* ORDER FORM SECTION */
+          // ORDER FORM SECTION 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div className="lg:col-span-8 space-y-8">
               <section className="bg-white/5 rounded-3xl p-6 md:p-10 border border-white/10">

@@ -176,6 +176,7 @@ const filters = [
 
 export default function Women() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const brandBlue = "#0070f3";
 
   // Memoize filtered products to optimize performance
   const filteredProducts = useMemo(() => {
@@ -185,131 +186,160 @@ export default function Women() {
   }, [activeFilter]);
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-white selection:bg-brand-blue selection:text-white">
+    <main className="min-h-screen bg-[#020202] text-white selection:bg-[#0070f3] selection:text-white overflow-x-hidden relative">
+      
+      {/* Decorative Brand Elements matching Hero */}
+      <div className="absolute top-96 left-5 text-[10vw] font-black text-white/2 select-none pointer-events-none uppercase italic hidden md:block">
+        Artisanal
+      </div>
+
+      {/* Ambient Lighting Glows */}
+      <div
+        className="absolute top-[10%] left-[-10%] w-96 h-96 rounded-full blur-[150px] opacity-10 pointer-events-none"
+        style={{ backgroundColor: brandBlue }}
+      />
+      <div
+        className="absolute bottom-[30%] right-[-5%] w-[500px] h-[500px] rounded-full blur-[180px] opacity-[0.12] pointer-events-none"
+        style={{ backgroundColor: brandBlue }}
+      />
+
       {/* Editorial Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden px-4">
         <img
           src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1600&q=80"
-          alt="StyleHub Women's Collection"
-          className="absolute inset-0 w-full h-full object-cover object-top opacity-40 scale-100 transition-transform duration-[10s] hover:scale-110"
+          alt="StylerHub Women's Collection"
+          className="absolute inset-0 w-full h-full object-cover object-top opacity-30 transition-transform duration-[10s] hover:scale-105"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#0a0a0a]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#020202]/50 via-transparent to-[#020202]" />
 
-        <div className="relative z-10 text-center space-y-6 px-4">
-          <p className="text-[10px] tracking-[0.6em] uppercase text-brand-blue font-bold animate-pulse">
-            StyleHub Collective
+        <div className="relative z-10 text-center space-y-6 max-w-3xl mx-auto">
+          <p 
+            className="text-[10px] tracking-[0.6em] uppercase font-black"
+            style={{ color: brandBlue }}
+          >
+            StylerHub Collective 2026
           </p>
-          <h1 className="text-6xl md:text-9xl font-serif italic tracking-tighter leading-none">
-            Women's <span className="text-white/70 block md:inline">Shop</span>
+          <h1 className="text-5xl md:text-8xl font-black uppercase italic tracking-tighter leading-none">
+            Women's <span className="text-white/60 block sm:inline">Shop</span>
           </h1>
-          <p className="max-w-md mx-auto text-gray-400 text-xs tracking-widest uppercase font-light leading-loose">
+          <p className="max-w-md mx-auto text-white/40 text-xs md:text-sm tracking-widest uppercase font-medium leading-loose px-2">
             Curated pieces for the modern woman. Elegance redefined through
-            minimalist silhouettes.
+            minimalist silhouettes and premium Nigerian craft.
           </p>
         </div>
       </section>
 
       {/* Interactive Navigation Filter */}
-      <nav className="sticky top-0 z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-y border-white/5">
-        <div className="max-w-[1400px] mx-auto flex justify-center gap-6 md:gap-12 py-6 px-5 overflow-x-auto no-scrollbar">
+      <nav className="sticky top-0 z-50 bg-[#020202]/80 backdrop-blur-xl border-y border-white/5">
+        <div className="max-w-[1400px] mx-auto flex justify-start md:justify-center gap-6 md:gap-12 py-6 px-6 overflow-x-auto overflow-y-hidden scrollbar-none">
           {filters.map((f) => (
             <button
               key={f}
               onClick={() => setActiveFilter(f)}
-              className={`group relative text-[11px] tracking-[0.25em] uppercase font-bold transition-all duration-500 whitespace-nowrap ${
+              className={`group relative text-[10px] md:text-[11px] tracking-[0.25em] uppercase font-black transition-all duration-300 whitespace-nowrap bg-transparent border-none cursor-pointer pb-1 ${
                 activeFilter === f
-                  ? "text-brand-blue"
-                  : "text-gray-500 hover:text-white"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white"
               }`}
+              style={activeFilter === f ? { color: brandBlue } : {}}
             >
               {f}
               <span
-                className={`absolute -bottom-2 left-0 h-[1px] bg-brand-blue transition-all duration-500 ${
-                  activeFilter === f ? "w-full" : "w-0 group-hover:w-full"
-                }`}
+                className="absolute bottom-0 left-0 h-[2px] transition-all duration-300"
+                style={{ 
+                  backgroundColor: brandBlue,
+                  width: activeFilter === f ? "100%" : "0%"
+                }}
               />
             </button>
           ))}
         </div>
       </nav>
 
-      {/* Product Grid */}
-      <section className="max-w-[1400px] mx-auto px-6 py-20">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
+      {/* Product Grid Section */}
+      <section className="max-w-[1400px] mx-auto px-4 md:px-12 py-16 md:py-24 relative z-10">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div>
-            <h2 className="text-2xl font-serif italic mb-2">The Collection</h2>
-            <p className="text-[10px] uppercase tracking-[0.2em] text-gray-500">
+            <h2 className="text-3xl font-black uppercase italic tracking-tight mb-2">The Collection</h2>
+            <p className="text-[10px] uppercase tracking-[0.2em] text-white/30 font-bold">
               Showing {filteredProducts.length} Results for{" "}
-              <span className="text-brand-blue">{activeFilter}</span>
+              <span style={{ color: brandBlue }}>{activeFilter}</span>
             </p>
           </div>
-          <div className="flex items-center gap-2 text-gray-500 border-b border-white/10 pb-1 w-full md:w-auto">
-            <FiSearch size={14} />
+          <div className="flex items-center gap-3 text-white/40 border-b border-white/10 pb-2 w-full md:w-72 focus-within:border-white transition-colors">
+            <FiSearch size={14} style={{ color: brandBlue }} />
             <input
               type="text"
-              placeholder="SEARCH COLLECTION"
-              className="bg-transparent border-none text-[10px] tracking-widest focus:outline-none focus:ring-0 w-full"
+              placeholder="SEARCH PIECES"
+              className="bg-transparent border-none p-0 text-[10px] tracking-widest text-white placeholder-white/30 focus:outline-none focus:ring-0 uppercase font-bold w-full"
             />
           </div>
         </div>
 
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-16 md:gap-y-24">
             {filteredProducts.map((p) => (
               <div
                 key={p.id}
-                className="group relative flex flex-col transition-all duration-700 animate-in fade-in slide-in-from-bottom-6"
+                className="group relative flex flex-col transition-all duration-500"
               >
-                {/* Image Container */}
-                <div className="relative aspect-[3/4] overflow-hidden bg-[#111] rounded-[2px]">
+                {/* Image Wrap Box */}
+                <div className="relative aspect-[3/4] overflow-hidden bg-[#0d0d0d] rounded-2xl border border-white/5 shadow-xl">
                   <img
                     src={p.img}
                     alt={p.name}
                     loading="lazy"
-                    className="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.5s] ease-out"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
 
-                  {/* Badge */}
+                  {/* Dynamic Tag Overlay */}
                   {p.tag && (
                     <div className="absolute top-4 left-4 z-10">
                       <span
-                        className={`text-[9px] font-bold tracking-tighter px-2.5 py-1 uppercase shadow-2xl ${
+                        className={`text-[9px] font-black tracking-widest px-3 py-1.5 uppercase rounded-md shadow-lg ${
                           p.tag === "Sale"
                             ? "bg-red-600 text-white"
                             : p.tag === "Exclusive"
                               ? "bg-amber-500 text-black"
-                              : "bg-brand-blue text-white"
+                              : "text-white"
                         }`}
+                        style={p.tag !== "Sale" && p.tag !== "Exclusive" ? { backgroundColor: brandBlue } : {}}
                       >
                         {p.tag}
                       </span>
                     </div>
                   )}
 
-                  {/* Quick Add Overlay */}
-                  <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-0">
-                    <button className="w-full bg-white text-black py-5 text-[10px] font-black uppercase tracking-[0.3em] flex items-center justify-center gap-3 hover:bg-brand-blue hover:text-white transition-all transform translate-y-4 group-hover:translate-y-0 duration-500">
-                      <FiShoppingBag size={15} />
+                  {/* Interactive Quick Add Overlay */}
+                  <div className="absolute inset-0 bg-[#020202]/40 opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-0">
+                    <button 
+                      className="w-full text-white py-5 text-[10px] font-black uppercase tracking-[0.25em] flex items-center justify-center gap-2 transition-all transform translate-y-2 group-hover:translate-y-0 duration-300 shadow-2xl"
+                      style={{ backgroundColor: brandBlue }}
+                    >
+                      <FiShoppingBag size={14} />
                       Quick Purchase
                     </button>
                   </div>
                 </div>
 
-                {/* Product Info */}
-                <div className="mt-6 flex justify-between items-start">
-                  <div className="space-y-1.5">
-                    <p className="text-[9px] text-brand-blue uppercase font-black tracking-[0.2em]">
+                {/* Product Metadata Context */}
+                <div className="mt-5 flex justify-between items-start px-1">
+                  <div className="space-y-1">
+                    <p 
+                      className="text-[9px] uppercase font-black tracking-[0.15em]"
+                      style={{ color: brandBlue }}
+                    >
                       {p.category}
                     </p>
-                    <h3 className="text-sm font-light tracking-wide text-gray-100 group-hover:text-brand-blue transition-colors">
+                    <h3 className="text-sm font-bold text-white/90 tracking-wide uppercase transition-colors duration-300 group-hover:text-white">
                       {p.name}
                     </h3>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-semibold text-white">
+                    <p className="text-sm font-black text-white tracking-tight">
                       {p.price}
                     </p>
-                    <p className="text-[8px] text-gray-600 tracking-tighter">
+                    <p className="text-[8px] text-white/20 tracking-tighter font-bold uppercase mt-0.5">
                       VAT INCL.
                     </p>
                   </div>
@@ -318,46 +348,53 @@ export default function Women() {
             ))}
           </div>
         ) : (
-          <div className="py-40 text-center border border-dashed border-white/10 rounded-lg">
-            <p className="text-gray-500 tracking-[0.3em] uppercase text-xs">
-              No items found in this category.
+          <div className="py-32 text-center border border-dashed border-white/10 rounded-3xl bg-white/5 backdrop-blur-md">
+            <p className="text-white/30 tracking-[0.3em] uppercase text-xs font-black">
+              No items available inside this collection branch.
             </p>
           </div>
         )}
       </section>
 
-      {/* Stylish CTA Section */}
-      <section className="bg-white text-black py-32 px-6 mt-10">
-        <div className="max-w-4xl mx-auto text-center space-y-10">
-          <p className="text-[10px] tracking-[0.5em] uppercase font-bold text-gray-400">
-            Next Steps
+      {/* Stylish Action Segment */}
+      <section className="bg-white text-black py-24 md:py-32 px-6 mt-12 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <p className="text-[10px] tracking-[0.5em] uppercase font-black text-black/30">
+            Next Level Wardrobe
           </p>
-          <h2 className="text-5xl md:text-7xl font-serif italic tracking-tighter">
-            Elevate your wardrobe.
+          <h2 className="text-4xl md:text-7xl font-black uppercase italic tracking-tighter leading-none">
+            Elevate your presence.
           </h2>
-          <div className="flex justify-center">
+          <div className="flex justify-center pt-4">
             <Link
               to="/order"
-              className="group inline-flex items-center gap-8 border-b border-black pb-4 text-[11px] font-black uppercase tracking-[0.4em] hover:text-brand-blue hover:border-brand-blue transition-all"
+              className="group inline-flex items-center gap-6 border-b-2 border-black pb-3 text-[11px] font-black uppercase tracking-[0.35em] transition-all hover:border-blue-600 duration-300"
+              style={{ "--hover-color": brandBlue }}
             >
-              Proceed to Checkout
-              <FiArrowRight className="group-hover:translate-x-4 transition-transform duration-500" />
+              <span className="group-hover:text-[#0070f3] transition-colors duration-300">Proceed to Checkout</span>
+              <FiArrowRight size={16} className="group-hover:translate-x-3 transition-transform duration-300 group-hover:text-[#0070f3]" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-20 text-center text-gray-500 border-t border-white/5 bg-[#080808]">
+      {/* Custom Global Appended Minimal Stylesheet logic */}
+      <style>{`
+        .scrollbar-none::-webkit-scrollbar { display: none; }
+        .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+      `}</style>
+
+      {/* Synchronized Footer Architecture */}
+      <footer className="py-16 text-center text-white/30 border-t border-white/5 bg-[#010101] relative z-10 px-4">
         <div className="space-y-4">
-          <p className="text-[10px] tracking-[0.5em] uppercase font-bold">
-            StyleHub Fashion House
+          <p className="text-[10px] tracking-[0.5em] uppercase font-black text-white/80">
+            StylerHub Fashion House
           </p>
-          <p className="text-[9px] tracking-widest text-gray-700">
+          <p className="text-[9px] tracking-[0.3em] text-white/40 font-bold">
             LAGOS • LONDON • NEW YORK
           </p>
-          <div className="h-10 w-[1px] bg-white/10 mx-auto my-6" />
-          <p className="text-[8px] tracking-[0.2em] opacity-40">
+          <div className="h-8 w-[1px] bg-white/10 mx-auto my-6" />
+          <p className="text-[8px] tracking-[0.2em] font-medium text-white/20">
             © 2026 ALL RIGHTS RESERVED
           </p>
         </div>

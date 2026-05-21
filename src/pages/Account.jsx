@@ -59,7 +59,7 @@ const Account = () => {
         localStorage.setItem("user", JSON.stringify(userData));
         localStorage.setItem("isAuthenticated", "true");
         alert("Welcome back to Styler Hub!");
-        navigate("/");
+        navigate("/order");
       } else {
         setError(
           "Invalid credentials. Password must be at least 6 characters.",

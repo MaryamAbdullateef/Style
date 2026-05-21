@@ -717,21 +717,21 @@ const products = [
 
 // ─── TAG CONFIG ──────────────────────────────────────────────────────────────
 const tagConfig = {
-  New: { bg: "bg-emerald-400", text: "text-white" },
-  Trending: { bg: "bg-fuchsia-500", text: "text-white" },
-  Sale: { bg: "bg-orange-400", text: "text-white" },
+  New: { bg: "bg-blue-600/80 border border-blue-500/30", text: "text-white" },
+  Trending: { bg: "bg-white/10 backdrop-blur-md border border-white/20", text: "text-white" },
+  Sale: { bg: "bg-zinc-800 border border-zinc-700", text: "text-white/90" },
 };
 
 // ─── SKELETON CARD ───────────────────────────────────────────────────────────
 const SkeletonCard = () => (
-  <div className="bg-blue-400 rounded-3xl overflow-hidden animate-pulse shadow-sm">
-    <div className="bg-gray-200 h-64 w-full" />
+  <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl overflow-hidden animate-pulse shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8)]">
+    <div className="bg-zinc-900 h-64 w-full" />
     <div className="p-4 space-y-3">
-      <div className="h-4 bg-gray-200 rounded-full w-3/4" />
-      <div className="h-3 bg-gray-100 rounded-full w-1/2" />
+      <div className="h-4 bg-zinc-800 rounded-full w-3/4" />
+      <div className="h-3 bg-zinc-800 rounded-full w-1/2" />
       <div className="flex justify-between items-center pt-1">
-        <div className="h-5 bg-gray-200 rounded-full w-1/3" />
-        <div className="h-8 bg-gray-200 rounded-2xl w-1/3" />
+        <div className="h-5 bg-zinc-800 rounded-full w-1/3" />
+        <div className="h-8 bg-zinc-800 rounded-2xl w-1/3" />
       </div>
     </div>
   </div>
@@ -741,44 +741,46 @@ const SkeletonCard = () => (
 const ProductCard = ({ product, onAddToCart }) => {
   const tag = tagConfig[product.tag];
   return (
-    <div className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 flex flex-col">
-      {/* Image */}
-      <div className="relative overflow-hidden h-60 sm:h-64 bg-gray-50">
+    <div className="group bg-white/5 backdrop-blur-2xl rounded-3xl overflow-hidden border border-white/10 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.7)] hover:border-white/30 hover:shadow-[0_0_40px_rgba(0,112,243,0.25)] transition-all duration-500 flex flex-col relative">
+      {/* Image Container */}
+      <div className="relative overflow-hidden h-60 sm:h-64 bg-[#0a0a0a]">
         <img
           src={product.image}
           alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          /* REMOVED: grayscale and brightness-90 filters. The image starts completely clear. */
+          className="w-full h-full object-cover transition-transform duration-700 cubic-bezier(0.16, 1, 0.3, 1) group-hover:scale-110"
           loading="lazy"
         />
         {/* Tag badge */}
         {product.tag && (
           <span
-            className={`absolute top-3 left-3 text-xs font-bold px-3 py-1 rounded-full ${tag.bg} ${tag.text} tracking-wide shadow`}
+            className={`absolute top-3 left-3 text-[10px] uppercase tracking-[0.2em] font-black px-3 py-1 rounded-full ${tag.bg} ${tag.text} shadow-lg`}
           >
             {product.tag}
           </span>
         )}
-        {/* Quick-view overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+        {/* Dynamic Vignette Depth Overlays */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#020202] via-transparent to-transparent opacity-50 group-hover:opacity-70 transition-opacity duration-500" />
       </div>
 
-      {/* Info */}
-      <div className="p-4 flex flex-col flex-1">
-        <span className="text-[11px] font-semibold uppercase tracking-widest text-fuchsia-400 mb-1">
+      {/* Info Overlay Panel */}
+      <div className="p-5 flex flex-col flex-1 bg-[#020202]/40 transform group-hover:-translate-y-1 transition-transform duration-500 ease-out">
+        <span className="text-[9px] font-black uppercase tracking-[0.3em] text-blue-500 mb-1">
           {product.category} · {product.gender}
         </span>
-        <h3 className="text-sm font-bold text-gray-800 leading-snug mb-3 flex-1 line-clamp-2">
+        <h3 className="text-sm font-bold text-white/90 leading-snug mb-4 flex-1 line-clamp-2 uppercase italic tracking-tight group-hover:text-blue-400 transition-colors duration-300">
           {product.name}
         </h3>
-        <div className="flex items-center justify-between mt-auto">
-          <span className="text-base font-extrabold text-gray-900">
+        <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/5">
+          <span className="text-base font-black text-white tracking-tight">
             {product.price}
           </span>
           <button
             onClick={() => onAddToCart(product)}
-            className="text-xs font-bold bg-gradient-to-r from-fuchsia-500 to-violet-500 text-white px-4 py-2 rounded-2xl hover:from-fuchsia-600 hover:to-violet-600 active:scale-95 transition-all duration-200 shadow-md hover:shadow-fuchsia-200"
+            className="group/btn relative overflow-hidden text-[10px] font-black uppercase tracking-widest bg-blue-600 text-white px-4 py-2.5 rounded-xl hover:shadow-[0_0_25px_rgba(0,112,243,0.5)] active:scale-95 transition-all duration-200"
           >
-            + Cart
+            <span className="relative z-10">+ Cart</span>
+            <div className="absolute inset-0 bg-white/20 translate-x-full group-hover/btn:translate-x-0 transition-transform duration-300" />
           </button>
         </div>
       </div>
@@ -831,69 +833,76 @@ export default function Kids() {
   };
 
   return (
-    <div
-      className="min-h-screen font-sans"
-      style={{
-        background:
-          "linear-gradient(135deg,#fdf4ff 0%,#f0fdf4 50%,#fff7ed 100%)",
-      }}
-    >
+    <div className="min-h-screen font-sans bg-[#020202] text-white overflow-hidden relative selection:bg-blue-600 selection:text-white">
+      {/* Background Decorative Large Text */}
+      <div className="absolute top-40 right-10 text-[16vw] font-black text-white/[0.02] select-none pointer-events-none uppercase tracking-tighter">
+        Junior
+      </div>
+      <div className="absolute bottom-40 left-10 text-[12vw] font-black text-white/[0.02] select-none pointer-events-none uppercase tracking-widest italic">
+        Couture
+      </div>
+
+      {/* Ambient Glows */}
+      <div className="absolute top-[-5%] right-[-5%] w-120 h-120 rounded-full blur-[150px] opacity-15 pointer-events-none bg-[#0070f3]" />
+      <div className="absolute bottom-[20%] left-[-10%] w-100 h-100 rounded-full blur-[130px] opacity-10 pointer-events-none bg-[#0070f3]" />
+
       {/* ── TOAST ── */}
       <div
         className={`fixed top-4 right-4 z-50 transition-all duration-400 ${toastMsg ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"}`}
       >
-        <div className="bg-gray-900 text-white text-sm font-semibold px-5 py-3 rounded-2xl shadow-2xl flex items-center gap-2">
-          <span>🛍️</span> {toastMsg}
+        <div className="bg-white/10 backdrop-blur-2xl text-white text-xs font-black uppercase tracking-widest px-6 py-4 rounded-xl border border-white/20 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex items-center gap-3">
+          <span className="text-blue-500">🛍️</span> {toastMsg}
         </div>
       </div>
 
       {/* ── NAVBAR ── */}
-      <nav className="sticky top-0 z-40 backdrop-blur-md bg-white/70 border-b border-white/60 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <nav className="sticky top-0 z-40 backdrop-blur-xl bg-[#020202]/70 border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-black tracking-tight bg-gradient-to-r from-fuchsia-600 via-violet-500 to-orange-400 bg-clip-text text-transparent">
+            <span className="text-xl font-black tracking-[0.15em] uppercase text-white">
               StylerHub
             </span>
-            <span className="hidden sm:inline-block bg-fuchsia-100 text-fuchsia-600 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ml-1">
+            <span className="hidden sm:inline-block border border-blue-500/30 bg-blue-600/10 text-blue-500 text-[9px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-[0.2em] ml-2">
               Kids
             </span>
           </div>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <button
               onClick={() => searchRef.current?.focus()}
-              className="text-gray-500 hover:text-fuchsia-500 transition-colors"
+              className="text-white/60 hover:text-white transition-colors"
               aria-label="Search"
             >
               <svg
                 className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
+                strokeWidth={2.5}
                 viewBox="0 0 24 24"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
+                  pathLength="1"
                   d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
                 />
               </svg>
             </button>
-            <button className="relative text-gray-600 hover:text-fuchsia-500 transition-colors">
+            <button className="relative text-white/60 hover:text-white transition-colors">
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
+                strokeWidth={2.5}
                 viewBox="0 0 24 24"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
                 />
               </svg>
               {cartCount > 0 && (
-                <span className="absolute -top-1.5 -right-1.5 bg-fuchsia-500 text-white text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">
+                <span className="absolute -top-1.5 -right-2 bg-blue-600 text-white text-[8px] font-black w-4 h-4 rounded-full flex items-center justify-center shadow-[0_0_10px_rgba(0,112,243,0.8)]">
                   {cartCount}
                 </span>
               )}
@@ -904,54 +913,39 @@ export default function Kids() {
 
       {/* ── HERO ── */}
       <section className="relative overflow-hidden">
-        {/* Decorative blobs */}
-        <div className="absolute -top-20 -left-20 w-96 h-96 bg-fuchsia-200 rounded-full opacity-30 blur-3xl pointer-events-none" />
-        <div className="absolute top-10 right-0 w-72 h-72 bg-orange-200 rounded-full opacity-40 blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-1/2 w-80 h-80 bg-violet-200 rounded-full opacity-20 blur-3xl pointer-events-none" />
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 sm:pt-24 sm:pb-16 text-center">
-          {/* Pill */}
-          <div className="inline-flex items-center gap-2 bg-white/80 border border-fuchsia-100 text-fuchsia-600 text-xs font-bold px-4 py-2 rounded-full shadow-sm mb-6 tracking-wide">
-            <span className="w-2 h-2 bg-fuchsia-500 rounded-full animate-pulse" />
-            New Season · Kids Collection 2025
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 text-center z-10">
+          <div className="inline-flex items-center gap-3 bg-white/5 border border-white/10 text-white text-[10px] font-black px-5 py-2.5 rounded-full shadow-xl mb-8 tracking-[0.3em] uppercase backdrop-blur-md">
+            <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse shadow-[0_0_10px_#0070f3]" />
+            New Season · Kids Collection 2026
           </div>
 
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-gray-900 leading-none tracking-tight mb-4">
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.95] tracking-tighter mb-6 uppercase italic">
             Dress Them in{" "}
-            <span className="relative inline-block">
-              <span className="bg-gradient-to-r from-fuchsia-500 via-violet-500 to-orange-400 bg-clip-text text-transparent">
-                Pure Joy
-              </span>
-              {/* Underline squiggle */}
+            <br className="hidden sm:block" />
+            <span className="relative inline-block text-blue-500">
+              Pure Joy
               <svg
-                className="absolute -bottom-2 left-0 w-full"
+                className="absolute -bottom-3 left-0 w-full opacity-60"
                 viewBox="0 0 300 12"
                 fill="none"
               >
                 <path
                   d="M2 8 Q75 2 150 8 Q225 14 298 8"
-                  stroke="url(#grad)"
-                  strokeWidth="3"
+                  stroke="#0070f3"
+                  strokeWidth="3.5"
                   strokeLinecap="round"
                   fill="none"
                 />
-                <defs>
-                  <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#d946ef" />
-                    <stop offset="100%" stopColor="#f97316" />
-                  </linearGradient>
-                </defs>
               </svg>
             </span>
           </h1>
-          <p className="mt-6 text-gray-500 text-base sm:text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="mt-8 text-white/40 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-medium">
             Playful, premium, and perfectly sized — explore{" "}
-            <strong className="text-gray-700">{products.length}+</strong>{" "}
+            <strong className="text-white/80 font-black">{products.length}+</strong>{" "}
             handpicked styles for little fashion stars.
           </p>
 
-          {/* Stats row */}
-          <div className="flex flex-wrap justify-center gap-6 mt-10">
+          <div className="flex flex-wrap justify-center gap-4 mt-12">
             {[
               { emoji: "👗", label: "70+ Outfits" },
               { emoji: "🎀", label: "Boys & Girls" },
@@ -960,9 +954,9 @@ export default function Kids() {
             ].map((s) => (
               <div
                 key={s.label}
-                className="flex items-center gap-2 bg-white/70 backdrop-blur px-4 py-2 rounded-2xl shadow-sm border border-white text-sm font-semibold text-gray-700"
+                className="flex items-center gap-2.5 bg-white/5 backdrop-blur-xl px-5 py-2.5 rounded-xl shadow-lg border border-white/10 text-[10px] font-black uppercase tracking-widest text-white/80 hover:border-white/20 hover:text-white transition-all"
               >
-                <span>{s.emoji}</span> {s.label}
+                <span className="brightness-90">{s.emoji}</span> {s.label}
               </div>
             ))}
           </div>
@@ -970,19 +964,18 @@ export default function Kids() {
       </section>
 
       {/* ── SEARCH + FILTERS ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-6">
-        {/* Search bar */}
-        <div className="relative max-w-lg mx-auto mb-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8 relative z-10">
+        <div className="relative max-w-lg mx-auto mb-10">
           <svg
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400"
+            className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30"
             fill="none"
             stroke="currentColor"
+            strokeWidth={2.5}
             viewBox="0 0 24 24"
           >
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
               d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z"
             />
           </svg>
@@ -995,30 +988,29 @@ export default function Kids() {
               setVisibleCount(12);
             }}
             placeholder="Search outfits, styles, seasons…"
-            className="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-white border border-gray-100 shadow-sm text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-fuchsia-300 transition-all"
+            className="w-full pl-11 pr-10 py-4 rounded-xl bg-white/5 border border-white/10 shadow-2xl text-sm text-white placeholder-white/30 focus:outline-none focus:ring-1 focus:ring-blue-500/50 focus:border-blue-500/50 transition-all backdrop-blur-md"
           />
           {searchQuery && (
             <button
               onClick={() => setSearchQuery("")}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white/40 hover:text-white text-xs font-bold"
             >
               ✕
             </button>
           )}
         </div>
 
-        {/* Category pills */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+        <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
           {CATEGORIES.map((cat) => {
             const active = cat === activeCategory;
             return (
               <button
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
-                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 border ${
+                className={`px-5 py-2.5 rounded-xl text-[11px] font-black uppercase tracking-widest transition-all duration-300 border ${
                   active
-                    ? "bg-gradient-to-r from-fuchsia-500 to-violet-500 text-white border-transparent shadow-lg shadow-fuchsia-200 scale-105"
-                    : "bg-white text-gray-500 border-gray-100 hover:border-fuchsia-200 hover:text-fuchsia-500 hover:shadow-sm"
+                    ? "bg-blue-600 text-white border-transparent shadow-[0_0_25px_rgba(0,112,243,0.55)] scale-105"
+                    : "bg-white/5 text-white/40 border-white/5 hover:border-white/20 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {cat}
@@ -1027,8 +1019,7 @@ export default function Kids() {
           })}
         </div>
 
-        {/* Result count */}
-        <p className="text-center text-xs text-gray-400 font-medium mt-5">
+        <p className="text-center text-[10px] text-white/30 font-bold uppercase tracking-[0.2em] mt-8">
           {filtered.length} outfit{filtered.length !== 1 ? "s" : ""} found
           {activeCategory !== "All" && ` in "${activeCategory}"`}
           {searchQuery && ` for "${searchQuery}"`}
@@ -1036,20 +1027,20 @@ export default function Kids() {
       </section>
 
       {/* ── GRID ── */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 relative z-10">
         {loading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 sm:gap-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {Array.from({ length: 8 }).map((_, i) => (
               <SkeletonCard key={i} />
             ))}
           </div>
         ) : filtered.length === 0 ? (
-          <div className="text-center py-24">
-            <p className="text-6xl mb-4">🔍</p>
-            <h3 className="text-xl font-bold text-gray-700 mb-2">
+          <div className="text-center py-24 bg-white/5 border border-white/5 rounded-3xl backdrop-blur-md max-w-xl mx-auto">
+            <p className="text-5xl mb-4 opacity-40">🔍</p>
+            <h3 className="text-lg font-black text-white uppercase tracking-wider mb-2">
               No outfits found
             </h3>
-            <p className="text-gray-400 text-sm">
+            <p className="text-white/40 text-xs tracking-wide max-w-xs mx-auto">
               Try a different category or search term.
             </p>
             <button
@@ -1057,7 +1048,7 @@ export default function Kids() {
                 setActiveCategory("All");
                 setSearchQuery("");
               }}
-              className="mt-6 bg-gradient-to-r from-fuchsia-500 to-violet-500 text-white font-bold px-6 py-3 rounded-2xl text-sm hover:opacity-90 transition"
+              className="mt-6 bg-transparent border border-white/20 hover:bg-white hover:text-black text-white font-black uppercase tracking-widest px-6 py-3 rounded-xl text-xs transition-all"
             >
               View All Outfits
             </button>
@@ -1074,64 +1065,20 @@ export default function Kids() {
               ))}
             </div>
 
-            {/* Load More */}
+            {/* Load More Button */}
             {visibleCount < filtered.length && (
-              <div className="flex justify-center mt-12">
+              <div className="text-center mt-14">
                 <button
-                  onClick={() => setVisibleCount((v) => v + 12)}
-                  className="group relative overflow-hidden bg-white border-2 border-fuchsia-200 text-fuchsia-600 font-bold px-10 py-4 rounded-2xl text-sm hover:border-fuchsia-400 transition-all duration-300 shadow-sm hover:shadow-fuchsia-100"
+                  onClick={() => setVisibleCount((prev) => prev + 12)}
+                  className="group relative overflow-hidden bg-white/5 border border-white/10 hover:border-white/30 text-white text-[11px] font-black uppercase tracking-[0.2em] px-8 py-4 rounded-xl transition-all shadow-xl"
                 >
-                  <span className="relative z-10 flex items-center gap-2">
-                    Load More Outfits
-                    <svg
-                      className="w-4 h-4 group-hover:translate-y-0.5 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 9l-7 7-7-7"
-                      />
-                    </svg>
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-fuchsia-50 to-violet-50 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <span className="relative z-10">Load More Outfits</span>
+                  <div className="absolute inset-0 bg-white/[0.04] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
                 </button>
               </div>
             )}
-
-            {/* End of results message */}
-            {visibleCount >= filtered.length && filtered.length > 12 && (
-              <p className="text-center text-gray-400 text-sm mt-10">
-                🎉 You've seen all {filtered.length} outfits!
-              </p>
-            )}
           </>
         )}
-      </section>
-
-      {/* ── FOOTER BANNER ── */}
-      <section className="bg-gradient-to-r from-fuchsia-600 via-violet-600 to-purple-700 py-14 px-4">
-        <div className="max-w-3xl mx-auto text-center text-white">
-          <p className="text-3xl sm:text-4xl font-black mb-3 leading-tight">
-            Styled for Every Little Adventure 🌟
-          </p>
-          <p className="text-white/80 text-sm sm:text-base mb-8">
-            Sign up and get 15% off your first order. New arrivals every week.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-5 py-3.5 rounded-2xl text-gray-700 text-sm focus:outline-none focus:ring-2 focus:ring-white/60"
-            />
-            <button className="bg-white text-fuchsia-600 font-bold px-6 py-3.5 rounded-2xl text-sm hover:bg-fuchsia-50 transition-colors shadow-lg">
-              Get 15% Off
-            </button>
-          </div>
-        </div>
       </section>
     </div>
   );
