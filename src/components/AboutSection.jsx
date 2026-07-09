@@ -56,10 +56,10 @@ const AboutSection = () => {
             />
             <div className="absolute -bottom-8 -right-8 bg-stone-900 text-white p-8 rounded-xl hidden md:block max-w-xs">
               <p className="text-amber-400 font-serif italic text-xl mb-2">
-                "Style is a way to say who you are without having to speak."
+                "Style has no gender.Confidence has no limits.Wear what speaks before you do".
               </p>
               <span className="text-[10px] tracking-widest uppercase text-stone-400">
-                — Rachel Zoe
+                - Maryam Mhidey
               </span>
             </div>
           </div>
