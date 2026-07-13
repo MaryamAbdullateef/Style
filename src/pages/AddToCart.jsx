@@ -1,36 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useCart } from "../context/CartContext"; // Hook into the dynamic context data stream
 
 const AddToCart = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const { cartItems, removeFromCart } = useCart(); // Access shared reactive states
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const savedCart = JSON.parse(localStorage.getItem("styler_cart")) || [];
-    setCartItems(savedCart);
-  }, []);
 
   const handleCheckout = () => {
     const user = localStorage.getItem("styler_user");
     if (!user) {
-      // Stubborn user protection: Redirect to account if not logged in
-      alert("Please login to place an order.");
+      // Redirect to account if not authenticated, passing the intended route history context
       navigate("/account", { state: { from: { pathname: "/order" } } });
     } else {
       navigate("/order");
     }
   };
 
-  const removeProduct = (id) => {
-    const updated = cartItems.filter((item) => item.id !== id);
-    setCartItems(updated);
-    localStorage.setItem("styler_cart", JSON.stringify(updated));
-    window.dispatchEvent(new Event("storage")); // Updates Navbar badge
-  };
+  // Calculates subtotal instantly using proper property keys (item.price and item.quantity)
+  const subtotal = cartItems.reduce(
+    (acc, item) => acc + (Number(item.price) || 0) * (item.quantity || 1),
+    0
+  );
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen pt-40 flex flex-col items-center px-6">
+      <div className="min-h-screen pt-40 flex flex-col items-center px-6 bg-black text-white">
         <span className="text-6xl mb-6">🛍️</span>
         <h2 className="text-4xl font-black tracking-tighter mb-4 text-center">
           YOUR BAG IS EMPTY.
@@ -39,8 +33,8 @@ const AddToCart = () => {
           Style has no limits, but your bag does.
         </p>
         <Link
-          to="/shop"
-          className="bg-black text-white px-10 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-red-600 transition-all"
+          to="/"
+          className="bg-white text-black px-10 py-4 rounded-full font-black uppercase tracking-widest text-[10px] hover:bg-blue-600 hover:text-white transition-all"
         >
           Start Shopping
         </Link>
@@ -49,12 +43,12 @@ const AddToCart = () => {
   }
 
   return (
-    <div className="max-w-6xl mx-auto pt-32 px-6 pb-24">
+    <div className="max-w-6xl mx-auto pt-32 px-6 pb-24 text-white bg-black">
       <div className="flex justify-between items-end mb-12">
         <h1 className="text-5xl font-black tracking-tighter uppercase">
           Your Bag
         </h1>
-        <p className="text-red-500 font-bold">{cartItems.length} ITEMS</p>
+        <p className="text-blue-500 font-bold">{cartItems.length} ITEMS</p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -62,10 +56,15 @@ const AddToCart = () => {
           {cartItems.map((item) => (
             <div
               key={item.id}
-              className="flex gap-8 border-b border-gray-100 pb-10"
+              className="flex gap-8 border-b border-white/10 pb-10"
             >
-              <div className="w-32 h-44 bg-gray-100 rounded-4xl overflow-hidden shrink-0 shadow-lg">
-                <img src={item.image} className="w-full h-full object-cover" />
+              {/* Image box fallback aligned with item.img key */}
+              <div className="w-32 h-44 bg-zinc-900 rounded-4xl overflow-hidden shrink-0 shadow-lg">
+                <img
+                  src={item.img}
+                  alt={item.name}
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="flex-1 flex flex-col justify-between py-2">
                 <div className="flex justify-between items-start">
@@ -74,20 +73,22 @@ const AddToCart = () => {
                       {item.name}
                     </h3>
                     <p className="text-gray-400 text-sm tracking-widest">
-                      {item.category}
+                      {item.category || "Apparel"}
                     </p>
                   </div>
                   <button
-                    onClick={() => removeProduct(item.id)}
-                    className="text-gray-300 hover:text-red-500 transition-colors"
+                    onClick={() => removeFromCart(item.id)}
+                    className="text-gray-500 hover:text-red-500 transition-colors cursor-pointer"
                   >
                     ✕
                   </button>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="font-black text-2xl">${item.price}</span>
-                  <div className="bg-gray-50 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
-                    Qty: 1
+                  <span className="font-black text-2xl">
+                    ₦{item.price.toLocaleString()}
+                  </span>
+                  <div className="bg-zinc-900 text-gray-300 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest">
+                    Qty: {item.quantity || 1}
                   </div>
                 </div>
               </div>
@@ -95,28 +96,28 @@ const AddToCart = () => {
           ))}
         </div>
 
-        {/* Order Summary Card */}
-        <div className="bg-white p-10 rounded-[3rem] border border-gray-100 shadow-[0_30px_60px_rgba(0,0,0,0.05)] h-fit">
-          <h3 className="font-black text-xl mb-8 uppercase tracking-tighter">
+        {/* Order Summary Card Panel */}
+        <div className="bg-zinc-950 p-10 rounded-[3rem] border border-white/10 shadow-2xl h-fit">
+          <h3 className="font-black text-xl mb-8 uppercase tracking-tighter text-white">
             Checkout Details
           </h3>
           <div className="space-y-4 mb-8 text-sm font-medium">
             <div className="flex justify-between text-gray-400">
               <span>Subtotal</span>
-              <span className="text-black">$450.00</span>
+              <span className="text-white">₦{subtotal.toLocaleString()}</span>
             </div>
             <div className="flex justify-between text-gray-400">
               <span>Shipping</span>
-              <span className="text-green-500">FREE</span>
+              <span className="text-blue-400">FREE</span>
             </div>
-            <div className="pt-4 border-t border-gray-100 flex justify-between text-2xl font-black">
+            <div className="pt-4 border-t border-white/10 flex justify-between text-2xl font-black">
               <span>TOTAL</span>
-              <span>$450.00</span>
+              <span className="text-blue-500">₦{subtotal.toLocaleString()}</span>
             </div>
           </div>
           <button
             onClick={handleCheckout}
-            className="w-full bg-red-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-black transition-all shadow-xl shadow-red-200"
+            className="w-full bg-blue-600 text-white py-5 rounded-2xl font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all shadow-xl shadow-blue-900/30 cursor-pointer"
           >
             Order Now
           </button>

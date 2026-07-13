@@ -60,7 +60,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-16 md:mb-24">
           {/* --- BRAND SECTION --- */}
           <div className="lg:col-span-4 space-y-8 flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl font-black text-white italic tracking-tighter group cursor-default">
+            <h2 className="text-4xl md:text-5xl font-black text-white  tracking-tighter group cursor-default">
               STYLER
               <span className="text-red-500 group-hover:text-blue-400 transition-colors duration-500">
                 HUB.

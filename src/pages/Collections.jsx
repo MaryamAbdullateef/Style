@@ -167,7 +167,7 @@ const GARMENT_IMAGE_POOLS = {
 
   // ── KIDS ───────────────────────────────────────────────────
   Cardigan: [
-    "photo-1519457431-44ccd64a579b",
+    "photo-1519457431-44ced64a579b",
     "photo-1622243697926-26fc54045353",
     "photo-1607990283143-e81e7a2c93ab",
     "photo-1519238263530-99bdd11df2ea",
@@ -268,54 +268,17 @@ function getUniqueImage(garmentKey) {
 /* ─── DYNAMIC DATA GENERATOR (150 Unique Items) ──────────────── */
 const generateData = () => {
   const categories = ["Men", "Women", "Kids"];
-  
-  // Updated Brand Accent Matrix matching the primary dynamic Hero blue color system
   const accents = ["#0070f3", "#3a92ff", "#1f80f5", "#5ca4ff", "#0051b0"];
 
   const descriptors = [
-    "Tailored",
-    "Silk",
-    "Linen",
-    "Oversized",
-    "Vintage",
-    "Minimalist",
-    "Velvet",
-    "Cashmere",
-    "Structured",
-    "Flowing",
+    "Tailored", "Silk", "Linen", "Oversized", "Vintage",
+    "Minimalist", "Velvet", "Cashmere", "Structured", "Flowing",
   ];
 
   const garments = {
-    Men: [
-      "Blazer",
-      "Trousers",
-      "Overcoat",
-      "Chelsea Boot",
-      "Utility Vest",
-      "Oxford Shirt",
-      "Knit Polo",
-      "Cuban Shirt",
-    ],
-    Women: [
-      "Evening Gown",
-      "Slip Dress",
-      "Wrap Skirt",
-      "Corset Top",
-      "Palazzo Pants",
-      "Trench Coat",
-      "Midi Dress",
-      "Blouse",
-    ],
-    Kids: [
-      "Cardigan",
-      "Cotton Romper",
-      "Denim Jacket",
-      "Smock Dress",
-      "Overalls",
-      "Hoodie",
-      "Sun Hat",
-      "Chinos",
-    ],
+    Men: ["Blazer", "Trousers", "Overcoat", "Chelsea Boot", "Utility Vest", "Oxford Shirt", "Knit Polo", "Cuban Shirt"],
+    Women: ["Evening Gown", "Slip Dress", "Wrap Skirt", "Corset Top", "Palazzo Pants", "Trench Coat", "Midi Dress", "Blouse"],
+    Kids: ["Cardigan", "Cotton Romper", "Denim Jacket", "Smock Dress", "Overalls", "Hoodie", "Sun Hat", "Chinos"],
   };
 
   Object.keys(garmentCounters).forEach((k) => {
@@ -334,14 +297,8 @@ const generateData = () => {
       category,
       title,
       subtitle: `${category} · Edition No. ${i + 1}`,
-      description:
-        "A masterclass in modern silhouette and fabric integrity. Designed for the 2026 global aesthetic.",
-      tag:
-        i % 10 === 0
-          ? "Limited Edition"
-          : i % 5 === 0
-            ? "New Arrival"
-            : "Essential",
+      description: "A masterclass in modern silhouette and fabric integrity. Designed for the 2026 global aesthetic.",
+      tag: i % 10 === 0 ? "Limited Edition" : i % 5 === 0 ? "New Arrival" : "Essential",
       image: getUniqueImage(garment),
       accent: accents[i % accents.length],
     };
@@ -400,7 +357,7 @@ function useReveal() {
 }
 
 /* ─── COMPONENT: COLLECTION CARD ─────────────────────────── */
-function CollectionCard({ col, className = "" }) {
+function CollectionCard({ col, className = "", onClick }) {
   const [hovered, setHovered] = useState(false);
   const [ref, visible] = useReveal();
   const [imgError, setImgError] = useState(false);
@@ -414,6 +371,7 @@ function CollectionCard({ col, className = "" }) {
       onMouseLeave={() => setHovered(false)}
       onTouchStart={() => setHovered(true)}
       onTouchEnd={() => setHovered(false)}
+      onClick={onClick} // Click event attached to the card container
       className={`relative overflow-hidden rounded-[2rem] md:rounded-[3rem] cursor-pointer bg-[#111] transition-all duration-1000 ease-out w-full ${className}`}
       style={{
         opacity: visible ? 1 : 0,
@@ -430,11 +388,7 @@ function CollectionCard({ col, className = "" }) {
         className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out"
         style={{ transform: hovered ? "scale(1.05)" : "scale(1)" }}
       />
-      <div
-        className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-700 ${
-          hovered ? "opacity-95" : "opacity-75"
-        }`}
-      />
+      <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-700 ${hovered ? "opacity-95" : "opacity-75"}`} />
 
       <div className="absolute top-4 left-4 md:top-6 md:left-6">
         <span
@@ -446,21 +400,14 @@ function CollectionCard({ col, className = "" }) {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-        <p
-          className="text-[10px] font-bold tracking-[0.3em] uppercase mb-2 text-white/40 transition-colors duration-300"
-          style={{ color: hovered ? col.accent : "" }}
-        >
+        <p className="text-[10px] font-bold tracking-[0.3em] uppercase mb-2 text-white/40 transition-colors duration-300" style={{ color: hovered ? col.accent : "" }}>
           {col.subtitle}
         </p>
         <h3 className="text-xl md:text-3xl font-black text-white italic uppercase tracking-tighter mb-3 leading-tight">
           {col.title}
         </h3>
 
-        <div
-          className={`overflow-hidden transition-all duration-700 ease-in-out ${
-            hovered ? "max-h-32 opacity-100" : "max-h-0 opacity-0"
-          }`}
-        >
+        <div className={`overflow-hidden transition-all duration-700 ease-in-out ${hovered ? "max-h-32 opacity-100" : "max-h-0 opacity-0"}`}>
           <p className="text-xs text-white/50 leading-relaxed mb-6">
             {col.description}
           </p>
@@ -486,49 +433,52 @@ function CollectionCard({ col, className = "" }) {
 /* ─── MAIN COMPONENT ─────────────────────────────────────── */
 export default function Collections() {
   const [activeTab, setActiveTab] = useState("All");
-  const typedWord = useTypewriter([
-    "Masterpieces",
-    "Silhouettes",
-    "Traditions",
-    "Elegance",
-  ]);
+  const typedWord = useTypewriter(["Masterpieces", "Silhouettes", "Traditions", "Elegance"]);
   const [headerRef, headerVisible] = useReveal();
 
   const filteredItems = useMemo(() => {
-    return activeTab === "All"
-      ? allItems
-      : allItems.filter((item) => item.category === activeTab);
+    return activeTab === "All" ? allItems : allItems.filter((item) => item.category === activeTab);
   }, [activeTab]);
+
+  // Click handler to display information when a card is clicked
+  const handleCardClick = (item) => {
+    alert(`Discovering details for: ${item.title}\nCategory: ${item.category}\nEdition: ${item.subtitle}`);
+  };
 
   return (
     <section className="bg-[#050505] min-h-screen py-16 md:py-32 px-4 md:px-10 overflow-x-hidden">
       <div ref={headerRef} className="max-w-[1400px] mx-auto mb-16 md:mb-24">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-          <div className="space-y-6">
-            <h2 className="text-white text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] uppercase italic breakdown-words">
-              Curated <br />
-              <span
-                className="text-transparent"
-                style={{ WebkitTextStroke: "1px #0070f3" }}
-              >
-                {typedWord}
+          
+          <div className="space-y-6 max-w-4xl">
+            <div className="inline-flex items-center gap-2 border border-white/10 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0070f3] animate-ping" />
+              <span className="text-[9px] font-black tracking-[0.3em] text-white/70 uppercase">
+                Explore Collections
               </span>
-              <span className="animate-pulse ml-2 text-[#0070f3]">_</span>
+            </div>
+
+            <h2 className="text-white text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase italic break-words">
+              Discover Our <br />
+              <span className="text-transparent" style={{ WebkitTextStroke: "1px #0070f3" }}>Exclusive</span> Collections
             </h2>
-            <p className="text-white/20 text-[10px] md:text-sm font-medium tracking-[0.5em] uppercase">
-              The Archive — Global Collection 2026
+
+            <p className="text-white/60 text-xs md:text-sm font-medium tracking-wide leading-relaxed max-w-2xl">
+              Explore carefully curated styles, trending outfits, and must-have pieces designed to elevate your wardrobe. Browse our latest arrivals and discover collections crafted for every occasion.
+            </p>
+
+            <p className="text-[#0070f3] text-[9px] md:text-xs font-black tracking-[0.5em] uppercase pt-2">
+              The Archive — Global Studio 2026
             </p>
           </div>
 
-          <div className="flex overflow-x-auto no-scrollbar bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-2xl max-w-full touch-pan-x">
+          <div className="flex overflow-x-auto no-scrollbar bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-2xl max-w-full touch-pan-x self-start lg:self-end">
             {["All", "Men", "Women", "Kids"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={`px-6 md:px-12 py-3 md:py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shrink-0 ${
-                  activeTab === tab
-                    ? "bg-[#0070f3] text-white shadow-lg shadow-blue-600/30"
-                    : "text-white/30 hover:text-white"
+                  activeTab === tab ? "bg-[#0070f3] text-white shadow-lg shadow-blue-600/30" : "text-white/30 hover:text-white"
                 }`}
               >
                 {tab}
@@ -551,6 +501,7 @@ export default function Collections() {
                 key={item.id}
                 col={item}
                 className={`${colSpan} h-[400px] md:h-[500px] lg:h-[600px]`}
+                onClick={() => handleCardClick(item)} // Sent the click down to the card handler
               />
             );
           })}

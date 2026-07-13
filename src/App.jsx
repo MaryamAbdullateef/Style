@@ -2,6 +2,9 @@
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 
+// Import global state context provider wrapper
+import { CartProvider } from "./context/CartContext";
+
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -22,8 +25,9 @@ import ReturnsPolicy from "./pages/ReturnsPolicy";
 import Account from "./pages/Account";
 import Search from "./pages/Search";
 import AddToCart from "./pages/AddToCart";
+import ProductDetails from "./pages/ProductDetails"; // Linked detailed product preview sheet
 
-// Data Integration Component (Wired to ProductList.jsx)
+// Data Integration Component
 import ProductList from "./components/ProductList";
 
 // Admin Interface Management Component
@@ -44,62 +48,63 @@ export default function App() {
   const isAdminPage = location.pathname === "/admin";
 
   return (
-    <div className="bg-black min-h-screen flex flex-col font-sans selection:bg-[#0070f3] selection:text-white">
-      <ScrollToTop />
+    <CartProvider>
+      <div className="bg-black min-h-screen flex flex-col font-sans selection:bg-[#0070f3] selection:text-white">
+        <ScrollToTop />
 
-      {/* Hide regular navigation layout components if viewing account or admin portal views */}
-      {!isAccountPage && !isAdminPage && <Navbar />}
+        {/* Hide regular navigation layout components if viewing account or admin portal views */}
+        {!isAccountPage && !isAdminPage && <Navbar />}
 
-      <main className="grow">
-        <Routes>
-          {/* Main Route displaying the home page layout alongside backend data */}
-          <Route 
-            path="/" 
-            element={
-              <>
-                <Home />
-                <ProductList />
-              </>
-            } 
-          />
-          <Route path="/men" element={<Men />} />
-          <Route path="/kids" element={<Kids />} />
-          <Route path="/women" element={<Women />} />
+        <main className="grow">
+          <Routes>
+            {/* Main Route displaying the home page layout alongside backend data */}
+            <Route 
+              path="/" 
+              element={
+                <>
+                  <Home />
+                  <ProductList />
+                </>
+              } 
+            />
+            <Route path="/men" element={<Men />} />
+            <Route path="/kids" element={<Kids />} />
+            <Route path="/women" element={<Women />} />
 
-          <Route path="/track-order" element={<TrackOrder />} />
-          <Route path="/returns-policy" element={<ReturnsPolicy />} />
+            {/* Dynamic context layout route framework integration */}
+            <Route path="/product-details" element={<ProductDetails />} />
 
-          <Route path="/collections" element={<Collections />} />
-          <Route path="/new" element={<NewArrival />} />
-          <Route path="/contact" element={<ContactPage />} />
-          <Route path="/account" element={<Account />} />
-          <Route path="/search" element={<Search />} />
-          
-          {/* Dashboard Portal Management View */}
-          <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/track-order" element={<TrackOrder />} />
+            <Route path="/returns-policy" element={<ReturnsPolicy />} />
 
-          <Route
-            path="/order"
-            element={
-              <ProtectedRoute>
-                <Order />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute>
-                <AddToCart />
-              </ProtectedRoute>
-            }
-          />
+            <Route path="/collections" element={<Collections />} />
+            <Route path="/new" element={<NewArrival />} />
+            <Route path="/contact" element={<ContactPage />} />
+            <Route path="/account" element={<Account />} />
+            <Route path="/search" element={<Search />} />
+            
+            {/* Dashboard Portal Management View */}
+            <Route path="/admin" element={<AdminDashboard />} />
 
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
-      </main>
+            {/* Secure Routing for checkout actions */}
+            <Route
+              path="/order"
+              element={
+                <ProtectedRoute>
+                  <Order />
+                </ProtectedRoute>
+              }
+            />
+            
+            {/* Unlocked Cart Route for unrestricted shopping bag view */}
+            <Route path="/cart" element={<AddToCart />} />
 
-      {!isAccountPage && !isAdminPage && <Footer />}
-    </div>
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </main>
+
+        {!isAccountPage && !isAdminPage && <Footer />}
+      </div>
+    </CartProvider>
   );
 }

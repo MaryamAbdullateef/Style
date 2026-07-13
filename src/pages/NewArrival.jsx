@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+// Import the application cart context hook to seamlessly sync states across the application navbar
+import { useCart } from "../context/CartContext";
 
 const products = [
   // WOMEN (40 ITEMS)
@@ -910,7 +912,6 @@ const products = [
 
 const filters = ["All", "Women", "Men", "Kids"];
 
-// Refactored to premium translucent dark tags to keep system consistency
 const categoryColors = {
   Women: "bg-white/5 text-white/80 border border-white/10",
   Men: "bg-white/5 text-white/80 border border-white/10",
@@ -919,17 +920,72 @@ const categoryColors = {
 
 export default function NewArrival() {
   const [active, setActive] = useState("All");
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [toastMessage, setToastMessage] = useState("");
   const brandBlue = "#0070f3";
+
+  // Connects with the Navbar cart state engine
+  let cartCtx = null;
+  try {
+    cartCtx = useCart();
+  } catch (e) {
+    // Context fallback container
+  }
+
+  // Self-initializing global storage system for automatic navbar update fallbacks
+  const fallbackAddToCart = (product, quantity, selectedSize, selectedColor) => {
+    const savedCart = localStorage.getItem("styler_cart");
+    let currentCart = savedCart ? JSON.parse(savedCart) : [];
+    
+    const existingIndex = currentCart.findIndex(
+      (item) => 
+        item.id === product.id && 
+        item.size === selectedSize && 
+        item.color === selectedColor
+    );
+
+    if (existingIndex > -1) {
+      currentCart[existingIndex].quantity += quantity;
+    } else {
+      currentCart.push({
+        ...product,
+        quantity,
+        size: selectedSize,
+        color: selectedColor
+      });
+    }
+
+    localStorage.setItem("styler_cart", JSON.stringify(currentCart));
+    window.dispatchEvent(new Event("storage"));
+  };
+
+  const handleGlobalCartAdd = (product, quantity = 1, selectedSize = "M", selectedColor = "Default") => {
+    if (cartCtx && typeof cartCtx.addToCart === "function") {
+      cartCtx.addToCart({ ...product, size: selectedSize, color: selectedColor }, quantity);
+    } else {
+      fallbackAddToCart(product, quantity, selectedSize, selectedColor);
+    }
+
+    // Trigger Toast Notification
+    setToastMessage(`Added ${product.name} to cart!`);
+    setTimeout(() => setToastMessage(""), 3500);
+  };
 
   const visible =
     active === "All" ? products : products.filter((p) => p.category === active);
 
   return (
-    <section
-      className="min-h-screen py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-[#020202]"
-    >
+    <section className="min-h-screen py-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-[#020202]">
+      {/* ── Toast Notification Popup ── */}
+      {toastMessage && (
+        <div className="fixed bottom-6 right-6 z-[2000] bg-zinc-950 border border-white/10 text-white text-xs font-black tracking-widest uppercase px-6 py-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.7)] flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-300">
+          <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+          {toastMessage}
+        </div>
+      )}
+
       {/* ── Header ── */}
-      <div className="max-w-7xl mx-auto mb-12 text-center px-4">
+      <div className="max-w-7xl mx-auto mb-12 text-center p-20">
         <p
           className="text-[10px] sm:text-xs tracking-[0.35em] uppercase mb-3 font-semibold"
           style={{ color: brandBlue }}
@@ -998,7 +1054,13 @@ export default function NewArrival() {
       {/* ── Grid ── */}
       <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5 md:gap-6 px-0">
         {visible.map((product) => (
-          <ProductCard key={product.id} product={product} brandBlue={brandBlue} />
+          <ProductCard 
+            key={product.id} 
+            product={product} 
+            brandBlue={brandBlue} 
+            onQuickView={() => setSelectedProduct(product)}
+            onDirectAdd={() => handleGlobalCartAdd(product, 1)}
+          />
         ))}
       </div>
 
@@ -1010,11 +1072,21 @@ export default function NewArrival() {
           Explore All Collections
         </button>
       </div>
+
+      {/* ── Quick View Overlay Modal Component Drawer ── */}
+      {selectedProduct && (
+        <QuickViewModal 
+          product={selectedProduct} 
+          brandBlue={brandBlue} 
+          onClose={() => setSelectedProduct(null)} 
+          onAddToCart={handleGlobalCartAdd}
+        />
+      )}
     </section>
   );
 }
 
-function ProductCard({ product, brandBlue }) {
+function ProductCard({ product, brandBlue, onQuickView, onDirectAdd }) {
   return (
     <div
       className="group relative bg-[#0b0b0c] rounded-2xl overflow-hidden flex flex-col cursor-pointer w-full border border-white/[0.06]"
@@ -1064,9 +1136,13 @@ function ProductCard({ product, brandBlue }) {
           </div>
         )}
 
-        {/* Quick View Button */}
+        {/* Improved Quick View Button Trigger */}
         <div className="absolute bottom-2 sm:bottom-3 left-0 right-0 flex justify-center opacity-0 sm:group-hover:opacity-100 transition-all duration-300 translate-y-2 sm:group-hover:translate-y-0 px-3">
           <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onQuickView();
+            }}
             className="w-full px-3 py-2 text-[9px] sm:text-xs font-black tracking-widest uppercase rounded-sm truncate"
             style={{ background: "#fff", color: "#000" }}
           >
@@ -1093,6 +1169,10 @@ function ProductCard({ product, brandBlue }) {
             {product.price}
           </span>
           <button
+            onClick={(e) => {
+              e.stopPropagation();
+              onDirectAdd();
+            }}
             className="w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 flex-shrink-0 border border-white/10 text-white/70 hover:text-black"
             style={{ background: "rgba(255,255,255,0.03)" }}
             onMouseEnter={(e) => {
@@ -1121,6 +1201,153 @@ function ProductCard({ product, brandBlue }) {
               <path d="M16 10a4 4 0 01-8 0" />
             </svg>
           </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ── Built-in Reusable Premium Quick View Modal Component ──
+function QuickViewModal({ product, brandBlue, onClose, onAddToCart }) {
+  const [quantity, setQuantity] = useState(1);
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [selectedSize, setSelectedSize] = useState("M");
+  const [selectedColor, setSelectedColor] = useState("Standard");
+
+  // Premium defaults to fit your luxury dark themed catalog setup
+  const mockSizes = product.category === "Kids" ? ["4Y", "6Y", "8Y", "10Y"] : ["S", "M", "L", "XL"];
+  const mockColors = ["Classic Onyx", "Alabaster", "Sand Dune"];
+
+  const handleCartSubmit = () => {
+    setIsProcessing(true);
+    setTimeout(() => {
+      onAddToCart(product, quantity, selectedSize, selectedColor);
+      setIsProcessing(false);
+      onClose();
+    }, 600);
+  };
+
+  return (
+    <div className="fixed inset-0 z-[5000] flex items-center justify-center p-4 overflow-y-auto bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+      <div 
+        className="relative w-full max-w-4xl bg-[#0c0c0d] border border-white/10 rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in-95 duration-300 grid grid-cols-1 md:grid-cols-2"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button Anchor */}
+        <button 
+          onClick={onClose}
+          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full border border-white/10 bg-black/60 text-white/70 hover:text-white flex items-center justify-center transition-colors focus:outline-none"
+        >
+          ✕
+        </button>
+
+        {/* LEFT COLUMN: Media Showcase */}
+        <div className="relative w-full bg-zinc-900 flex items-center justify-center aspect-[4/5] md:aspect-auto">
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            className="w-full h-full object-cover"
+          />
+          {product.isNew && (
+            <div 
+              className="absolute top-4 left-4 px-3 py-1 text-[9px] font-black tracking-widest uppercase rounded-sm"
+              style={{ background: brandBlue, color: "#fff" }}
+            >
+              New
+            </div>
+          )}
+        </div>
+
+        {/* RIGHT COLUMN: Details Configuration Wrapper */}
+        <div className="p-6 sm:p-8 flex flex-col justify-between h-full bg-[#0c0c0d]">
+          <div>
+            <span className="text-[10px] font-black tracking-widest uppercase text-white/40 px-2.5 py-1 rounded-sm bg-white/5 border border-white/10 inline-block mb-4">
+              {product.category} Collection
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black uppercase text-white tracking-wide mb-2 leading-tight">
+              {product.name}
+            </h3>
+            <p className="text-lg font-black text-white mb-4" style={{ color: brandBlue }}>
+              {product.price}
+            </p>
+            <div className="h-px w-full bg-white/5 mb-4" />
+            <p className="text-xs text-white/60 leading-relaxed mb-6 font-medium">
+              Premium tailored finish engineered with premium comfort fit fabrics. An optimal design silhouette suitable for upscale collections and regular layering.
+            </p>
+
+            {/* Sizes Selection Block */}
+            <div className="mb-4">
+              <span className="text-[10px] font-black uppercase tracking-widest text-white/40 block mb-2">Available Sizes</span>
+              <div className="flex flex-wrap gap-2">
+                {mockSizes.map((size) => (
+                  <button
+                    key={size}
+                    onClick={() => setSelectedSize(size)}
+                    className={`px-3 py-1.5 text-xs font-black tracking-wider rounded border transition-all ${
+                      selectedSize === size 
+                        ? "border-blue-500 text-white bg-blue-600/10" 
+                        : "border-white/5 text-white/60 bg-white/5 hover:text-white hover:border-white/20"
+                    }`}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Colors Selection Block */}
+            <div className="mb-6">
+              <span className="text-[10px] font-black uppercase tracking-widest text-white/40 block mb-2">Available Colors</span>
+              <div className="flex flex-wrap gap-2">
+                {mockColors.map((color) => (
+                  <button
+                    key={color}
+                    onClick={() => setSelectedColor(color)}
+                    className={`px-3 py-1.5 text-[10px] font-black uppercase tracking-widest rounded border transition-all ${
+                      selectedColor === color 
+                        ? "border-blue-500 text-white bg-blue-600/10" 
+                        : "border-white/5 text-white/60 bg-white/5 hover:text-white hover:border-white/20"
+                    }`}
+                  >
+                    {color}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Configuration Actions Tray (Quantity Selector & Checkout Trigger) */}
+          <div className="pt-4 border-t border-white/5 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 mt-auto">
+            {/* Quantity Container Block */}
+            <div className="flex items-center border border-white/10 rounded-sm bg-white/5 h-12">
+              <button 
+                onClick={() => setQuantity(q => Math.max(1, q - 1))}
+                className="px-4 text-white/60 hover:text-white font-black transition-colors"
+                disabled={isProcessing}
+              >
+                -
+              </button>
+              <span className="px-3 min-w-[2.5rem] text-center text-xs font-black text-white">
+                {quantity}
+              </span>
+              <button 
+                onClick={() => setQuantity(q => q + 1)}
+                className="px-4 text-white/60 hover:text-white font-black transition-colors"
+                disabled={isProcessing}
+              >
+                +
+              </button>
+            </div>
+
+            {/* Submission Checkout CTA Action */}
+            <button
+              onClick={handleCartSubmit}
+              disabled={isProcessing}
+              className="flex-1 h-12 text-center text-xs font-black tracking-widest uppercase rounded-sm transition-all duration-300 disabled:opacity-40 bg-white text-black hover:bg-zinc-200 active:scale-95"
+            >
+              {isProcessing ? "Processing..." : "Add To Cart"}
+            </button>
+          </div>
         </div>
       </div>
     </div>

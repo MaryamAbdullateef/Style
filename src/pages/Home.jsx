@@ -13,7 +13,7 @@ import NewsletterSection from "../components/NewsletterSection";
  */
 export default function Home() {
   return (
-    <main className="bg-[#0a0a0a] min-h-screen overflow-x-hidden scroll-smooth selection:bg-brand-blue selection:text-white">
+    <main className="bg-[#0a0a0a] min-h-screen overflow-x-hidden scroll-smooth selection:bg-[#0070f3] selection:text-white">
       {/* The IDs (e.g., id="about") should be defined inside 
           the individual component sections for the anchor links to work.
       */}
@@ -38,7 +38,7 @@ export default function Home() {
         <NewsletterSection />
       </section>
 
-      {/* Optional: Unified Footer for the Home Page */}
+      {/* Unified Footer for the Home Page */}
       <footer className="py-12 text-center text-gray-600 border-t border-white/5 bg-[#080808]">
         <p className="text-[10px] tracking-[0.4em] uppercase">
           StyleHub Fashion House • Est. 2026

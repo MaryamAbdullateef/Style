@@ -40,12 +40,21 @@ export default function AdminDashboard() {
       });
 
       setMessage({ type: 'success', text: '🟢 Success! Product added to database instantly.' });
+      // Reset form fields upon successful creation
       setProduct({ name: '', price: '', description: '', image: '', category: 'Men', countInStock: '' });
     } catch (error) {
-      setMessage({ 
-        type: 'error', 
-        text: error.response?.data?.message || 'SYSTEM ERROR: Connection failed.' 
-      });
+      // Enhanced catch statement to easily diagnose network errors vs database schema errors
+      if (!error.response) {
+        setMessage({ 
+          type: 'error', 
+          text: 'CONNECTION ERROR: Could not reach the backend server. Verify port 5000 is active.' 
+        });
+      } else {
+        setMessage({ 
+          type: 'error', 
+          text: error.response.data?.message || `SYSTEM ERROR: Responded with status ${error.response.status}` 
+        });
+      }
     } finally {
       setIsSubmitting(false);
     }
