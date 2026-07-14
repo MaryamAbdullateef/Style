@@ -3,21 +3,25 @@ import { ShoppingBag } from "lucide-react";
 import { useCart } from "../context/CartContext"; 
 import { useNavigate } from "react-router-dom"; // Import Router Navigation Engine
 
+// The structural categories of your department
 const menCategories = ["Shirts", "Tees", "Trousers", "Outerwear", "Accessories"];
 
+// Adjectives used to style the naming system
 const adjectives = [
   "Premium", "Classic", "Slim Fit", "Tailored", "Urban", "Vintage", "Luxury", "Minimalist", 
   "Oversized", "Structured", "Modern", "Heritage", "Studio", "Essential", "Archival", "Techwear"
 ];
 
-const itemsPool = {
-  Shirts: ["Linen Shirt", "Oxford Button-Down", "Cuban Collar Shirt", "Chambray Shirt", "Flannel Piece"],
-  Tees: ["Pique Polo", "Graphic Archive Tee", "Heavyweight Boxy Tee", "Slub Henley", "V-Neck Essential"],
-  Trousers: ["Chino Pants", "Selvedge Denim", "Cargo Trousers", "Pleated Dress Pants", "Linen Slacks"],
-  Outerwear: ["Suede Bomber", "Technical Windbreaker", "Denim Jacket", "Trench Coat", "Track Jacket"],
+// Mapping structure ensures names always correspond correctly to the assigned category/image context
+const categoryItemMapping = {
+  Shirts: ["Linen Shirt", "Oxford Button-Down", "Cuban Collar Shirt", "Chambray Shirt", "Flannel Shirt"],
+  Tees: ["Pique Polo", "Graphic Archive Tee", "Heavyweight Boxy Tee", "Slub Henley", "V-Neck Tee"],
+  Trousers: ["Chino Trousers", "Selvedge Denim Trousers", "Cargo Trousers", "Pleated Dress Trousers", "Linen Slacks"],
+  Outerwear: ["Suede Bomber Jacket", "Technical Windbreaker Jacket", "Denim Jacket", "Trench Coat Jacket", "Track Jacket"],
   Accessories: ["Leather Watch", "Polarized Sunglasses", "Minimalist Wallet", "Suede Belt", "Canvas Tote"]
 };
 
+// Independent Unsplash image seeds for clean substitutions
 const menImageSeeds = [
   "1534030347209-467a5b0ad3e6", "1505633560063-d824df76f744", "1479064555552-3ef4979f8908",
   "1516257984-b1b4d707412e", "1617137968427-85924c800a22", "1618886614638-80e3c103d31a",
@@ -25,11 +29,11 @@ const menImageSeeds = [
   "1624378439575-d8705ad7ae80", "1501196354995-cbb51c65aaea", "1488161628813-04466f872be2"
 ];
 
+// Independent Array Generation maintaining full 200-count & consistent Vol. sequence numbering
 const menProducts = Array.from({ length: 200 }, (_, i) => {
   const category = menCategories[i % menCategories.length];
-  const items = itemsPool[category];
+  const items = categoryItemMapping[category];
   const adj = adjectives[i % adjectives.length];
-  // Safe indexing fallback logic ensures an item type is always picked
   const itemType = items[(Math.floor(i / menCategories.length)) % items.length] || items[0];
   
   const name = `${adj} ${itemType} Vol. ${i + 1}`;

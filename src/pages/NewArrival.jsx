@@ -8,10 +8,10 @@ const products = [
     id: 1,
     name: "Ivory Linen Blazer",
     category: "Women",
-    price: "₦42,500",
+    price: "₦22,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      "https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V29tZW4lMjBJdm9yeSUyMExpbmVuJTIwQmxhemVyfGVufDB8fDB8fHww",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const products = [
     price: "₦35,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
+      "https://images.unsplash.com/photo-1766056278825-55168658f120?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8V29tZW4lMjBTYXRpbiUyMFNsaXAlMjBDby1vcmQlMjBTZXR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 4,
@@ -83,7 +83,7 @@ const products = [
     price: "₦39,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=600&q=80",
+      "https://images.unsplash.com/photo-1673658173863-a28be73c7f90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V29tZW4lMjBXaGl0ZSUyMFN0cnVjdHVyZWQlMjBCbGF6ZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 10,
@@ -128,7 +128,7 @@ const products = [
     price: "₦18,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1485231183945-faa1866779db?w=600&q=80",
+      "https://images.unsplash.com/photo-1734292417928-f18d6f223afd?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 15,
@@ -137,7 +137,7 @@ const products = [
     price: "₦17,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1594633313231-2059a239b858?w=600&q=80",
+      "https://media.istockphoto.com/id/2266861931/photo/womens-baggy-leggings-fitness-outfit-mockup-loose-fit-pants-front-and-back-view.webp?a=1&b=1&s=612x612&w=0&k=20&c=XqZP0wr0u17QzJgTqlgzicONBKGIJPYsXPZSjcmM_3A=",
   },
   {
     id: 16,
@@ -146,7 +146,7 @@ const products = [
     price: "₦15,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=600&q=80",
+      "https://images.unsplash.com/photo-1725071421723-a191fdfa71ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fFdvbWVuJTIwRmF1eCUyMExlYXRoZXIlMjBNaW5pJTIwU2tpcnR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 17,
@@ -155,7 +155,7 @@ const products = [
     price: "₦29,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80",
+      "https://images.unsplash.com/photo-1645641909565-88babb6ccf5c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFdvbWVuJTIwTGlsYWMlMjBTaWxrJTIwU2hpcnQlMjBEcmVzc3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 18,
@@ -173,7 +173,7 @@ const products = [
     price: "₦13,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1550639525-c97d455acf70?w=600&q=80",
+      "https://images.unsplash.com/photo-1554787497-98caae0f95df?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8V29tZW4lMjBCcm9uemUlMjBTZXF1aW4lMjBUb3B8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 20,
@@ -182,7 +182,7 @@ const products = [
     price: "₦12,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1518622358354-972fd40f8069?w=600&q=80",
+      "https://images.unsplash.com/photo-1609505848912-b7c3b8b4beda?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V29tZW4lMjBPZmYtV2hpdGUlMjBCb2hvJTIwQmxvdXNlfGVufDB8fDB8fHww",
   },
   {
     id: 21,
@@ -191,7 +191,7 @@ const products = [
     price: "₦62,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80",
+      "https://media.istockphoto.com/id/2273265588/photo/elegant-businesswoman-standing-outdoors-near-modern-office-building.webp?a=1&b=1&s=612x612&w=0&k=20&c=ci5-CQyFD6zhlgTCUrnkT5d7s6ZpbwcliiEnCBdaD1g=",
   },
   {
     id: 22,
@@ -209,7 +209,7 @@ const products = [
     price: "₦32,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&q=80",
+      "https://images.unsplash.com/photo-1672380300750-6294c5614695?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V29tZW4lMjBQZWFybCUyMEJ1dHRvbiUyMFNoYWNrZXR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 24,
@@ -218,7 +218,7 @@ const products = [
     price: "₦27,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=600&q=80",
+      "https://images.unsplash.com/photo-1624278268445-6a58c27656ec?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V29tZW4lMjBTdG9uZSUyMEFzeW1tZXRyaWMlMjBIZW0lMjBEcmVzc3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 25,
@@ -227,7 +227,7 @@ const products = [
     price: "₦44,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1543087903-1ac2ec7aa8c5?w=600&q=80",
+      "https://media.istockphoto.com/id/185068880/photo/happy-smiling-young-woman-in-blazer.webp?a=1&b=1&s=612x612&w=0&k=20&c=lZK32hZdJEyIxu6235M_Td_YlqqBsxt4V9pNigTeOVk=",
   },
   {
     id: 26,
@@ -236,7 +236,7 @@ const products = [
     price: "₦48,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1539008835279-43469388149b?w=600&q=80",
+      "https://media.istockphoto.com/id/1155692472/photo/fashion-model-in-long-dress-back-view-woman-beauty-in-gown-rear-view-full-length-on-white.webp?a=1&b=1&s=612x612&w=0&k=20&c=tmmfL7nwmUYfXtxX07O0_VQCJz15sqPJ5Ln2gCQs2nU=",
   },
   {
     id: 27,
@@ -245,7 +245,7 @@ const products = [
     price: "₦34,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1583846714263-924c15112851?w=600&q=80",
+      "https://media.istockphoto.com/id/2255365081/photo/graceful-young-woman-in-warm-beige-sweater-against-smooth-gradient-background-conveying-beauty.webp?a=1&b=1&s=612x612&w=0&k=20&c=tVtHQLXTx2_HcZzGRasI_gOS-LX-pWTWYoemjtIXai8=",
   },
   {
     id: 28,
@@ -254,7 +254,7 @@ const products = [
     price: "₦16,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1503342394128-c104d54dba01?w=600&q=80",
+      "https://media.istockphoto.com/id/1393755192/photo/joyful-young-woman-dancing.webp?a=1&b=1&s=612x612&w=0&k=20&c=owT68b3GmkNDAn2zBtxl7Y8gIMnnNhDCdtO4bVfD7_o=",
   },
   {
     id: 29,
@@ -272,7 +272,7 @@ const products = [
     price: "₦25,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1515347648452-f8dc2ad30fdc?w=600&q=80",
+      "https://images.unsplash.com/photo-1591369822096-ffd140ec948f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V29tZW4lMjBEZW5pbSUyMFV0aWxpdHklMjBEcmVzc3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 31,
@@ -281,7 +281,7 @@ const products = [
     price: "₦18,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?w=600&q=80",
+      "https://images.unsplash.com/photo-1573197138497-40400501ac3d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8V29tZW4lMjBPYXRtZWFsJTIwVHVydGxlJTIwTmVja3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 32,
@@ -299,7 +299,7 @@ const products = [
     price: "₦55,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1539533113208-f6df8cc8b543?w=600&q=80",
+      "https://images.unsplash.com/photo-1581081874522-5178e6d08e74?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFdvbWVuJTIwQ2xhc3NpYyUyME5hdnklMjBQZWFjb2F0fGVufDB8fDB8fHww",
   },
   {
     id: 34,
@@ -308,7 +308,7 @@ const products = [
     price: "₦15,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=600&q=80",
+      "https://images.unsplash.com/photo-1552273130-aa3b24fb22b2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8V29tZW4lMjBMYWNlJTIwT3ZlcmxheSUyMFRvcHxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 35,
@@ -317,7 +317,7 @@ const products = [
     price: "₦22,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1783874829440-b99f435a1d77?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fFdvbWVuJTIwQnVyZ3VuZHklMjBXaWRlLUxlZyUyMFRyb3VzZXJzfGVufDB8fDB8fHww",
   },
   {
     id: 36,
@@ -326,7 +326,7 @@ const products = [
     price: "₦31,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      "https://media.istockphoto.com/id/2275967379/photo/woman-and-girl-in-shirts-and-jeans-posing-in-studio.webp?a=1&b=1&s=612x612&w=0&k=20&c=_QLdnBPd19QbDzQqs-f-yPDGljFv0VfiWkG3lKrbfjQ=",
   },
   {
     id: 37,
@@ -335,7 +335,7 @@ const products = [
     price: "₦39,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=600&q=80",
+      "https://media.istockphoto.com/id/1165095819/photo/happy-beautiful-woman-in-purple-dress-is-looking-up-and-shouting.webp?a=1&b=1&s=612x612&w=0&k=20&c=d5hFdElk7TiOkT1J2wp-ramK3c-XjLV-RV4CKF5a59U=",
   },
   {
     id: 38,
@@ -344,7 +344,7 @@ const products = [
     price: "₦12,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1533227432537-70133748f5c8?w=600&q=80",
+      "https://images.unsplash.com/photo-1629381565968-90a5dfe1dd57?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFdvbWVuJTIwQmVpZ2UlMjBXaWRlLUJyaW0lMjBIYXR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 39,
@@ -353,7 +353,7 @@ const products = [
     price: "₦14,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1556905055-8f358a7a4bb4?w=600&q=80",
+      "https://images.unsplash.com/photo-1625722675156-0d24f0181d8f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8V29tZW4lMjBNYXV2ZSUyMEtuaXQlMjBWZXN0fGVufDB8fDB8fHww",
   },
   {
     id: 40,
@@ -362,7 +362,7 @@ const products = [
     price: "₦28,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80",
+      "https://images.unsplash.com/photo-1679101893304-045625840a94?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWVuJTIwU2xhdGUlMjBHcmV5JTIwTGluZW4lMjBTdWl0fGVufDB8fDB8fHwwhttps://images.unsplash.com/photo-1621062089461-01f1eaebb66c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TWVuJTIwU2xhdGUlMjBHcmV5JTIwTGluZW4lMjBTdWl0fGVufDB8fDB8fHww",
   },
 
   // MEN (40 ITEMS)
@@ -373,7 +373,7 @@ const products = [
     price: "₦75,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
+      "https://imageshttps://images.unsplash.com/photo-1679101893304-045625840a94?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWVuJTIwU2xhdGUlMjBHcmV5JTIwTGluZW4lMjBTdWl0fGVufDB8fDB8fHww.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80",
   },
   {
     id: 42,
@@ -382,7 +382,7 @@ const products = [
     price: "₦88,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600&q=80",
+      "https://images.unsplash.com/photo-1520975916090-3105956dac38?w=600&q=80https://images.unsplash.com/photo-1619603364937-8d7af41ef206?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWVuJTIwQ2FtZWwlMjBPdmVyY29hdHxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 43,
@@ -391,7 +391,7 @@ const products = [
     price: "₦14,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1614676466645-fd9b9516641b?w=600&q=80",
+      "https://images.unsplash.com/photo-1599542829769-9ab0c324b4dd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fE1lbiUyMENoYXJjb2FsJTIwVHVydGxlbmVja3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 44,
@@ -400,7 +400,7 @@ const products = [
     price: "₦18,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=600&q=80",
+      "https://images.unsplash.com/photo-1624378441864-6eda7eac51cb?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 45,
@@ -409,7 +409,7 @@ const products = [
     price: "₦16,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1598411031711-da3ad309e7a3?w=600&q=80",
+      "https://images.unsplash.com/photo-1690576639506-aebeccf53744?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWVuJTIwRWNydSUyMFJlbGF4ZWQlMjBMaW5lbiUyMFNoaXJ0fGVufDB8fDB8fHww",
   },
   {
     id: 46,
@@ -418,7 +418,7 @@ const products = [
     price: "₦48,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?w=600&q=80",
+      "https://media.istockphoto.com/id/2228418745/photo/man-browsing-through-selections-of-clothes-on-a-rack-while-shopping-in-a-mall.webp?a=1&b=1&s=612x612&w=0&k=20&c=H9L-CFIdzKUaxeFkxWUKFiznyPZ1JPGfh31Y5d4gwxc=",
   },
   {
     id: 47,
@@ -427,7 +427,7 @@ const products = [
     price: "₦55,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=https://plus.unsplash.com/premium_photo-1661328296168-a176df63bcfc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8TWVuJTIwQmxhY2slMjBTbGltJTIwRml0JTIwQmxhemVyfGVufDB8fDB8fHww&q=80",
   },
   {
     id: 48,
@@ -436,7 +436,7 @@ const products = [
     price: "₦11,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1618517351616-38fb9c5210c6?w=600&q=80",
+      "https://images.unsplash.com/photo-1618517351616-https://media.istockphoto.com/id/2208261043/photo/photo-of-attractive-young-confident-businessman-look-empty-space-brainstorming-isolated-on.webp?a=1&b=1&s=612x612&w=0&k=20&c=7JOcnpIoo5h5eix7yR_VIJyVeHnSV8rujHm2mJtwc08=?w=600&q=80",
   },
   {
     id: 49,
@@ -445,7 +445,7 @@ const products = [
     price: "₦13,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1678218594563-9fe0d16c6838?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVuJTIwV2hpdGUlMjBPeGZvcmQlMjBCdXR0b24tRG93bnxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 50,
@@ -454,7 +454,7 @@ const products = [
     price: "₦22,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1475178626620-a4d074967452?w=600&q=80",
+      "https://images.unsplash.com/photo-1706287043719-3fad472e98a6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWVuJTIwS2hha2klMjBDYXJnbyUyMFRyb3VzZXJzJTIwaW4lMjBoYW5nZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 51,
@@ -463,7 +463,7 @@ const products = [
     price: "₦19,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1506629082955-511b1aa562c8?w=600&q=80",
+      "https://images.unsplash.com/photo-1634564235572-cd6f37694266?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fE1lbiUyMFN0b25lJTIwVGFpbG9yZWQlMjBKb2dnZXJzJTIwaW4lMjBoYW5nZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 52,
@@ -472,7 +472,7 @@ const products = [
     price: "₦46,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1544022613-e87ca75a784a?w=600&q=80",
+      "https://images.unsplash.com/photo-1549399239-fb3c102d3d71?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWVuJTIwRm9yZXN0JTIwR3JlZW4lMjBCb21iZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 53,
@@ -481,7 +481,7 @@ const products = [
     price: "₦41,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1556622123-5e81f7d5440d?w=600&q=80",
+      "https://images.unsplash.com/photo-1480429370139-e0132c086e2a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWVuJTIwU3RyaXBlZCUyMExpbmVuJTIwQmxhemVyfGVufDB8fDB8fHww",
   },
   {
     id: 54,
@@ -499,7 +499,7 @@ const products = [
     price: "₦12,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=600&q=80",
+      "https://images.unsplash.com/photo-1665873493506-b37aae50de97?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWVuJTIwR3JleSUyME1hcmwlMjBIb29kaWV8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 56,
@@ -508,7 +508,7 @@ const products = [
     price: "₦37,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?w=600&q=80",
+      "https://images.unsplash.com/photo-1549237511-bbe6a0979d6a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWVuJTIwQmxhY2slMjBEZW5pbSUyMEphY2tldHxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 57,
@@ -517,7 +517,7 @@ const products = [
     price: "₦14,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1598411031711-da3ad309e7a3?w=600&q=80",
+      "https://media.istockphoto.com/id/2195403526/photo/fashion-of-a-salary-man.webp?a=1&b=1&s=612x612&w=0&k=20&c=U691gl25q7aIIwYXmuxspCBT44MW5sGyRpPt2HowCEM=",
   },
   {
     id: 58,
@@ -526,7 +526,7 @@ const products = [
     price: "₦9,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=600&q=80",
+      "https://media.istockphoto.com/id/637314404/photo/brown-chino-pants.webp?a=1&b=1&s=612x612&w=0&k=20&c=A95NQ3Ql3pEnWoXzRDbmaBe8j6Q7pdH18D7AmbZEHEQ=",
   },
   {
     id: 59,
@@ -535,7 +535,7 @@ const products = [
     price: "₦20,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=600&q=80",
+      "https://images.unsplash.com/photo-1636533105123-a47d57a99aa1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fE1lbiUyMENoYXJjb2FsJTIwU2xpbSUyMENoaW5vc3xlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 60,
@@ -544,7 +544,7 @@ const products = [
     price: "₦28,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1555421689-d68471e189f2?w=600&q=80",
+      "https://images.unsplash.com/photo-1582975854796-16ebbd9367c0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fE1lbiUyME1vY2hhJTIwU3VlZGUlMjBTaGlydHxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 61,
@@ -562,7 +562,7 @@ const products = [
     price: "₦25,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1731938155813-a0a73400d8e1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fE1lbiUyME5hdnklMjBQaW5zdHJpcGUlMjBUcm91c2VycyUyMGluJTIwaGFuZ2VyfGVufDB8fDB8fHww",
   },
   {
     id: 63,
@@ -571,7 +571,7 @@ const products = [
     price: "₦13,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1614676466645-fd9b9516641b?w=600&q=80",
+      "https://media.istockphoto.com/id/2189421564/photo/black-man-looking-to-the-side-with-joined-hands-isolated-on-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=PXI7SiUcYfhmDocwxq6Wj7lqbgiR4tT7xK2OjdLhPGg=",
   },
   {
     id: 64,
@@ -589,7 +589,7 @@ const products = [
     price: "₦16,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1523380677598-64d85d2e4b43?w=600&q=80",
+      "https://media.istockphoto.com/id/1945302404/photo/front-and-back-views-of-a-man-wearing-a-white-oversized-hoodie-with-blank-space-ideal-for-a.webp?a=1&b=1&s=612x612&w=0&k=20&c=WYob5yCpwJznT0AfHmi3er70w4WLqwNP6k_4AVm54Fo=",
   },
   {
     id: 66,
@@ -598,7 +598,7 @@ const products = [
     price: "₦12,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1589310243389-96a5483213a8?w=600&q=80",
+      "https://images.unsplash.com/photo-1717724162644-75f624f413ca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWVuJTIwVGVhbCUyMFN1bW1lciUyMFNoaXJ0fGVufDB8fDB8fHww",
   },
   {
     id: 67,
@@ -607,7 +607,7 @@ const products = [
     price: "₦78,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      "https://images.unsplash.com/photo-1575862980084-cd0645edddba?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8TWVuJTIwQ2xhc3NpYyUyMFRyZW5jaCUyMENvYXR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 68,
@@ -625,7 +625,7 @@ const products = [
     price: "₦19,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1504198266287-1659872e6590?w=600&q=80",
+      "https://media.istockphoto.com/id/2023896997/photo/white-classic-pants-on-hanger-mockup.webp?a=1&b=1&s=612x612&w=0&k=20&c=_cGjcS-bltreCBryYBwpExk5Zr8_7G646m5vPdkJ1lE=",
   },
   {
     id: 70,
@@ -634,7 +634,7 @@ const products = [
     price: "₦110,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80",
+      "https://media.istockphoto.com/id/643056998/photo/formal-dinner-jacket-and-bow-tie.webp?a=1&b=1&s=612x612&w=0&k=20&c=Xtz_Of216Ye0xZOymZ18RJctzlIIa0ByaNFA-krbpas=",
   },
   {
     id: 71,
@@ -643,7 +643,7 @@ const products = [
     price: "₦32,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1516253593875-bd7ba052fbc5?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1671030274122-b6ac34f87b8b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8TWVuJTIwRGVuaW0lMjBUcnVja2VyJTIwSmFja2V0JTIwaW4lMjBoYW5nZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 72,
@@ -652,7 +652,7 @@ const products = [
     price: "₦6,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=600&q=80",
+      "https://images.unsplash.com/photo-1630691650107-53dd500d2907?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fE1lbiUyMEJlaWdlJTIwUmliYmVkJTIwQmVhbmllaW4lMjBoYW5nZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 73,
@@ -661,7 +661,7 @@ const products = [
     price: "₦8,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&q=80",
+      "https://images.unsplash.com/photo-1626497764746-6dc36546b388?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8TWVuJTIwTWF1dmUlMjBpbiUyMGhhbmdlcnxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 74,
@@ -670,16 +670,16 @@ const products = [
     price: "₦42,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=600&q=80",
+      "https://images.unsplash.com/photo-1595790751907-75201e9996e5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8TWVuJTIwRGFyayUyMEdyZWVuJTIwSGFycmluZ3RvbnxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 75,
-    name: "Black Combat Boots",
+    name: "Red Combat Boots",
     category: "Men",
     price: "₦45,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=600&q=80",
+      "https://images.unsplash.com/photo-1608976989382-d913f97920c8?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 76,
@@ -688,7 +688,7 @@ const products = [
     price: "₦18,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1598411031711-da3ad309e7a3?w=600&q=80",
+      "https://media.istockphoto.com/id/2217624499/photo/stylish-man-adjusting-sunglasses-on-yellow-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=idEAdfHfSNSIsLlIpk9cX5IFBIV9wITVZpiXcbwfyew=",
   },
   {
     id: 77,
@@ -697,25 +697,25 @@ const products = [
     price: "₦9,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80",
+      "https://images.unsplash.com/photo-1754167695553-10d09845100b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 78,
     name: "Grey Wool Scarf",
     category: "Men",
-    price: "₦11,000",
+    price: "₦8,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1520903920243-00d872a2d1c9?w=600&q=80",
+      "https://images.unsplash.com/photo-1737061556932-f4930f59b8d0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fE1lbiUyMEdyZXklMjBXb29sJTIwU2NhcmZ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 79,
-    name: "Tan Chelsea Boots",
+    name: "Tan Top",
     category: "Men",
-    price: "₦58,000",
+    price: "₦38,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1638247025967-b4e38f787b76?w=600&q=80",
+      "https://media.istockphoto.com/id/1370390365/photo/young-man-in-blank-beige-t-shirt-mockup-front-and-back-used-as-design-template-isolated-on.webp?a=1&b=1&s=612x612&w=0&k=20&c=XrTWv8p2q3dzY16KfSnpDGHozd3661cdMxptnOsCuOs=",
   },
   {
     id: 80,
@@ -724,7 +724,7 @@ const products = [
     price: "₦5,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=600&q=80",
+      "https://images.unsplash.com/photo-1611312449297-a69dc9c3987b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8TWVuJTIwTmF2eSUyMEtuaXQlMjBCZWFuaWVpbiUyMGhhbmdlcnxlbnwwfHwwfHx8MA%3D%3D",
   },
 
   // KIDS (20 ITEMS)
@@ -735,7 +735,7 @@ const products = [
     price: "₦8,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1519457431-44ccd64a579b?w=600&q=80",
+      "https://media.istockphoto.com/id/2077770267/photo/portrait-of-a-lovely-asian-baby-girl-posing-on-a-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=hpPyu9nh43tFiQRyG88i8h-ZqDSZaeR6f91NoH--GpA=",
   },
   {
     id: 82,
@@ -744,7 +744,7 @@ const products = [
     price: "₦5,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&q=80",
+      "https://images.unsplash.com/photo-1760287363879-6012adab292c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8S2lkcyUyMFJhaW5ib3clMjBTdHJpcGUlMjBULVNoaXJ0fGVufDB8fDB8fHww",
   },
   {
     id: 83,
@@ -753,7 +753,7 @@ const products = [
     price: "₦14,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1471286174890-9c112ffca5b4?w=600&q=80",
+      "https://media.istockphoto.com/id/1134073802/photo/blue-vest-isolated.webp?a=1&b=1&s=612x612&w=0&k=20&c=G7s4gf3wz9xFo3blXgh4GmID1goLIl5lSwTX1BSDpPE=",
   },
   {
     id: 84,
@@ -771,7 +771,7 @@ const products = [
     price: "₦7,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80",
+      "https://images.unsplash.com/photo-1778283222098-da1f8fc1e5ea?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8S2lkcyUyMERpbm8lMjBQcmludCUyMEpvZ2dlciUyMFNldHxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 86,
@@ -780,7 +780,7 @@ const products = [
     price: "₦6,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1533228100845-08145b01de14?w=600&q=80",
+      "https://media.istockphoto.com/id/137311353/photo/red-checkered-twofer-shirt-on-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=wIc_kCyrgfVp6N97zFAu4D5aclcn9U7b1PLdJeKxH8Y=",
   },
   {
     id: 87,
@@ -789,7 +789,7 @@ const products = [
     price: "₦8,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1700415239623-a50fabf4beb3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEtpZHMlMjBZZWxsb3clMjBLbml0JTIwQ2FyZGlnYW58ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 88,
@@ -798,7 +798,7 @@ const products = [
     price: "₦7,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1537815749002-de6a533c64db?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1706151505939-919f37af4002?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEtpZHMlMjBQYXN0ZWwlMjBUaWUtRHllJTIwSG9vZGllfGVufDB8fDB8fHww",
   },
   {
     id: 89,
@@ -807,7 +807,7 @@ const products = [
     price: "₦4,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1522771930-78848d9293e8?w=600&q=80",
+      "https://media.istockphoto.com/id/875988506/photo/object-on-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=_X8_0orSdF70v7pxcUuA7OahLll528HgUBbBYgFMjYQ=",
   },
   {
     id: 90,
@@ -816,7 +816,7 @@ const products = [
     price: "₦12,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1514090458221-65bb69cf63e6?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1760179325525-ec3edff26677?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8S2lkcyUyMENvcmR1cm95JTIwSmFja2V0fGVufDB8fDB8fHww",
   },
   {
     id: 91,
@@ -825,7 +825,7 @@ const products = [
     price: "₦11,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1518826778770-a729fb53327c?w=600&q=80",
+      "https://images.unsplash.com/photo-1723772385644-8819ab4c0d27?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 92,
@@ -834,7 +834,7 @@ const products = [
     price: "₦5,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1444124818704-4d89a495bdec?w=600&q=80",
+      "https://images.unsplash.com/photo-1629299342971-6ee572a039b5?q=80&w=686&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 93,
@@ -843,7 +843,7 @@ const products = [
     price: "₦9,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=600&q=80",
+      "https://images.unsplash.com/photo-1642597280978-ee2525e9ecbd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fEtpZHMlMjBDcmVhbSUyMENhYmxlJTIwS25pdCUyMFN3ZWF0ZXJ8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 94,
@@ -852,7 +852,7 @@ const products = [
     price: "₦4,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1504439468489-c8920d796a29?w=600&q=80",
+      "https://images.unsplash.com/photo-1586537333652-9446c3d604a7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8S2lkcyUyMEFuaW1hbCUyMFByaW50JTIwTGVnZ2luZ3N8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 95,
@@ -861,7 +861,7 @@ const products = [
     price: "₦16,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80",
+      "https://plus.unsplash.com/premium_photo-1661715319384-437cc4d1bbfc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8S2lkcyUyMEZvcmVzdCUyMFByaW50JTIwUmFpbmNvYXR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 96,
@@ -870,7 +870,7 @@ const products = [
     price: "₦6,000",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&q=80",
+      "https://media.istockphoto.com/id/512059838/photo/little-girls-summer-vacation-accessories.webp?a=1&b=1&s=612x612&w=0&k=20&c=fSPQPp4VL7rLY11cFbr58bl_Ua6wveWJzWcWzYg55-A=",
   },
   {
     id: 97,
@@ -879,7 +879,7 @@ const products = [
     price: "₦10,500",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1519612333659-3c386769da53?w=600&q=80",
+      "https://images.unsplash.com/photo-1637161065514-ef262771257a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fEtpZHMlMjBUcmFja3N1aXR8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 98,
@@ -888,16 +888,16 @@ const products = [
     price: "₦13,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1504707748692-419802cf939d?w=600&q=80",
+      "https://images.unsplash.com/photo-1640072460556-c9ea588cc3e2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8S2lkcyUyMFBpbmslMjBRdWlsdGVkJTIwSmFja2V0fGVufDB8fDB8fHww",
   },
   {
     id: 99,
     name: "Emerald Velvet Dress",
     category: "Kids",
-    price: "₦10,000",
+    price: "₦20,000",
     isNew: false,
     image:
-      "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80",
+      "https://images.unsplash.com/photo-1742942866477-4173d56d3142?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEtpZHMlMjBFbWVyYWxkJTIwVmVsdmV0JTIwRHJlc3N8ZW58MHx8MHx8fDA%3D",
   },
   {
     id: 100,
@@ -906,7 +906,7 @@ const products = [
     price: "₦7,500",
     isNew: true,
     image:
-      "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=600&q=80",
+      "https://images.unsplash.com/photo-1618232674171-5ea51c38b80b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8S2lkcyUyMFdoaXRlJTIwRW1icm9pZGVyZWQlMjBSb21wZXJ8ZW58MHx8MHx8fDA%3D",
   },
 ];
 
@@ -1066,11 +1066,11 @@ export default function NewArrival() {
 
       {/* ── Footer CTA ── */}
       <div className="max-w-7xl mx-auto text-center mt-14 sm:mt-16 px-4">
-        <button
+        {/* <button
           className="w-full sm:w-auto px-8 sm:px-10 py-4 text-xs sm:text-sm font-black tracking-widest uppercase rounded-sm transition-all duration-300 active:scale-95 border border-white/10 bg-white text-black hover:bg-zinc-200"
         >
           Explore All Collections
-        </button>
+        </button> */}
       </div>
 
       {/* ── Quick View Overlay Modal Component Drawer ── */}
