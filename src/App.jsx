@@ -41,6 +41,16 @@ function ScrollToTop() {
   return null;
 }
 
+// Wrapper component to bundle Home and ProductList safely as a single component
+function HomeWithProducts() {
+  return (
+    <>
+      <Home />
+      <ProductList />
+    </>
+  );
+}
+
 export default function App() {
   const location = useLocation();
 
@@ -58,15 +68,8 @@ export default function App() {
         <main className="grow">
           <Routes>
             {/* Main Route displaying the home page layout alongside backend data */}
-            <Route 
-              path="/" 
-              element={
-                <>
-                  <Home />
-                  <ProductList />
-                </>
-              } 
-            />
+            <Route path="/" element={<HomeWithProducts />} />
+            
             <Route path="/men" element={<Men />} />
             <Route path="/kids" element={<Kids />} />
             <Route path="/women" element={<Women />} />

@@ -68,9 +68,9 @@ const GARMENT_IMAGE_POOLS = {
     "photo-1503341504253-dff4815485f1", // Sleek dark brown fitted knit polo
     "photo-1611312449408-fcece27cdbb7", // Charcoal grey soft wool polo
     "photo-1516826957135-700dedea698c", // Minimalist high-end retro knit shirt
-    "photo-16222519407650-3df9883f76a5", // Creamy beige lightweight knit polo
     "photo-1588361035994-295e21daa761", // Vintage casual short sleeve knit polo
     "photo-1598032895397-b9472444bf93", // Smart casual navy structured knit polo
+    "photo-1611312449408-fcece27cdbb7", // Charcoal grey soft wool polo (repeat-safe)
   ],
   "Cuban Shirt": [
     "photo-1530159698630-b1a2f75d4ad8", // Camp-collar relaxed Cuban shirt
@@ -259,7 +259,7 @@ function getUniqueImage(garmentKey) {
 
   if (garmentCounters[garmentKey] === undefined)
     garmentCounters[garmentKey] = 0;
-  
+
   // Choose photo deterministically from the audited pool
   const photoId = pool[garmentCounters[garmentKey] % pool.length];
   garmentCounters[garmentKey]++;
@@ -267,67 +267,80 @@ function getUniqueImage(garmentKey) {
   return `https://images.unsplash.com/${photoId}?w=800&auto=format&fit=crop&q=80`;
 }
 
+/* Editorial copy fragments — rotated by index so 150 cards don't
+   all read the same sentence back at the person. */
+const DESCRIPTION_FRAGMENTS = {
+  Men: [
+    "Cut from responsibly sourced cloth and finished with hand-set buttons, built to hold its line through a full day on your feet.",
+    "A tailoring-house silhouette relaxed just enough for daily wear, in a weight suited to transitional weather.",
+    "Constructed with a full canvas interior for a roll that softens with wear rather than creasing.",
+    "Finished in-house with horn buttons and a half-lined body, so the drape stays honest after the tenth wear.",
+  ],
+  Women: [
+    "Cut on the bias so the fabric follows the body without needing to be pinned into place.",
+    "Finished with a hand-rolled hem and covered buttons, built for movement as much as for standing still.",
+    "Draped from a single length of cloth, keeping the seam count low and the silhouette uninterrupted.",
+    "Constructed with internal boning only where the shape asks for it, nowhere else.",
+  ],
+  Kids: [
+    "Made from a double-washed cotton that softens further with every cycle, sized with room to grow into.",
+    "Finished with flat-felled seams and reinforced knees, built for a Tuesday as much as for photographs.",
+    "Cut with a wider armhole for full range of motion, closed with buttons a small hand can manage alone.",
+    "Made in a mid-weight cotton blend chosen to survive both nap time and the playground.",
+  ],
+};
+
 /* Helper dynamic metadata generator based on the item clicked */
 function getCollectionDetails(item) {
   const titleLower = item.title.toLowerCase();
-  
-  // Default general fallback
-  let description = "An exquisite curation designed to blend premium fabrication with modern urban silhouettes.";
-  let theme = "Modernist Luxury";
-  let occasions = "High-End Gatherings, Evening Lounges, & Architectural Showcases";
-  let styleTip = "Layer with neutral monochrome basics to emphasize the custom structure and rich drape.";
-  let callToAction = "Explore this collection and find your perfect look!";
 
-  // Determine specifics based on Keywords
+  // Default general fallback
+  let composition = "A considered mix of natural fibre and modern construction, made to be worn often.";
+  let styledFor = "Considered dressing, any day it's needed";
+  let styleTip = "Let the piece anchor the outfit — keep everything worn alongside it quiet.";
+  let callToAction = "View the full look and its styling notes.";
+
   if (item.category === "Men") {
     if (titleLower.includes("blazer") || titleLower.includes("trousers") || titleLower.includes("shirt")) {
-      description = "Tailored to sharp perfection using lightweight luxury blends. Made for the modern professional seeking an effortless structural drape.";
-      theme = "Contemporary Sartorial";
-      occasions = "Executive Meetings, Gallery Openings, & Formal Dinners";
-      styleTip = "Ditch the traditional tie. Pair with leather Chelsea boots and a minimalist steel watch for an understated power statement.";
-      callToAction = "Explore this collection and find your perfect look!";
+      composition = "Lightweight wool-blend, half-canvassed, finished with horn buttons and a working cuff.";
+      styledFor = "Client meetings, gallery openings, dinners that start early and run long";
+      styleTip = "Leave the tie at home. A leather Chelsea boot and a slim steel watch say more with less.";
     } else if (titleLower.includes("overcoat") || titleLower.includes("vest")) {
-      description = "Sculpted outwear providing optimal warmth without sacrificing structural beauty. Finished with high-grade metal accents and water-repellent weaves.";
-      theme = "Urban Avant-Garde Outwear";
-      occasions = "Transit Lounge, Autumn Escapes, & Semi-Formal Socials";
-      styleTip = "Layer a mock-neck cashmere sweater beneath the overcoat to introduce elegant depth and soft textural play.";
-      callToAction = "Explore this collection and find your perfect look!";
+      composition = "Dense wool exterior, water-resistant finish, horn toggles at the collar.";
+      styledFor = "Platform waits, early flights, the walk between meetings in October";
+      styleTip = "A mock-neck knit underneath adds warmth without adding bulk at the shoulder.";
     } else {
-      description = "Relaxed luxury staples prioritizing absolute tactility, structured hems, and breathability for off-duty days.";
-      theme = "Artisanal Smart Casual";
-      occasions = "Weekend Brunches, Luxury Yacht Escapes, & Casual Fridays";
-      styleTip = "Keep the footwear clean. Opt for minimalist low-top suede sneakers to round out the relaxed silhouette.";
-      callToAction = "Discover styles designed just for you.";
+      composition = "Brushed cotton with a soft hand-feel, pre-shrunk so the fit holds after washing.";
+      styledFor = "Saturday markets, the studio, anywhere a blazer would be overdressed";
+      styleTip = "Keep the footwear low-profile — a suede sneaker lets the fabric do the talking.";
     }
+    callToAction = "View the full look and its styling notes.";
   } else if (item.category === "Women") {
     if (titleLower.includes("gown") || titleLower.includes("dress")) {
-      description = "Flowing, masterfully stitched silks and heavy-weight chiffons that contour gracefully. Engineered to move fluidly with your natural stride.";
-      theme = "High-Glamour Red Carpet";
-      occasions = "Soirées, Gala Dinners, & Architectural Black-Tie Weddings";
-      styleTip = "Elevate with raw metallic statement earrings and a sleek, high-slicked bun to draw focus to the neckline.";
-      callToAction = "Explore this collection and find your perfect look!";
+      composition = "Silk-blend crepe with a fluid, weighted drape and a fully finished interior seam.";
+      styledFor = "Dinners with place cards, openings, the one night that calls for it";
+      styleTip = "One statement earring, hair swept back — let the neckline stay the only line of interest.";
     } else if (titleLower.includes("skirt") || titleLower.includes("pants") || titleLower.includes("blouse")) {
-      description = "Voluminous, architectural separate pieces utilizing drape dynamics to emphasize soft structural silhouettes.";
-      theme = "Editorial High-Fashion Coordinates";
-      occasions = "Art Exhibits, Executive Lounges, & High-Tea Reunions";
-      styleTip = "Tuck structured blouses neatly into wide-leg palazzo pants to elongate the body profile.";
-      callToAction = "Discover styles designed just for you.";
+      composition = "Structured mid-weight fabric that holds its shape without needing a lining.";
+      styledFor = "Studio visits, long lunches, a Tuesday that deserves better than jeans";
+      styleTip = "Tuck in, and let the waistband do the defining — no belt required.";
     } else {
-      description = "A strong feminine outerwear shield that updates classic patterns with modern oversized lines and structural belting.";
-      theme = "Modern Heritage Trench Style";
-      occasions = "C-Suite Showcases, Global Commutes, & Rainy Afternoons";
-      styleTip = "Wear open with sleeves pushed high on the forearm for an effortless, confident style.";
-      callToAction = "Discover styles designed just for you.";
+      composition = "Densely woven cotton-blend shell with a soft brushed lining at the collar.";
+      styledFor = "The commute, the airport, the in-between hours of a long day";
+      styleTip = "Worn open with the sleeves pushed back reads more confident than buttoned to the top.";
     }
+    callToAction = "View the full look and its styling notes.";
   } else if (item.category === "Kids") {
-    description = "Premium hypoallergenic natural cottons and soft denims designed with maximum mobility and durability in mind.";
-    theme = "Luxurious Miniature Playwear";
-    occasions = "Family Portrait Days, Outdoor Adventures, & Elite Academy Mornings";
-    styleTip = "Roll up the trouser and jacket hems slightly for a relaxed look that handles growing room beautifully.";
-    callToAction = "Discover styles designed just for you.";
+    composition = "Double-washed organic cotton, flat-felled seams, sized with room in the shoulder.";
+    styledFor = "School mornings, the garden, portraits that need to survive a scraped knee first";
+    styleTip = "One roll at the cuff and hem buys a full season of growing room.";
+    callToAction = "View the full look and care notes.";
   }
 
-  return { description, theme, occasions, styleTip, callToAction };
+  const fragments = DESCRIPTION_FRAGMENTS[item.category] || DESCRIPTION_FRAGMENTS.Men;
+  const description = fragments[item.id % fragments.length];
+
+  return { description, composition, styledFor, styleTip, callToAction };
 }
 
 /* ─── DYNAMIC DATA GENERATOR (150 Unique Items) ──────────────── */
@@ -354,15 +367,14 @@ const generateData = () => {
     const category = categories[i % categories.length];
     const styleList = garments[category];
     const descriptor = descriptors[i % descriptors.length];
-    const garment = styleList[i % styleList.length]; 
-    const title = `${descriptor} ${garment}`; 
+    const garment = styleList[i % styleList.length];
+    const title = `${descriptor} ${garment}`;
 
     return {
       id: i + 1,
       category,
       title,
       subtitle: `${category} · Edition No. ${i + 1}`,
-      description: "A masterclass in modern silhouette and fabric integrity. Designed for the 2026 global aesthetic.",
       tag: i % 10 === 0 ? "Limited Edition" : i % 5 === 0 ? "New Arrival" : "Essential",
       image: getUniqueImage(garment),
       accent: accents[i % accents.length],
@@ -421,6 +433,9 @@ function useReveal() {
   return [ref, visible];
 }
 
+/* Zero-pad an edition number, e.g. 4 -> "004" */
+const editionNumber = (id) => String(id).padStart(3, "0");
+
 /* ─── COMPONENT: COLLECTION CARD ─────────────────────────── */
 function CollectionCard({ col, className = "", onClick }) {
   const [hovered, setHovered] = useState(false);
@@ -429,19 +444,31 @@ function CollectionCard({ col, className = "", onClick }) {
 
   const fallbackSrc = `https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&auto=format&fit=crop&q=80`;
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick();
+    }
+  };
+
   return (
     <div
       ref={ref}
+      role="button"
+      tabIndex={0}
+      aria-label={`View ${col.title}, ${col.subtitle}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       onTouchStart={() => setHovered(true)}
       onTouchEnd={() => setHovered(false)}
-      onClick={onClick} // Click event attached to the card container
-      className={`relative overflow-hidden rounded-[2rem] md:rounded-[3rem] cursor-pointer bg-[#111] transition-all duration-1000 ease-out w-full ${className}`}
+      onClick={onClick}
+      onKeyDown={handleKeyDown}
+      className={`group/card relative overflow-hidden rounded-[1.25rem] cursor-pointer bg-[var(--panel)] transition-[box-shadow,transform] duration-700 ease-out w-full outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--ink)] ${className}`}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(40px)",
-        boxShadow: hovered ? "0 40px 80px -20px rgba(0,112,243,0.3)" : "none",
+        transform: visible ? "translateY(0)" : "translateY(28px)",
+        transition: "opacity 900ms ease-out, transform 900ms ease-out, box-shadow 700ms ease-out",
+        boxShadow: hovered ? "0 30px 60px -24px rgba(0,0,0,0.55)" : "0 1px 0 var(--hairline)",
       }}
     >
       <img
@@ -450,44 +477,68 @@ function CollectionCard({ col, className = "", onClick }) {
         loading="lazy"
         decoding="async"
         onError={() => setImgError(true)}
-        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1.5s] ease-out"
-        style={{ transform: hovered ? "scale(1.05)" : "scale(1)" }}
+        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-[1.4s] ease-out"
+        style={{ transform: hovered ? "scale(1.045)" : "scale(1)" }}
       />
-      <div className={`absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent transition-opacity duration-700 ${hovered ? "opacity-95" : "opacity-75"}`} />
+
+      {/* tonal wash, warmer than pure black */}
+      <div
+        className="absolute inset-0 transition-opacity duration-700"
+        style={{
+          background: "linear-gradient(180deg, rgba(10,10,12,0) 40%, rgba(10,10,12,0.55) 72%, rgba(10,10,12,0.94) 100%)",
+          opacity: hovered ? 1 : 0.9,
+        }}
+      />
+
+      {/* faint watermark edition numeral — real sequence data, not decoration */}
+      <span
+        aria-hidden="true"
+        className="font-display absolute top-4 right-5 md:top-6 md:right-7 select-none pointer-events-none tabular-nums transition-opacity duration-700"
+        style={{
+          fontSize: "clamp(2rem, 4vw, 3.25rem)",
+          fontStyle: "italic",
+          fontWeight: 400,
+          color: "transparent",
+          WebkitTextStroke: "1px rgba(243,241,234,0.22)",
+          opacity: hovered ? 1 : 0.6,
+        }}
+      >
+        {editionNumber(col.id)}
+      </span>
 
       <div className="absolute top-4 left-4 md:top-6 md:left-6">
-        <span
-          className="text-[9px] font-black tracking-[0.2em] uppercase px-4 py-2 rounded-full backdrop-blur-xl border border-white/10 text-white"
-          style={{ backgroundColor: `${col.accent}33` }}
-        >
+        <span className="font-ui text-[9px] font-semibold tracking-[0.2em] uppercase px-3 py-[7px] rounded-full border border-[var(--hairline-strong)] text-[var(--ivory)] bg-[var(--ink)]/40">
           {col.tag}
         </span>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-        <p className="text-[10px] font-bold tracking-[0.3em] uppercase mb-2 text-white/40 transition-colors duration-300" style={{ color: hovered ? col.accent : "" }}>
+        <p
+          className="font-ui text-[10px] font-bold tracking-[0.28em] uppercase mb-2 transition-colors duration-300"
+          style={{ color: hovered ? "var(--accent)" : "rgba(243,241,234,0.45)" }}
+        >
           {col.subtitle}
         </p>
-        <h3 className="text-xl md:text-3xl font-black text-white italic uppercase tracking-tighter mb-3 leading-tight">
+        <h3 className="font-display text-2xl md:text-3xl text-[var(--ivory)] tracking-tight mb-3 leading-[1.05]">
           {col.title}
         </h3>
 
-        <div className={`overflow-hidden transition-all duration-700 ease-in-out ${hovered ? "max-h-32 opacity-100" : "max-h-0 opacity-0"}`}>
-          <p className="text-xs text-white/50 leading-relaxed mb-6">
-            {col.description}
-          </p>
-        </div>
-
-        <div className="flex items-center gap-3">
-          <div
-            className="h-px bg-white/20 transition-all duration-500"
+        <div
+          className="flex items-center gap-3 pt-1 border-t transition-[border-color] duration-500"
+          style={{ borderColor: hovered ? "var(--accent)" : "var(--hairline)" }}
+        >
+          <span className="font-ui text-[10px] font-bold uppercase tracking-[0.22em] text-[var(--ivory)] pt-3">
+            View the Look
+          </span>
+          <span
+            aria-hidden="true"
+            className="font-ui text-[13px] pt-3 transition-transform duration-500"
             style={{
-              width: hovered ? "48px" : "32px",
-              backgroundColor: hovered ? col.accent : "",
+              color: "var(--accent)",
+              transform: hovered ? "translateX(4px)" : "translateX(0)",
             }}
-          />
-          <span className="text-[10px] font-black uppercase tracking-widest text-white">
-            Discover
+          >
+            →
           </span>
         </div>
       </div>
@@ -509,18 +560,12 @@ export default function Collections() {
   }, [activeTab]);
 
   const handleCardClick = (item) => {
-    // Collect the dynamic metadata generated specifically for the garment category
     const dynamicData = getCollectionDetails(item);
-    setSelectedItem({
-      ...item,
-      ...dynamicData
-    });
+    setSelectedItem({ ...item, ...dynamicData });
   };
 
-  // Close popup logic helper
   const closeDetailsModal = () => setSelectedItem(null);
 
-  // Close modal when hitting the Escape Key
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") closeDetailsModal();
@@ -529,43 +574,72 @@ export default function Collections() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const tokenStyle = {
+    "--ink": "#0a0a0c",
+    "--panel": "#131316",
+    "--hairline": "rgba(243,241,234,0.09)",
+    "--hairline-strong": "rgba(243,241,234,0.18)",
+    "--ivory": "#f3f1ea",
+    "--muted": "rgba(243,241,234,0.55)",
+    "--accent": "#0070f3",
+    "--accent-deep": "#052e6b",
+  };
+
   return (
-    <section className="bg-[#050505] min-h-screen py-16 md:py-32 px-4 md:px-10 overflow-x-hidden relative">
+    <section
+      className="min-h-screen py-16 md:py-32 px-4 md:px-10 overflow-x-hidden relative bg-[var(--ink)]"
+      style={tokenStyle}
+    >
       <div ref={headerRef} className="max-w-[1400px] mx-auto mb-16 md:mb-24">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-12">
-          
-          <div className="space-y-6 p-6 max-w-4xl">
-            <div className="inline-flex items-center gap-2 border border-white/10 px-4 py-1.5 rounded-full bg-white/5 backdrop-blur-md">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#0070f3] animate-ping" />
-              <span className="text-[9px] font-black tracking-[0.3em] text-white/70 uppercase">
+
+          <div className="space-y-6 max-w-4xl">
+            <div className="inline-flex items-center gap-2.5 border border-[var(--hairline-strong)] px-4 py-1.5 rounded-full">
+              <span className="relative flex w-1.5 h-1.5">
+                <span className="absolute inline-flex w-full h-full rounded-full bg-[var(--accent)] animate-breathe" />
+              </span>
+              <span className="font-ui text-[9px] font-bold tracking-[0.3em] text-[var(--muted)] uppercase">
                 Explore Collections
               </span>
             </div>
 
-            <h2 className="text-white text-4xl sm:text-6xl md:text-5xl lg:text-8xl font-black tracking-tighter leading-[0.9] uppercase italic break-words">
-              Discover Our <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: "1px #0070f3" }}>Exclusive</span> Collections
+            <h2 className="font-ui text-white text-4xl sm:text-6xl md:text-5xl lg:text-7xl font-black tracking-tight leading-[0.95] uppercase break-words">
+              Discover Our{" "}
+              <span className="font-display font-normal italic normal-case tracking-normal text-transparent" style={{ WebkitTextStroke: "1px var(--accent)" }}>
+                Exclusive
+              </span>{" "}
+              Collections
             </h2>
 
-            <p className="text-white/60 text-xs md:text-sm font-medium tracking-wide leading-relaxed max-w-2xl">
-              Explore carefully curated styles, trending outfits, and must have pieces designed to elevate your wardrobe. Browse our latest arrivals and discover collections crafted for every occasion.
+            <p className="font-ui text-[var(--muted)] text-xs md:text-sm font-medium tracking-wide leading-relaxed max-w-2xl">
+              Every piece is catalogued as an individual look — numbered, composed, and styled on its
+              own terms. Currently typing {" "}
+              <span className="text-[var(--ivory)] font-semibold">{typedWord}</span>
+              <span aria-hidden="true" className="text-[var(--accent)]">|</span>
+              {" "}into the archive.
             </p>
 
-            <p className="text-[#0070f3] text-[9px] md:text-xs font-black tracking-[0.5em] uppercase pt-2">
-              The Achieved Global Studio 2026
+            <p className="font-ui text-[var(--accent)] text-[9px] md:text-[10px] font-black tracking-[0.5em] uppercase pt-2">
+              Atelier 0070 — Season 2026
             </p>
           </div>
 
-          <div className="flex overflow-x-auto no-scrollbar bg-white/5 p-1.5 rounded-full border border-white/10 backdrop-blur-2xl max-w-full touch-pan-x self-start lg:self-end">
+          <div className="flex overflow-x-auto no-scrollbar gap-8 border-b border-[var(--hairline)] max-w-full touch-pan-x self-start lg:self-end pb-1">
             {["All", "Men", "Women", "Kids"].map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`px-6 md:px-12 py-3 md:py-4 rounded-full text-[10px] font-black uppercase tracking-widest transition-all shrink-0 ${
-                  activeTab === tab ? "bg-[#0070f3] text-white shadow-lg shadow-blue-600/30" : "text-white/30 hover:text-white"
-                }`}
+                className="font-ui relative pb-3 text-[11px] font-bold uppercase tracking-[0.22em] transition-colors shrink-0 outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] rounded-sm"
+                style={{ color: activeTab === tab ? "var(--ivory)" : "var(--muted)" }}
               >
                 {tab}
+                <span
+                  className="absolute left-0 right-0 -bottom-px h-[2px] transition-transform duration-300 origin-left"
+                  style={{
+                    backgroundColor: "var(--accent)",
+                    transform: activeTab === tab ? "scaleX(1)" : "scaleX(0)",
+                  }}
+                />
               </button>
             ))}
           </div>
@@ -585,114 +659,126 @@ export default function Collections() {
                 key={item.id}
                 col={item}
                 className={`${colSpan} h-[400px] md:h-[500px] lg:h-[600px]`}
-                onClick={() => handleCardClick(item)} // Sent the click down to the card handler
+                onClick={() => handleCardClick(item)}
               />
             );
           })}
         </div>
 
-        <div className="mt-32 text-center border-t border-white/5 pt-24">
-          <p className="text-white/10 text-[10px] font-bold tracking-[1em] uppercase mb-10">
-            End of Current Curation
+        <div className="mt-32 text-center border-t border-[var(--hairline)] pt-20">
+          <p className="font-ui text-[var(--muted)] text-[10px] font-bold tracking-[0.8em] uppercase mb-10 opacity-60">
+            End of Current Edit
           </p>
-          <button className="group relative px-12 md:px-16 py-6 md:py-8 bg-transparent text-white border border-white/20 font-black text-xs uppercase tracking-[0.4em] rounded-full overflow-hidden transition-all hover:border-[#0070f3]">
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">
-              Request Custom Fit
-            </span>
-            <div className="absolute inset-0 bg-[#0070f3] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
+          <button className="group relative px-12 md:px-16 py-5 md:py-6 bg-transparent text-[var(--ivory)] border border-[var(--hairline-strong)] font-ui font-bold text-[11px] uppercase tracking-[0.35em] rounded-full overflow-hidden transition-colors duration-500 hover:border-[var(--accent)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]">
+            <span className="relative z-10">Request a Custom Fit</span>
+            <div className="absolute inset-0 bg-[var(--accent)] translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
           </button>
         </div>
       </div>
 
-      {/* DYNAMIC SIDE-BY-SIDE INFORMATION POPUP/MODAL OVERLAY */}
+      {/* LOOKBOOK DETAIL MODAL */}
       {selectedItem && (
-        <div 
-          className="fixed inset-0 z-[5000] flex items-center justify-center p-4 bg-black/85 backdrop-blur-md animate-fadeIn"
+        <div
+          className="fixed inset-0 z-[5000] flex items-center justify-center p-4 bg-[var(--ink)]/90 backdrop-blur-sm animate-overlayIn"
           onClick={closeDetailsModal}
+          role="presentation"
         >
-          <div 
-            className="relative w-full max-w-4xl bg-[#0c0c0e] border border-white/10 rounded-[2.5rem] overflow-hidden shadow-2xl transition-all text-white max-h-[90vh] overflow-y-auto flex flex-col md:flex-row"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when inside popup
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label={`${selectedItem.title} — look details`}
+            className="relative w-full max-w-4xl bg-[var(--panel)] border border-[var(--hairline-strong)] rounded-[1.5rem] overflow-hidden shadow-2xl text-[var(--ivory)] max-h-[90vh] overflow-y-auto flex flex-col md:flex-row animate-modalIn"
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Left Column: Visual Image Cover Block */}
-            <div className="w-full md:w-1/2 h-64 md:h-auto min-h-[300px] md:min-h-full relative shrink-0">
-              <img 
-                src={selectedItem.image} 
-                alt={selectedItem.title} 
+            {/* Left: image panel with edition mark */}
+            <div className="w-full md:w-[45%] h-64 md:h-auto min-h-[280px] md:min-h-full relative shrink-0 bg-[var(--ink)]">
+              <img
+                src={selectedItem.image}
+                alt={selectedItem.title}
                 className="absolute inset-0 w-full h-full object-cover object-top"
               />
-              <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/80 via-transparent to-transparent" />
+              <div
+                className="absolute inset-0"
+                style={{ background: "linear-gradient(180deg, rgba(10,10,12,0) 55%, rgba(10,10,12,0.75) 100%)" }}
+              />
+              <div className="absolute bottom-5 left-5 md:bottom-7 md:left-7">
+                <span className="font-ui text-[10px] font-bold tracking-[0.3em] uppercase text-[var(--ivory)]/70 block mb-1">
+                  Look
+                </span>
+                <span className="font-display italic text-4xl md:text-5xl tabular-nums text-[var(--ivory)]">
+                  {editionNumber(selectedItem.id)}
+                </span>
+              </div>
             </div>
 
-            {/* Right Column: Dynamic Text Description Details block */}
-            <div className="w-full md:w-1/2 p-6 sm:p-10 flex flex-col justify-between relative">
-              {/* Close Button */}
-              <button 
+            {/* Right: editorial spec panel */}
+            <div className="w-full md:w-[55%] p-6 sm:p-10 flex flex-col justify-between relative">
+              <button
                 onClick={closeDetailsModal}
-                className="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full border border-white/10 hover:border-white/40 bg-white/5 text-white/70 hover:text-white transition-colors cursor-pointer z-10"
-                aria-label="Close details"
+                className="absolute top-6 right-6 w-9 h-9 flex items-center justify-center rounded-full border border-[var(--hairline-strong)] hover:border-[var(--accent)] text-[var(--muted)] hover:text-[var(--ivory)] transition-colors cursor-pointer z-10 outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
+                aria-label="Close look details"
               >
-                ✕
+                <span className="font-ui text-sm leading-none">×</span>
               </button>
 
-              {/* Header Meta Content */}
               <div>
-                <div className="mb-4">
-                  <span 
-                    className="text-[9px] font-black tracking-[0.25em] uppercase px-3.5 py-1.5 rounded-full border border-white/10"
-                    style={{ backgroundColor: `${selectedItem.accent}25`, color: selectedItem.accent }}
-                  >
+                <div className="mb-5">
+                  <span className="font-ui text-[9px] font-bold tracking-[0.25em] uppercase px-3 py-[7px] rounded-full border border-[var(--hairline-strong)]" style={{ color: "var(--accent)" }}>
                     {selectedItem.tag}
                   </span>
                 </div>
 
-                <p className="text-[10px] font-bold tracking-[0.3em] uppercase text-white/40 mb-1">
+                <p className="font-ui text-[10px] font-bold tracking-[0.3em] uppercase text-[var(--muted)] mb-2">
                   {selectedItem.subtitle}
                 </p>
-                <h3 className="text-2xl sm:text-3xl font-black italic uppercase tracking-tighter mb-6 leading-tight">
+                <h3 className="font-display text-3xl sm:text-4xl tracking-tight mb-6 leading-[1.05]">
                   {selectedItem.title}
                 </h3>
 
-                {/* Body details list block */}
                 <div className="space-y-5 text-sm">
-                  <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30 mb-1">About Collection</h4>
-                    <p className="text-white/80 leading-relaxed font-medium text-xs sm:text-sm">
-                      {selectedItem.description}
-                    </p>
-                  </div>
+                  <p className="font-ui text-[var(--ivory)]/85 leading-relaxed font-medium text-xs sm:text-sm">
+                    {selectedItem.description}
+                  </p>
 
-                  <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-4">
+                  <div className="grid grid-cols-2 gap-5 border-t border-[var(--hairline)] pt-5">
                     <div>
-                      <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30 mb-1">Theme / Style</h4>
-                      <p className="text-white font-black text-[11px] uppercase tracking-wider">{selectedItem.theme}</p>
+                      <h4 className="font-ui text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--muted)] mb-1.5">
+                        Composition
+                      </h4>
+                      <p className="font-ui text-[var(--ivory)] text-[11px] leading-relaxed">
+                        {selectedItem.composition}
+                      </p>
                     </div>
                     <div>
-                      <h4 className="text-[10px] font-bold uppercase tracking-[0.15em] text-white/30 mb-1">Best Occasion</h4>
-                      <p className="text-white font-medium text-[11px] leading-relaxed">{selectedItem.occasions}</p>
+                      <h4 className="font-ui text-[9px] font-bold uppercase tracking-[0.18em] text-[var(--muted)] mb-1.5">
+                        Styled For
+                      </h4>
+                      <p className="font-ui text-[var(--ivory)] text-[11px] leading-relaxed">
+                        {selectedItem.styledFor}
+                      </p>
                     </div>
                   </div>
 
-                  <div className="bg-white/5 border border-white/5 p-4 rounded-2xl">
-                    <h4 className="text-[10px] font-black uppercase tracking-[0.15em] text-blue-500 mb-1">Styling Suggestion</h4>
-                    <p className="text-white/70 text-xs italic leading-relaxed">
-                      "{selectedItem.styleTip}"
+                  <div className="pl-4 border-l-2" style={{ borderColor: "var(--accent)" }}>
+                    <h4 className="font-ui text-[9px] font-bold uppercase tracking-[0.18em] mb-1.5" style={{ color: "var(--accent)" }}>
+                      Stylist's Note
+                    </h4>
+                    <p className="font-display italic text-[var(--ivory)]/80 text-sm leading-relaxed">
+                      {selectedItem.styleTip}
                     </p>
                   </div>
                 </div>
               </div>
 
-              {/* Call-to-action Footer layout */}
-              <div className="border-t border-white/5 pt-6 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-                <p className="text-xs text-white/60 font-semibold tracking-wide text-center sm:text-left">
+              <div className="border-t border-[var(--hairline)] pt-6 mt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p className="font-ui text-xs text-[var(--muted)] font-medium tracking-wide text-center sm:text-left">
                   {selectedItem.callToAction}
                 </p>
-                <button 
+                <button
                   onClick={closeDetailsModal}
-                  className="px-6 py-3 rounded-full text-[10px] font-black uppercase tracking-widest text-white transition-all w-full sm:w-auto hover:bg-white hover:text-black shrink-0 border border-white/20"
-                  style={{ backgroundColor: selectedItem.accent }}
+                  className="font-ui px-6 py-3 rounded-full text-[10px] font-bold uppercase tracking-[0.22em] transition-colors w-full sm:w-auto shrink-0 border border-[var(--hairline-strong)] text-[var(--ivory)] hover:border-[var(--accent)] hover:text-[var(--accent)] outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
                 >
-                  Close Explorer
+                  Close the Look
                 </button>
               </div>
             </div>
@@ -701,17 +787,37 @@ export default function Collections() {
       )}
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap');
-        h2 { font-family: 'Syncopate', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+        .font-display { font-family: 'Fraunces', 'Iowan Old Style', Georgia, serif; }
+        .font-ui { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        body { background-color: #050505; }
-        @keyframes fadeIn {
+
+        @keyframes overlayIn {
           from { opacity: 0; }
           to { opacity: 1; }
         }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out forwards;
+        .animate-overlayIn { animation: overlayIn 0.25s ease-out forwards; }
+
+        @keyframes modalIn {
+          from { opacity: 0; transform: translateY(18px) scale(0.98); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .animate-modalIn { animation: modalIn 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+
+        @keyframes breathe {
+          0%, 100% { opacity: 0.35; transform: scale(0.85); }
+          50% { opacity: 1; transform: scale(1.15); }
+        }
+        .animate-breathe { animation: breathe 2.6s ease-in-out infinite; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .animate-overlayIn, .animate-modalIn, .animate-breathe {
+            animation: none !important;
+          }
+          * { transition-duration: 0.01ms !important; }
         }
       `}</style>
     </section>

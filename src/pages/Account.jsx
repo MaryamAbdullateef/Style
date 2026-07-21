@@ -71,8 +71,9 @@ const Account = () => {
 
         // Professional transition delay for the animated popup
         setTimeout(() => {
+          // Captures redirects from both the manual button push and the ProtectedRoute component cleanly
           const originPath = location.state?.from?.pathname || "/order";
-          navigate(originPath);
+          navigate(originPath, { replace: true });
         }, 2200);
 
       } else {

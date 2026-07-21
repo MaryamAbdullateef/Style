@@ -60,14 +60,14 @@ const Navbar = () => {
     if (!query) return [];
 
     const tokens = query.split(/\s+/);
-    return allProducts.filter((product) => {
-      const name = product.name.toLowerCase();
-      const cat = product.category.toLowerCase();
-      const sec = product.section.toLowerCase();
+    return (allProducts || []).filter((product) => {
+      const name = (product.name || "").toLowerCase();
+      const cat = (product.category || "").toLowerCase();
+      const sec = (product.section || "").toLowerCase();
       const tags = product.tags || [];
 
       return tokens.every((t) => 
-        name.includes(t) || cat.includes(t) || sec.includes(t) || tags.some(tag => tag.includes(t))
+        name.includes(t) || cat.includes(t) || sec.includes(t) || tags.some(tag => tag.toLowerCase().includes(t))
       );
     }).slice(0, 4);
   }, [headerSearch]);
@@ -194,7 +194,8 @@ const Navbar = () => {
                           onClick={() => {
                             setShowDropdown(false);
                             setIsSearchExpanded(false);
-                            navigate(product.section === "Men" ? "/men" : product.section === "Women" ? "/women" : "/kids");
+                            const path = (product.section || "").toLowerCase();
+                            navigate(path === "men" ? "/men" : path === "women" ? "/women" : "/kids");
                           }}
                           className="p-3 flex items-center gap-4 hover:bg-white/5 cursor-pointer transition-all border-b border-white/5 last:border-none group"
                         >
@@ -204,7 +205,7 @@ const Navbar = () => {
                           <div className="flex-1 min-w-0">
                             <span className="text-[8px] uppercase font-bold tracking-widest text-blue-500">{product.section} &bull; {product.category}</span>
                             <h4 className="text-xs font-bold uppercase tracking-wide truncate text-white group-hover:text-blue-400 transition-colors">{product.name}</h4>
-                            <p className="text-xs font-black text-white/60">₦{product.price.toLocaleString()}</p>
+                            <p className="text-xs font-black text-white/60">₦{product.price?.toLocaleString()}</p>
                           </div>
                           <ArrowRight size={14} className="text-gray-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0" />
                         </div>
