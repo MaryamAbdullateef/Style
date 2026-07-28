@@ -13,7 +13,7 @@ const kidProducts = [
     price: 8500,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=500&q=boy,kids,chino,shorts,apparel"
+    img: "https://media.istockphoto.com/id/878276908/photo/toddler-kids-shorts-hanging-on-rope.webp?a=1&b=1&s=612x612&w=0&k=20&c=ilBSDNg_6W0YGAzwJ8SBRZknKcsPOwP1dwP4VU5hsSo="
   },
   {
     id: 501,
