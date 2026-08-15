@@ -61,7 +61,7 @@ const kidProducts = [
     price: 10780,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=506&q=boy,kids,varsity,tee,apparel"
+    img: "https://media.istockphoto.com/id/1132036871/photo/tough-guys-wear-pink.webp?a=1&b=1&s=612x612&w=0&k=20&c=5U7nkczTAIsROYBBTqf23hBJ7s_ptb2iRiho2M3yuoU="
   },
   {
     id: 507,
@@ -85,7 +85,7 @@ const kidProducts = [
     price: 11920,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=509&q=boy,kids,plaid,shirt,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1770512653198-0d3a90e5f4a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Qm95cyUyMENhc3VhbCUyMFBsYWlkJTIwQnV0dG9uLVVwJTIwTm8uJTIwMTB8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 510,
@@ -133,7 +133,7 @@ const kidProducts = [
     price: 14200,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=515&q=boy,kids,summer,shorts,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1755534537470-77e63d1fa9e7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fEJveXMlMjBTdW1tZXIlMjBDb3R0b24lMjBTaG9ydHMlMjBTZXQlMjBOby4lMjAxNnxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 516,
@@ -157,7 +157,7 @@ const kidProducts = [
     price: 15340,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=518&q=boy,kids,canvas,dungarees,apparel"
+    img: "https://media.istockphoto.com/id/1317583856/photo/one-caucasian-little-boy-sitting-on-box-isolated-over-gray-studio-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=dpi5WsKFqcXRCfaRPBNbcIUq9ptZyoYPqKVTel0ILRc="
   },
   {
     id: 519,
@@ -181,7 +181,7 @@ const kidProducts = [
     price: 16480,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=521&q=boy,kids,skate,shirt,apparel"
+    img: "https://media.istockphoto.com/id/2192892466/photo/skateboarding-dad-encouraging-his-son-as-he-learns-to-ride-his-skateboard.webp?a=1&b=1&s=612x612&w=0&k=20&c=G9h5kdkxd8NeWnPaa0eu03msrTHN38eFYu_wlcvVmYk="
   },
   {
     id: 522,
@@ -205,7 +205,7 @@ const kidProducts = [
     price: 17620,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=524&q=boy,kids,flannel,shirt,apparel"
+    img: "https://images.unsplash.com/photo-1687275160744-ef140bf5529c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Qm95cyUyMExpZ2h0d2VpZ2h0JTIwRmxhbm5lbCUyME92ZXItc2hpcnQlMjBOby4lMjAyNXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 525,
@@ -229,7 +229,7 @@ const kidProducts = [
     price: 18760,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=527&q=boy,kids,retro,tracksuit,apparel"
+    img: "https://images.unsplash.com/photo-1715609106315-9338a28a8dfe?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJveXMlMjBSZXRybyUyMFNwb3J0JTIwVHJhY2tzdWl0JTIwTm8uJTIwMjh8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 528,
@@ -253,7 +253,7 @@ const kidProducts = [
     price: 19900,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=530&q=boy,kids,cargo,shorts,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1691367782367-2bd37f646abc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Qm95cyUyMENvbWZvcnQlMjBEZW5pbSUyMENhcmdvJTIwU2hvcnRzJTIwU2V0JTIwTm8uJTIwMzF8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 531,
@@ -261,7 +261,7 @@ const kidProducts = [
     price: 20280,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=531&q=girl,kids,pleated,skirt,apparel"
+    img: "https://images.unsplash.com/photo-1600681103852-5f6df72461aa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R2lybHMlMjBGbG93eSUyMFBsZWF0ZWQlMjBTa2lydCUyMFNldCUyME5vLiUyMDMyfGVufDB8fDB8fHww"
   },
   {
     id: 532,
@@ -277,7 +277,7 @@ const kidProducts = [
     price: 21040,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=533&q=boy,kids,washed,dungarees,apparel"
+    img: "https://images.unsplash.com/photo-1674125046153-0cf04e0d814e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Qm95cyUyMEhlYXZ5JTIwV2FzaCUyMERlbmltJTIwRHVuZ2FyZWVzJTIwZm9yJTIwa2lkcyUyME5vLiUyMDM0fGVufDB8fDB8fHww"
   },
   {
     id: 534,
@@ -325,7 +325,7 @@ const kidProducts = [
     price: 23320,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=539&q=boy,kids,checkered,shirt,apparel"
+    img: "https://media.istockphoto.com/id/1222074623/photo/boy-in-a-shirt-is-standing-by-the-swimming-pool.webp?a=1&b=1&s=612x612&w=0&k=20&c=Wy6WyQd1U8cQfl0ZO9qmDrt5MAV3C_Mpn17Iv06m9Lw="
   },
   {
     id: 540,
@@ -349,7 +349,7 @@ const kidProducts = [
     price: 24460,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=542&q=boy,kids,outdoor,tracksuit,apparel"
+    img: "https://images.unsplash.com/photo-1744789788212-076807b15f76?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEJveXMlMjBDYXN1YWwlMjBPdXRkb29yJTIwVHJhY2tzdWl0JTIwTm8uJTIwNDN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 543,
@@ -373,7 +373,7 @@ const kidProducts = [
     price: 25600,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=545&q=boy,kids,vintage,chino,apparel"
+    img: "https://images.unsplash.com/photo-1725071287951-b12b67bd3dd9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Qm95cyUyMFZpbnRhZ2UlMjBDb3R0b24lMjBDaGlubyUyMFNob3J0cyUyME5vLiUyMDQ2fGVufDB8fDB8fHww"
   },
   {
     id: 546,
@@ -397,7 +397,7 @@ const kidProducts = [
     price: 26740,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=548&q=boy,kids,classic,denim,apparel"
+    img: "https://images.unsplash.com/photo-1774641374314-6aaaf7d45d90?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJveXMlMjBDbGFzc2ljJTIwRGVuaW0lMjBPdmVyYWxscyUyME5vLiUyMDQ5fGVufDB8fDB8fHww"
   },
   {
     id: 549,
@@ -421,7 +421,7 @@ const kidProducts = [
     price: 27880,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=551&q=boy,kids,streetwear,graphic,tee,apparel"
+    img: "https://images.unsplash.com/photo-1594312287133-f6cb9a6c4dc8?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJveXMlMjBTdHJlZXQlMjBTdHlsZSUyMEdyYXBoaWMlMjBUZWUlMjBOby4lMjA1MnxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 552,
@@ -445,7 +445,7 @@ const kidProducts = [
     price: 29020,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=554&q=boy,kids,smart,flannel,shirt,apparel"
+    img: "https://media.istockphoto.com/id/2185008606/photo/an-upset-child-with-a-sad-expression-reflecting-emotions-and-vulnerability-in-difficult.webp?a=1&b=1&s=612x612&w=0&k=20&c=GCYQh397b5cKa5CCoePQYHbh4AlX-XMpxiAzAM8wSgI="
   },
   {
     id: 555,
@@ -469,7 +469,7 @@ const kidProducts = [
     price: 30160,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=557&q=boy,kids,modern,tracksuit,apparel"
+    img: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJveXMlMjBNb2Rlcm4lMjBUd28tUGllY2UlMjBUcmFja3N1aXQlMjBOby4lMjA1OHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 558,
@@ -493,7 +493,7 @@ const kidProducts = [
     price: 31300,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=560&q=boy,kids,chino,outfit,apparel"
+    img: "https://images.unsplash.com/photo-1617627057301-7b03d1097672?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEJveXMlMjBTbWFydCUyMENoaW5vJTIwT3V0Zml0JTIwTm8uJTIwNjF8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 561,
@@ -517,7 +517,7 @@ const kidProducts = [
     price: 32440,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=563&q=boy,kids,denim,overalls,apparel"
+    img: "https://images.unsplash.com/photo-1670577628542-e5ab31abe30b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm95cyUyMEhlYXZ5JTIwRGVuaW0lMjBPdmVyYWxsJTIwU2hvcnRzJTIwTm8uJTIwNjR8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 564,
@@ -525,7 +525,7 @@ const kidProducts = [
     price: 32820,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=564&q=girl,kids,flutter,tutu,apparel"
+    img: "https://images.unsplash.com/photo-1681022716517-316ae7c9d707?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8R2lybHMlMjBEZWxpY2F0ZSUyMFR1dHUlMjBEcmVzc3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 565,
@@ -565,7 +565,7 @@ const kidProducts = [
     price: 34720,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=569&q=boy,kids,lumberjack,shirt,apparel"
+    img: "https://images.unsplash.com/photo-1627278107893-b89d828d4ff3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Qm95cyUyMENhc3VhbCUyMEx1bWJlcmphY2slMjBDaGVja2VyZWQlMjBTaGlydCUyME5vLiUyMDcwfGVufDB8fDB8fHw"
   },
   {
     id: 570,
@@ -573,7 +573,7 @@ const kidProducts = [
     price: 35100,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=570&q=girl,kids,silk,ribbon,dress,apparel"
+    img: "https://images.unsplash.com/photo-1618232468971-54188a224417?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R2lybHMlMjBFbGVnYW50JTIwU2lsayUyMFJpYmJvbiUyMERyZXNzJTIwTm8uJTIwNzF8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 571,
@@ -589,7 +589,7 @@ const kidProducts = [
     price: 35860,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=572&q=boy,kids,track,jacket,apparel"
+    img: "https://images.unsplash.com/photo-1632232963035-bc14755747c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Qm95cyUyMENhc3VhbCUyME91dGRvb3IlMjBUcmFjayUyMEphY2tldCUyMFNldCUyME5vLiUyMDczfGVufDB8fDB8fHww"
   },
   {
     id: 573,
@@ -597,7 +597,7 @@ const kidProducts = [
     price: 36240,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=573&q=girl,kids,flowy,sundress,apparel"
+    img: "https://images.unsplash.com/photo-1656424692994-736ccef90d8e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R2lybHMlMjBUaWVyZWQlMjBGbG93eSUyMFN1biUyMERyZXNzJTIwTm8uJTIwNzR8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 574,
@@ -605,7 +605,7 @@ const kidProducts = [
     price: 36620,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=574&q=unisex,kids,light,romper,apparel"
+    img: "https://images.unsplash.com/photo-1622290319146-7b63df48a635?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFVuaXNleCUyMExpZ2h0JTIwT3JnYW5pYyUyMENvdHRvbiUyMFJvbXBlciUyME5vLiUyMDc1fGVufDB8fDB8fHww"
   },
   {
     id: 575,
@@ -613,7 +613,7 @@ const kidProducts = [
     price: 37000,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=575&q=boy,kids,cargo,shorts,apparel"
+    img: "https://images.unsplash.com/photo-1785828642909-676851fe3db2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Qm95cyUyMEdyYXBoaWMlMjBSZXRybyUyMFNwb3J0cyUyMFRlZSUyME5vLiUyMDk3fGVufDB8fDB8fHww"
   },
   {
     id: 576,
@@ -621,7 +621,7 @@ const kidProducts = [
     price: 37380,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=576&q=girl,kids,spring,rose,dress,apparel"
+    img: "https://images.unsplash.com/photo-1652501110379-791d8adc753f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEdpcmxzJTIwU3dlZXQlMjBTcHJpbmclMjBSb3NlJTIwRHJlc3MlMjBOby4lMjA3N3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 577,
@@ -629,7 +629,7 @@ const kidProducts = [
     price: 37760,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=577&q=unisex,kids,sherpa,hoodie,apparel"
+    img: "https://images.unsplash.com/photo-1771074153183-5849e68c5da6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8VW5pc2V4JTIwV2FybSUyMENvenklMjBTaGVycGElMjBIb29kaWUlMjBOby4lMjA3OHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 578,
@@ -637,7 +637,7 @@ const kidProducts = [
     price: 38140,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=578&q=boy,kids,heavy,denim,apparel"
+    img: "https://images.unsplash.com/photo-1622288664652-96211d818e8b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fEJveXMlMjBIZWF2eSUyMFdlYXIlMjBEZW5pbSUyME92ZXJhbGxzfGVufDB8fDB8fHww"
   },
   {
     id: 579,
@@ -645,7 +645,7 @@ const kidProducts = [
     price: 38520,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=579&q=girl,kids,tiered,tulle,apparel"
+    img: "https://media.istockphoto.com/id/2248787382/photo/happy-girl-smiling-in-elegant-pink-princess-dress.webp?a=1&b=1&s=612x612&w=0&k=20&c=5m0jUg5SSc6Lf9cmW8SiMEfgB_ymqb7u2xmxp86Jf9c="
   },
   {
     id: 580,
@@ -653,7 +653,7 @@ const kidProducts = [
     price: 38900,
     tag: "New",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=580&q=unisex,kids,solid,crew,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1755534537470-993a67146441?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8VW5pc2V4JTIwTmV1dHJhbCUyMFNvbGlkJTIwS25pdCUyMENyZXclMjBmb3IlMjBraWRzJTIwTm8uJTIwODF8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 581,
@@ -661,7 +661,7 @@ const kidProducts = [
     price: 39280,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=581&q=boy,kids,urban,skate,tee,apparel"
+    img: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm95cyUyMFVyYmFuJTIwU2thdGUlMjBHcmFwaGljJTIwVGVlJTIwZm9yJTIwa2lkcyUyME5vLiUyMDgyfGVufDB8fDB8fHww"
   },
   {
     id: 582,
@@ -669,7 +669,7 @@ const kidProducts = [
     price: 39660,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=582&q=girl,kids,textured,cardigan,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1755534537657-0a8a9bf1cc46?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8R2lybHMlMjBCdXR0b24tVXAlMjBUZXh0dXJlZCUyMENhcmRpZ2FuJTIwZm9yJTIwa2lkcyUyME5vLiUyMDgzfGVufDB8fDB8fHww"
   },
   {
     id: 583,
@@ -677,7 +677,7 @@ const kidProducts = [
     price: 40040,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=583&q=unisex,kids,utility,overalls,apparel"
+    img: "https://images.unsplash.com/photo-1676438904186-de1dd47cec27?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VW5pc2V4JTIwVG91Z2glMjBBZHZlbnR1cmUlMjBVdGlsaXR5JTIwT3ZlcmFsbHMlMjBmb3IlMjBraWRzfGVufDB8fDB8fHww"
   },
   {
     id: 584,
@@ -685,7 +685,7 @@ const kidProducts = [
     price: 40420,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=584&q=boy,kids,flannel,shirt,apparel"
+    img: "https://images.unsplash.com/photo-1615441210624-0e152ee86117?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEJveXMlMjBDYXN1YWwlMjBGbGFubmVsJTIwQnV0dG9uLURvd258ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 585,
@@ -693,7 +693,7 @@ const kidProducts = [
     price: 40800,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=585&q=girl,kids,collar,blouse,apparel"
+    img: "https://images.unsplash.com/photo-1566454544259-f4b94c3d758c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEdpcmxzJTIwRWxlZ2FudCUyMEZsdXR0ZXIlMjBDb2xsYXIlMjBCbG91c2UlMjBOby4lMjA4NnxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 586,
@@ -709,7 +709,7 @@ const kidProducts = [
     price: 41560,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=587&q=boy,kids,athletic,tracksuit,apparel"
+    img: "https://images.unsplash.com/photo-1632232962746-e2b7a1011617?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Qm95cyUyMEFjdGl2ZSUyMFJldHJvJTIwQXRobGV0aWMlMjBUcmFja3N1aXQlMjBOby4lMjA4OHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 588,
@@ -717,7 +717,7 @@ const kidProducts = [
     price: 41940,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=588&q=girl,kids,garden,sundress,apparel"
+    img: "https://images.unsplash.com/photo-1762342019386-5edcb75853e0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8R2lybHMlMjBGbG93eSUyMFNwcmluZyUyMEdhcmRlbiUyMFN1bmRyZXNzJTIwZm9yJTIwa2lkc3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 589,
@@ -725,7 +725,7 @@ const kidProducts = [
     price: 42320,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=589&q=unisex,kids,utility,playsuit,apparel"
+    img: "https://images.unsplash.com/photo-1673636157843-9cebee93ed2d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFVuaXNleCUyMFV0aWxpdHklMjBTbHViJTIwUGxheXN1aXQlMjBOby4lMjA5MCUyMGZvciUyMGtpZHN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 590,
@@ -733,7 +733,7 @@ const kidProducts = [
     price: 42700,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=590&q=boy,kids,cotton,shorts,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1723575737806-ecd7f74bf3a1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Qm95cyUyMENvdHRvbiUyMENhc3VhbCUyMFNob3J0cyUyME91dGZpdCUyME5vLiUyMDkxJTIwZm9yJTIwa2lkc3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 591,
@@ -741,7 +741,7 @@ const kidProducts = [
     price: 43080,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=591&q=girl,kids,skirt,combo,apparel"
+    img: "https://images.unsplash.com/photo-1732043040303-751593c56651?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R2lybHMlMjBWZWx2ZXQlMjBUcmltJTIwU2tpcnQlMjBDb21ibyUyME5vLiUyMDkyJTIwZm9yJTIwa2lkc3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 592,
@@ -749,7 +749,7 @@ const kidProducts = [
     price: 43460,
     tag: "New",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=592&q=unisex,kids,sleeper,pajamas,apparel"
+    img: "https://images.unsplash.com/photo-1621862469125-f4c44006d930?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VW5pc2V4JTIwUHJlbWl1bSUyMFJpYmJlZCUyMENvdHRvbiUyME5vLiUyMDkyJTIwZm9yJTIwa2lkc3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 593,
@@ -757,7 +757,7 @@ const kidProducts = [
     price: 43840,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=593&q=boy,kids,bleached,dungarees,apparel"
+    img: "https://media.istockphoto.com/id/2162072050/photo/schoolboy-drinking-water-from-a-bottle-outdoors-in-schoolyard.webp?a=1&b=1&s=612x612&w=0&k=20&c=y9KghPdIRNr3-sPsVKgUY_7ub-IRfVp8hthGclyFmUc="
   },
   {
     id: 594,
@@ -765,7 +765,7 @@ const kidProducts = [
     price: 44220,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=594&q=girl,kids,princess,gown,apparel"
+    img: "https://images.unsplash.com/photo-1646548675911-9aa88076e2be?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R2lybHMlMjBMYXllcmVkJTIwUHJpbmNlc3MlMjBUdWxsZSUyMEdvd24lMjBOby4lMjA5NSUyMGZvciUyMGtpZHN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 595,
@@ -773,15 +773,15 @@ const kidProducts = [
     price: 44600,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=595&q=unisex,kids,fleece,pullover,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1707816501431-7e17391cd3d5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8VW5pc2V4JTIwQ296eSUyMEhpZ2gtTmVjayUyMEZsZWVjZSUyME5vLiUyMDk2JTIwZm9yJTIwa2lkc3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 596,
     name: "Boys Graphic Retro Sports Tee No. 97",
-    price: 44980,
+    price: 14980,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=596&q=boy,kids,retro,tee,apparel"
+    img: "https://images.unsplash.com/photo-1785828642909-676851fe3db2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Qm95cyUyMEdyYXBoaWMlMjBSZXRybyUyMFNwb3J0cyUyMFRlZSUyME5vLiUyMDk3fGVufDB8fDB8fHww"
   },
   {
     id: 597,
@@ -829,7 +829,7 @@ const kidProducts = [
     price: 47260,
     tag: "Sale",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=602&q=boy,kids,athletic,set,apparel"
+    img: "https://images.unsplash.com/photo-1759313560190-d160c3567170?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEJveXMlMjBNb2Rlcm4lMjBBdGhsZXRpYyUyMFR3by1QaWVjZSUyMFNldCUyME5vLiUyMDEwM3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 603,
@@ -853,7 +853,7 @@ const kidProducts = [
     price: 48400,
     tag: "Trending",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=605&q=boy,kids,vintage,chino,apparel"
+    img: "https://images.unsplash.com/photo-1627639678232-1d3bcbcc1042?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fEJveXMlMjBWaW50YWdlJTIwV2FzaCUyMENoaW5vJTIwU2hvcnRzJTIwTm8uJTIwMTA2fGVufDB8fDB8fHww"
   },
   {
     id: 606,
@@ -877,7 +877,7 @@ const kidProducts = [
     price: 49540,
     tag: "New",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1519457431-44ced64a64e7?w=600&auto=format&fit=crop&q=80&sig=608&q=boy,kids,canvas,overalls,apparel"
+    img: "https://images.unsplash.com/photo-1763013259109-098bf7856e08?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fEJveXMlMjBDbGFzc2ljJTIwQ2FudmFzJTIwT3ZlcmFsbCUyMFN0cmFwcyUyMG9uJTIwaGFuZ2VyJTIwTm8uJTIwMTA5fGVufDB8fDB8fHww"
   },
   {
     id: 609,
@@ -901,7 +901,7 @@ const kidProducts = [
     price: 50680,
     tag: "",
     category: "Boys",
-    img: "https://images.unsplash.com/photo-1622290319146-7b12c071b521?w=600&auto=format&fit=crop&q=80&sig=611&q=boy,kids,varsity,shirt,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1755994149662-14c6a33cfcb1?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8Qm95cyUyMEJvbGQlMjBWYXJzaXR5JTIwR3JhcGhpYyUyMFQtU2hpcnQlMjBvbiUyMGhhbmdlciUyME5vLiUyMDExMnxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 612,
