@@ -21,7 +21,7 @@ const kidProducts = [
     price: 8880,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=501&q=girl,kids,floral,skirt,apparel"
+    img: "https://images.unsplash.com/photo-1703533080122-899149941d74?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGdpcmwlMjBtaW5pJTIwc2tpcnQlMjBmb3IlMjBraWRzfGVufDB8fDB8fHww"
   },
   {
     id: 502,
@@ -42,10 +42,10 @@ const kidProducts = [
   {
     id: 504,
     name: "Girls Tulle Party Dress No. 5",
-    price: 10020,
+    price: 45000,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=504&q=girl,kids,tulle,dress,apparel"
+    img: "https://images.unsplash.com/photo-1652501400422-947c737ec616?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fEdpcmxzJTIwVHVsbGUlMjBQYXJ0eSUyMERyZXNzJTIwTm8uJTIwNXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 505,
@@ -69,7 +69,7 @@ const kidProducts = [
     price: 11160,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=507&q=girl,kids,cardigan,knitwear,apparel"
+    img: "https://media.istockphoto.com/id/1085994516/photo/winter-portrait-of-little-smiling-girl-in-knitted-cardigan-near-the-window.webp?a=1&b=1&s=612x612&w=0&k=20&c=rMsoPYFFRcAXbuz-GDkw6P8gWOZxXRlt5ATW6Gh-jWg="
   },
   {
     id: 508,
@@ -93,7 +93,7 @@ const kidProducts = [
     price: 12300,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=510&q=girl,kids,blouse,apparel"
+    img: "https://images.unsplash.com/photo-1728172576939-09903e3e6879?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2lybHMlMjBTaWxrJTIwQm93JTIwQ29sbGFyJTIwQmxvdXNlJTIwZm9yJTIwa2lkcyUyME5vLiUyMDExfGVufDB8fDB8fHww"
   },
   {
     id: 511,
@@ -117,12 +117,12 @@ const kidProducts = [
     price: 13440,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=513&q=girl,kids,linen,dress,apparel"
+    img: "https://media.istockphoto.com/id/2281912939/photo/little-girl-walking-through-green-park-on-summer-day.webp?a=1&b=1&s=612x612&w=0&k=20&c=ieRxeqHZQErv0g6uhMCG_iiQNY_Ay8NOv9YMpNWwyDw="
   },
   {
     id: 514,
     name: "Unisex Utility Pocket Romper No. 15",
-    price: 13820,
+    price: 10000,
     tag: "Sale",
     category: "Unisex",
     img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=514&q=unisex,kids,utility,romper,apparel"
@@ -141,7 +141,7 @@ const kidProducts = [
     price: 14580,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=516&q=girl,kids,tiered,rose,dress,apparel"
+    img: "https://images.unsplash.com/photo-1700640821313-e2fa2d9b3724?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEdpcmxzJTIwVGllcmVkJTIwUm9zZSUyMERyZXNzJTIwTm8uJTIwMTd8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 517,
@@ -165,7 +165,7 @@ const kidProducts = [
     price: 15720,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=519&q=girl,kids,lace,dress,apparel"
+    img: "https://images.unsplash.com/photo-1582202755543-5a741facbc79?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fEdpcmxzJTIwU3dlZXQlMjBMYWNlJTIwU3VuZHJlc3MlMjBOby4lMjAyMHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 520,
@@ -189,7 +189,7 @@ const kidProducts = [
     price: 16860,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=522&q=girl,kids,pattern,cardigan,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1761415048906-0a5cb25b8696?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8R2lybHMlMjBGbG9yYWwlMjBQYXR0ZXJuJTIwS25pdCUyMENhcmRpZ2FuJTIwTm8uJTIwMjN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 523,
@@ -213,7 +213,7 @@ const kidProducts = [
     price: 18000,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=525&q=girl,kids,ruffle,blouse,apparel"
+    img: "https://images.unsplash.com/photo-1611003971145-d76bcf41b216?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEdpcmxzJTIwUnVmZmxlJTIwU2xlZXZlcyUyMFBhcnR5JTIwQmxvdXNlJTIwTm8uJTIwMjZ8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 526,
@@ -237,7 +237,7 @@ const kidProducts = [
     price: 19140,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=528&q=girl,kids,tiered,dress,apparel"
+    img: "https://images.unsplash.com/photo-1727537200053-b8e62dc08a17?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fEdpcmxzJTIwVGllcmVkJTIwQ290dG9uJTIwU3VuJTIwRHJlc3MlMjBOby4lMjAyOXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 529,
@@ -309,7 +309,7 @@ const kidProducts = [
     price: 22560,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=537&q=girl,kids,knit,cardigan,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1699303531835-2d02e909e733?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fEdpcmxzJTIwU3dlZXQlMjBLbml0JTIwQ2FyZGlnYW4lMjB3aXRoJTIwUG9ja2V0cyUyMGZvciUyMGtpZHMlMjBOby4lMjAzOHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 538,
@@ -333,7 +333,7 @@ const kidProducts = [
     price: 23700,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=540&q=girl,kids,flutter,dress,apparel"
+    img: "https://media.istockphoto.com/id/2248787382/photo/happy-girl-smiling-in-elegant-pink-princess-dress.webp?a=1&b=1&s=612x612&w=0&k=20&c=5m0jUg5SSc6Lf9cmW8SiMEfgB_ymqb7u2xmxp86Jf9c="
   },
   {
     id: 541,
@@ -357,7 +357,7 @@ const kidProducts = [
     price: 24840,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=543&q=girl,kids,pastel,sundress,apparel"
+    img: "https://images.unsplash.com/photo-1697906099479-20639005777e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEdpcmxzJTIwUGFzdGVsJTIwVGllcmVkJTIwU3VuJTIwRHJlc3MlMjBOby4lMjA0NHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 544,
@@ -381,7 +381,7 @@ const kidProducts = [
     price: 25980,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=546&q=girl,kids,spring,garden,skirt,apparel"
+    img: "https://images.unsplash.com/photo-1742942866849-81d8c73a30ef?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2lybHMlMjBTcHJpbmclMjBHYXJkZW4lMjBTa2lydCUyMFN1aXQlMjBOby4lMjA0N3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 547,
@@ -402,10 +402,10 @@ const kidProducts = [
   {
     id: 549,
     name: "Girls Princess Sparkle Ball Dress No. 50",
-    price: 27120,
+    price: 37120,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=549&q=girl,kids,princess,sparkle,dress,apparel"
+    img: "https://images.unsplash.com/photo-1594454076950-2f659b4ad166?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEdpcmxzJTIwUHJpbmNlc3MlMjBTcGFya2xlJTIwQmFsbCUyMERyZXNzJTIwZm9yJTIwa2lkcyUyME5vLiUyMDUwfGVufDB8fDB8fHww"
   },
   {
     id: 550,
@@ -429,7 +429,7 @@ const kidProducts = [
     price: 28260,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=552&q=girl,kids,autumn,cardigan,apparel"
+    img: "https://images.unsplash.com/flagged/photo-1564308501991-072c27259ba4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEdpcmxzJTIwRmxvcmFsJTIwS25pdCUyMEF1dHVtbiUyMENhcmRpZ2FuJTIwTm8uJTIwNTN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 553,
@@ -453,7 +453,7 @@ const kidProducts = [
     price: 29400,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=555&q=girl,kids,ribbon,top,apparel"
+    img: "https://images.unsplash.com/photo-1740679953559-4debe7d2b77f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8R2lybHMlMjBTaWxrJTIwUmliYm9uJTIwVGllJTIwVG9wJTIwTm8uJTIwNTZ8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 556,
@@ -477,7 +477,7 @@ const kidProducts = [
     price: 30540,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=558&q=girl,kids,meadow,dress,apparel"
+    img: "https://media.istockphoto.com/id/547057074/photo/cute-kid-girl-outdoors.webp?a=1&b=1&s=612x612&w=0&k=20&c=5RsU4uYI5WEHkX6uJMmINWuoPVXHOtk-y0IiOtFly7Q="
   },
   {
     id: 559,
@@ -501,7 +501,7 @@ const kidProducts = [
     price: 31680,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=561&q=girl,kids,ruffle,skirt,apparel"
+    img: "https://images.unsplash.com/photo-1779406707531-a18ebf34618e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8R2lybHMlMjBQYXN0ZWwlMjBSdWZmbGUlMjBTa2lydCUyMENvbWJvJTIwTm8uJTIwNjJ8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 562,
@@ -693,7 +693,7 @@ const kidProducts = [
     price: 40800,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1566454544259-f4b94c3d758c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fEdpcmxzJTIwRWxlZ2FudCUyMEZsdXR0ZXIlMjBDb2xsYXIlMjBCbG91c2UlMjBOby4lMjA4NnxlbnwwfHwwfHx8MA%3D%3D"
+    img: "https://images.unsplash.com/photo-1652501099310-35cc40f22868?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8R2lybHMlMjBFbGVnYW50JTIwRmx1dHRlciUyMFNsZWV2ZSUyMERyZXNzJTIwTm8uJTIwMTAxfGVufDB8fDB8fHww"
   },
   {
     id: 586,
@@ -789,7 +789,7 @@ const kidProducts = [
     price: 45360,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=597&q=girl,kids,knit,cardigan,apparel"
+    img: "https://images.unsplash.com/photo-1719408386140-5fbac6ffdcbd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8R2lybHMlMjBHaXJscyUyMFNvZnQlMjBLbml0JTIwQ2xhc3NpYyUyMENhcmRpZ2FuJTIwTm8uJTIwOTh8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 598,
@@ -813,7 +813,7 @@ const kidProducts = [
     price: 46500,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=600&q=girl,kids,flutter,dress,apparel"
+    img: "https://images.unsplash.com/photo-1568074914582-06dd755f723c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fEdpcmxzJTIwRWxlZ2FudCUyMEZsdXR0ZXIlMjBTbGVldmUlMjBEcmVzcyUyME5vLiUyMDEwMXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 601,
@@ -834,10 +834,10 @@ const kidProducts = [
   {
     id: 603,
     name: "Girls Breathable Linen Sun Dress No. 104",
-    price: 47640,
+    price: 17640,
     tag: "",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=603&q=girl,kids,linen,sundress,apparel"
+    img: "https://images.unsplash.com/photo-1611003967145-fb3960072424?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8R2lybHMlMjBCcmVhdGhhYmxlJTIwTGluZW4lMjBTdW4lMjBEcmVzcyUyME5vLiUyMDEwNHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 604,
@@ -861,7 +861,7 @@ const kidProducts = [
     price: 48780,
     tag: "Sale",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=606&q=girl,kids,rose,dress,apparel"
+    img: "https://images.unsplash.com/photo-1700640695319-a83a18cd8b4a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8R2lybHMlMjBUaWVyZWQlMjBSb3NlJTIwRmxvd2VyJTIwRHJlc3MlMjBOby4lMjAxMDd8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 607,
@@ -885,7 +885,7 @@ const kidProducts = [
     price: 49920,
     tag: "Trending",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&auto=format&fit=crop&q=80&sig=609&q=girl,kids,sparkle,tulle,apparel"
+    img: "https://images.unsplash.com/photo-1778166071486-9ac6f2ac700d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fEdpcmxzJTIwUm95YWwlMjBTcGFya2xlJTIwVHVsbGUlMjBEcmVzcyUyME5vLiUyMDExMHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 610,
@@ -909,7 +909,7 @@ const kidProducts = [
     price: 51060,
     tag: "New",
     category: "Girls",
-    img: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=600&auto=format&fit=crop&q=80&sig=612&q=girl,kids,knit,cardigan,apparel"
+    img: "https://media.istockphoto.com/id/1458556146/photo/girl-in-studio-on-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=2IzYznnNkawCoYsG0Jfn8WnaeczgyYSywhTkgXCtQQE="
   },
   {
     id: 613,
