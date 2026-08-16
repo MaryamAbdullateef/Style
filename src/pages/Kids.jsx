@@ -29,7 +29,7 @@ const kidProducts = [
     price: 9260,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=502&q=baby,unisex,romper,apparel"
+    img: "https://images.unsplash.com/photo-1622290319146-7b63df48a635?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fFVuaXNleCUyME9yZ2FuaWMlMjBDb3R0b24lMjBSb21wZXIlMjBOby4lMjAzfGVufDB8fDB8fHww"
   },
   {
     id: 503,
@@ -101,7 +101,7 @@ const kidProducts = [
     price: 12680,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=511&q=unisex,kids,loungewear,pyjamas,apparel"
+    img: "https://images.unsplash.com/photo-1616692994673-2feb09ac5770?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFVuaXNleCUyMFByZW1pdW0lMjBSaWJiZWQlMjBMb3VuZ2V3ZWFyJTIwZm9yJTIwa2lkcyUyMFNldCUyME5vLiUyMDEyfGVufDB8fDB8fHww"
   },
   {
     id: 512,
@@ -125,7 +125,7 @@ const kidProducts = [
     price: 10000,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=514&q=unisex,kids,utility,romper,apparel"
+    img: "https://media.istockphoto.com/id/1223613235/photo/two-overalls-for-medical-workers-are-on-a-rack-hanger.webp?a=1&b=1&s=612x612&w=0&k=20&c=P0pJZOo78vwDOPSNh3HE4FXeTUXxloS4n3xhqdfcfvM="
   },
   {
     id: 515,
@@ -149,7 +149,7 @@ const kidProducts = [
     price: 14960,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=517&q=unisex,kids,neutral,jumpsuit,apparel"
+    img: "https://images.unsplash.com/photo-1653686682427-e171d5f2ce7b?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFVuaXNleCUyME5ldXRyYWwlMjBDb3R0b24lMjBKdW1wc3VpdCUyMGZvciUyMGtpZHMlMjBOby4lMjAxOHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 518,
@@ -173,7 +173,7 @@ const kidProducts = [
     price: 16100,
     tag: "New",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=520&q=unisex,kids,sherpa,pullover,apparel"
+    img: "https://images.unsplash.com/photo-1768383235583-99e9d8c836b0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fFVuaXNleCUyMFVsdHJhJTIwQ296eSUyMFNoZXJwYSUyMFB1bGxvdmVyJTIwZm9yJTIwa2lkcyUyME5vLiUyMDIxfGVufDB8fDB8fHww"
   },
   {
     id: 521,
@@ -197,7 +197,7 @@ const kidProducts = [
     price: 17240,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=523&q=unisex,kids,fleece,dungarees,apparel"
+    img: "https://images.unsplash.com/photo-1711313532755-47fe78c65a50?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VW5pc2V4JTIwUGxheWZ1bCUyMEZsZWVjZSUyMER1bmdhcmVlcyUyMGZvciUyMGtpZHMlMjBOby4lMjAyNHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 524,
@@ -221,7 +221,7 @@ const kidProducts = [
     price: 18380,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=526&q=unisex,kids,waffle,loungewear,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1755534537453-d1e5670c1f18?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8VW5pc2V4JTIwU29mdCUyMFdhZmZsZSUyMExvdW5nZSUyMFNldCUyMGZvciUyMGtpZHN8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 527,
@@ -245,7 +245,7 @@ const kidProducts = [
     price: 19520,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=529&q=unisex,kids,utility,playsuit,apparel"
+    img: "https://images.unsplash.com/photo-1769095207072-0c84d9b7b9ee?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VW5pc2V4JTIwVXRpbGl0eSUyMFBvY2tldCUyMFBsYXklMjBTdWl0JTIwd2hpdGUlMjBmb3IlMjBraWRzfGVufDB8fDB8fHww"
   },
   {
     id: 530,
@@ -269,7 +269,7 @@ const kidProducts = [
     price: 20660,
     tag: "New",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=532&q=unisex,baby,sleepsuit,apparel"
+    img: "https://media.istockphoto.com/id/1322652168/photo/creeping-funny-boy-in-body-he-sits-on-the-floor-isolated-on-a-white-studio-background-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=HkU3Yn-NnBQ2v3bVLJ917JmiwW7hrXvwToAt_67NoV4="
   },
   {
     id: 533,
@@ -290,10 +290,10 @@ const kidProducts = [
   {
     id: 535,
     name: "Unisex Oversized Minimalist Crew Sweatshirt No. 36",
-    price: 21800,
+    price: 11800,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=535&q=unisex,kids,crew,sweatshirt,apparel"
+    img: "https://media.istockphoto.com/id/1286335943/photo/blank-beige-sweatshirt-on-white-background-top-view.webp?a=1&b=1&s=612x612&w=0&k=20&c=LbkisVnh15JvJX_PdJpgB86rrkU17ixMyj7ycM7E-XE="
   },
   {
     id: 536,
@@ -317,7 +317,7 @@ const kidProducts = [
     price: 22940,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=538&q=unisex,kids,utility,overalls,apparel"
+    img: "https://plus.unsplash.com/premium_photo-1724296696781-582121666bce?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8VW5pc2V4JTIwUmVsYXhlZCUyMENhbnZhcyUyMFV0aWxpdHklMjBPdmVyYWxscyUyMGZvciUyMGtpZHMlMjBpbiUyMGElMjBib3glMjBOby58ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 539,
@@ -341,7 +341,7 @@ const kidProducts = [
     price: 24080,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=541&q=unisex,kids,ribbed,playwear,apparel"
+    img: "https://images.unsplash.com/photo-1617331140180-e8262094733a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFVuaXNleCUyMENvenklMjBDb3R0b24lMjBSaWJiZWQlMjBQbGF5d2VhciUyME5vLiUyMDQyfGVufDB8fDB8fHww"
   },
   {
     id: 542,
@@ -365,7 +365,7 @@ const kidProducts = [
     price: 25220,
     tag: "New",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=544&q=unisex,kids,organic,jumpsuit,apparel"
+    img: "https://media.istockphoto.com/id/1286447393/photo/self-confident-cute-a-dark-skinned-kid-girl-in-warm-yellow-jumpsuit-and-sneakers-stands.webp?a=1&b=1&s=612x612&w=0&k=20&c=7p64hOGIt64xlMZMQM_d6sMD5KNPVwN6mb0_Clw144g="
   },
   {
     id: 545,
@@ -386,10 +386,10 @@ const kidProducts = [
   {
     id: 547,
     name: "Unisex Ultra Soft Ribbed Bodysuit No. 48",
-    price: 26360,
+    price: 16360,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=547&q=unisex,kids,soft,bodysuit,apparel"
+    img: "https://media.istockphoto.com/id/1313485123/photo/mother-and-baby-at-home.webp?a=1&b=1&s=612x612&w=0&k=20&c=W75rDnvZUY28h-3d1qzXLffGdMXLrtg5DiF8GG_-2sE="
   },
   {
     id: 548,
@@ -413,7 +413,7 @@ const kidProducts = [
     price: 27500,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=550&q=unisex,kids,heavyweight,hoody,apparel"
+    img: "https://media.istockphoto.com/id/1928368415/photo/childrens-beige-sports-jacket-isolated-on-white-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=rzOSDsn9wJeVFnchTMUXYEVkOVpdlDoZbxhTq8aTCIk="
   },
   {
     id: 551,
@@ -437,7 +437,7 @@ const kidProducts = [
     price: 28640,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=553&q=unisex,kids,romper,overalls,apparel"
+    img: "https://images.unsplash.com/photo-1711313532755-47fe78c65a50?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8VW5pc2V4JTIwQ296eSUyMENvdHRvbiUyMFJvbXBlciUyME92ZXJhbGxzJTIwTm8uJTIwNTR8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 554,
@@ -461,7 +461,7 @@ const kidProducts = [
     price: 29780,
     tag: "New",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=556&q=unisex,kids,earthy,waffle,apparel"
+    img: "https://images.unsplash.com/photo-1703282581360-a3685b2d52ac?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VW5pc2V4JTIwUHJlbWl1bSUyMEVhcnRoeSUyMFdhZmZsZSUyMFNldCUyMGZvciUyMGtpZHMlMjBOby4lMjA1N3xlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 557,
@@ -482,10 +482,10 @@ const kidProducts = [
   {
     id: 559,
     name: "Unisex Organic Slub Playsuit No. 60",
-    price: 30920,
+    price: 10920,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=559&q=unisex,kids,slub,playsuit,apparel"
+    img: "https://images.unsplash.com/photo-1605644235751-709c7254e3e3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fFVuaXNleCUyME9yZ2FuaWMlMjBTbHViJTIwUGxheXN1aXQlMjBOby4lMjA2MHxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 560,
@@ -506,10 +506,10 @@ const kidProducts = [
   {
     id: 562,
     name: "Unisex Cozy Organic Knit Onesie No. 63",
-    price: 32060,
+    price: 22060,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=562&q=unisex,kids,knit,onesie,apparel"
+    img: "https://images.unsplash.com/photo-1611883916374-ec1b3bef72a4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFVuaXNleCUyMENvenklMjBPcmdhbmljJTIwS25pdCUyME9uZXNpZSUyME5vLiUyMDYzfGVufDB8fDB8fHww"
   },
   {
     id: 563,
@@ -554,10 +554,10 @@ const kidProducts = [
   {
     id: 568,
     name: "Unisex Tough Outdoor Canvas Dungarees No. 69",
-    price: 34340,
+    price: 14340,
     tag: "New",
     category: "Unisex",
-    img: "https://media.istockphoto.com/id/2158689569/photo/closeup-men-old-tough-durable-canvas-shoes-sneakers-with-jeans-outdoors.webp?a=1&b=1&s=612x612&w=0&k=20&c=g4xKi4eNGYrjcqHS2NCmxb13DXpXZrYwcT_CpdI7a7U="
+    img: "https://plus.unsplash.com/premium_photo-1755548272329-dcd1093b3ff2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fFVuaXNleCUyMFRvdWdoJTIwT3V0ZG9vciUyMENhbnZhcyUyMER1bmdhcmVlcyUyMGZvciUyMGtpZHMlMjBOby4lMjAxMTR8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 569,
@@ -578,10 +578,10 @@ const kidProducts = [
   {
     id: 571,
     name: "Unisex Earthy Tone Waffle Set No. 72",
-    price: 35480,
+    price: 25480,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1656991483595-8a11da8d2bde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8VW5pc2V4JTIwRWFydGh5JTIwVG9uZSUyMFdhZmZsZSUyMGZvciUyMGtpZHMlMjBTZXQlMjBOby4lMjA3MnxlbnwwfHwwfHx8MA%3D%3D"
+    img: "https://images.unsplash.com/photo-1744424846159-6de5fb4e39c4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fFVuaXNleCUyMEVhcnRoeSUyMENvdHRvbiUyMFBsYXklMjBSb21wZXIlMjBOby4lMjA5OXxlbnwwfHwwfHx8MA%3D%3D"
   },
   {
     id: 572,
@@ -794,10 +794,10 @@ const kidProducts = [
   {
     id: 598,
     name: "Unisex Earthy Cotton Play Romper No. 99",
-    price: 45740,
+    price: 15740,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=598&q=unisex,kids,earthy,romper,apparel"
+    img: "https://images.unsplash.com/photo-1763013258923-f8c06366abb5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VW5pc2V4JTIwRWFydGh5JTIwQ290dG9uJTIwUGxheSUyMFJvbXBlciUyME5vLiUyMDk5fGVufDB8fDB8fHww"
   },
   {
     id: 599,
@@ -821,7 +821,7 @@ const kidProducts = [
     price: 46880,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=601&q=unisex,kids,pajamas,loungewear,apparel"
+    img: "https://images.unsplash.com/photo-1715609105250-ee1a91942ee2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fFVuaXNleCUyMFVuaXNleCUyMFNvZnQlMjBSaWJiZWQlMjBQSiUyMExvdW5nZXdlYXIlMjBOby4lMjAxMDJ8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 602,
@@ -869,7 +869,7 @@ const kidProducts = [
     price: 49160,
     tag: "",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=607&q=unisex,kids,ribbed,bodysuit,apparel"
+    img: "https://images.unsplash.com/photo-1738023924766-fdf74c30d5c0?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VW5pc2V4JTIwUHJlbWl1bSUyMFNvZnQlMjBSaWJiZWQlMjBCb2R5c3VpdCUyMGZvciUyMGtpZHMlMjBOby4lMjAxMDh8ZW58MHx8MHx8fDA%3D"
   },
   {
     id: 608,
@@ -890,10 +890,10 @@ const kidProducts = [
   {
     id: 610,
     name: "Unisex Comfort Fleece Lounge Pullover No. 111",
-    price: 50300,
+    price: 20300,
     tag: "Sale",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1503919545889-aef636e10ad4?w=600&auto=format&fit=crop&q=80&sig=610&q=unisex,kids,fleece,pullover,apparel"
+    img: "https://media.istockphoto.com/id/172202462/photo/pink-fleece-sweater.webp?a=1&b=1&s=612x612&w=0&k=20&c=xZj-5pJM79RPJgTl-P5vgJsS5124kCqFrEBJCfBcz5k="
   },
   {
     id: 611,
@@ -914,10 +914,10 @@ const kidProducts = [
   {
     id: 613,
     name: "Unisex Tough Outdoor Canvas Dungarees No. 114",
-    price: 51440,
+    price: 31440,
     tag: "Trending",
     category: "Unisex",
-    img: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&auto=format&fit=crop&q=80&sig=613&q=unisex,kids,outdoor,dungarees,apparel"
+    img: "https://images.unsplash.com/photo-1600933675255-6cb8912419d3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8VW5pc2V4JTIwVG91Z2glMjBPdXRkb29yJTIwQ2FudmFzJTIwRHVuZ2FyZWVzJTIwZm9yJTIwa2lkcyUyME5vLiUyMDExNHxlbnwwfHwwfHx8MA%3D%3D"
   }
 ];
 
