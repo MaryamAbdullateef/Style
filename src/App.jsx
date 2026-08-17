@@ -1,4 +1,3 @@
-// src/App.jsx
 import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -42,7 +41,6 @@ function ScrollToTop() {
   return null;
 }
 
-// Wrapper component to bundle Home and ProductList safely as a single component
 function HomeWithProducts() {
   return (
     <>
@@ -64,19 +62,16 @@ export default function App() {
         <div className="bg-black min-h-screen flex flex-col font-sans selection:bg-[#0070f3] selection:text-white">
           <ScrollToTop />
 
-          {/* Hide regular navigation layout components if viewing account or admin portal views */}
           {!isAccountPage && !isAdminPage && <Navbar />}
 
           <main className="grow">
             <Routes>
-              {/* Main Route displaying the home page layout alongside backend data */}
               <Route path="/" element={<HomeWithProducts />} />
 
               <Route path="/men" element={<Men />} />
               <Route path="/kids" element={<Kids />} />
               <Route path="/women" element={<Women />} />
 
-              {/* Dynamic route matching navigate('/product/:id') from ProductList */}
               <Route path="/product/:id" element={<ProductDetails />} />
               <Route path="/product-details" element={<ProductDetails />} />
               <Route path="/products" element={<ProductList />} />
@@ -90,10 +85,9 @@ export default function App() {
               <Route path="/account" element={<Account />} />
               <Route path="/search" element={<Search />} />
 
-              {/* Dashboard Portal Management View */}
               <Route path="/admin" element={<AdminDashboard />} />
 
-              {/* Secure Routing for checkout actions */}
+              {/* Order / Checkout Routes */}
               <Route
                 path="/order"
                 element={
@@ -102,8 +96,9 @@ export default function App() {
                   </ProtectedRoute>
                 }
               />
+              {/* Alias route to catch `/order-now` links */}
+              <Route path="/order-now" element={<Navigate to="/order" replace />} />
 
-              {/* Unlocked Cart Route for unrestricted shopping bag view */}
               <Route path="/cart" element={<AddToCart />} />
 
               <Route path="*" element={<Navigate to="/" replace />} />

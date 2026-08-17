@@ -13,10 +13,12 @@ import {
 } from "react-icons/fi";
 import { FaGoogle, FaApple } from "react-icons/fa";
 import API from "../utils/axios";
+import { useAuth } from "../context/AuthContext";
 
 const Account = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const authContext = useAuth?.() || {};
 
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
@@ -33,11 +35,27 @@ const Account = () => {
     rememberMe: false,
   });
 
-  // Separate global error and specific field errors
   const [error, setError] = useState("");
   const [fieldErrors, setFieldErrors] = useState({ email: "", password: "" });
 
   const redirectTimeoutRef = useRef(null);
+
+  // Helper to determine target path safely from location state
+  const getRedirectPath = () => {
+    const from = location.state?.from;
+    if (!from) return "/order";
+    if (typeof from === "string") return from;
+    return from.pathname || "/order";
+  };
+
+  // Redirect instantly if user is already logged in
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("userInfo") || localStorage.getItem("styler_user");
+    if (token && user && !showWelcomePopup) {
+      navigate(getRedirectPath(), { replace: true });
+    }
+  }, [navigate, location, showWelcomePopup]);
 
   useEffect(() => {
     return () => {
@@ -135,26 +153,34 @@ const Account = () => {
       const userData = response.data?.data;
       const token = userData?.token;
 
+      // 1. Store auth credentials locally
       if (token) {
         localStorage.setItem("token", token);
       }
-
       localStorage.setItem("styler_user", JSON.stringify(userData));
       localStorage.setItem("userInfo", JSON.stringify(userData));
+
+      // 2. Sync React Auth Context if method exists
+      if (typeof authContext.login === "function") {
+        authContext.login(userData, token);
+      } else if (typeof authContext.setUser === "function") {
+        authContext.setUser(userData);
+      }
+
       window.dispatchEvent(new Event("storage"));
 
       setWelcomeName(userData?.name || formData.email.split("@")[0]);
       setShowWelcomePopup(true);
 
+      // 3. Redirect to destination or checkout order page
       redirectTimeoutRef.current = setTimeout(() => {
-        const originPath = location.state?.from?.pathname || "/order";
-        navigate(originPath, { replace: true });
-      }, 2000);
+        const targetPath = getRedirectPath();
+        navigate(targetPath, { replace: true });
+      }, 1500);
     } catch (err) {
       const backendMessage =
         err.response?.data?.message || "Authentication failed.";
 
-      // Categorize specific backend messages into target fields
       const lowerMsg = backendMessage.toLowerCase();
       if (lowerMsg.includes("email") || lowerMsg.includes("user not found")) {
         setFieldErrors((prev) => ({
@@ -331,7 +357,6 @@ const Account = () => {
             className="space-y-5 mt-6"
             noValidate
           >
-            {/* Registration Full Name Field */}
             {!isLogin && !isForgotPassword && (
               <div className="relative">
                 <FiUser className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
@@ -349,7 +374,6 @@ const Account = () => {
               </div>
             )}
 
-            {/* Email Field */}
             <div>
               <div className="relative">
                 <FiMail className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />
@@ -376,7 +400,6 @@ const Account = () => {
               )}
             </div>
 
-            {/* Password Field */}
             <div>
               <div className="relative">
                 <FiLock className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500" />

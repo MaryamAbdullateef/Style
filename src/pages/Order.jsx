@@ -1,8 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Plus, Minus, ShoppingBag, ChevronRight, Lock, Globe, CreditCard, Landmark, Truck, Loader2 } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-// Import the global location database helpers
+import { Link } from "react-router-dom";
 import { Country, State, City } from "country-state-city";
+
+// Phone Input Component and Stylesheet
+import PI from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
+
+// Resolve CommonJS / ES module interop compatibility safely
+const PhoneInput = PI.default || PI;
 
 // Comprehensive Global Currency Array (10 Major Currencies)
 const CURRENCY_CONFIG = {
@@ -19,7 +25,6 @@ const CURRENCY_CONFIG = {
 };
 
 export default function Order() {
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [issubmitting, setIsSubmitting] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState("card");
@@ -32,16 +37,25 @@ export default function Order() {
   const [statesList, setStatesList] = useState([]);
   const [citiesList, setCitiesList] = useState([]);
 
-  // Authenticated State Sync using unified user token keys
-  const [user, setUser] = useState(() => {
-    const savedUser = localStorage.getItem("styler_user");
-    return savedUser ? JSON.parse(savedUser) : { name: "MABDULLATEEF80", email: "user@stylerhub.com" };
+  // Authenticated State Sync with error handling for parsing JSON
+  const [user] = useState(() => {
+    try {
+      const savedUser = localStorage.getItem("styler_user");
+      return savedUser ? JSON.parse(savedUser) : { name: "MABDULLATEEF80", email: "user@stylerhub.com" };
+    } catch {
+      return { name: "MABDULLATEEF80", email: "user@stylerhub.com" };
+    }
   });
 
-  // State initialization with fallback mockup values
+  // Cart state initialization with fallback mockup values and error handling
   const [cart, setCart] = useState(() => {
-    const savedCart = JSON.parse(localStorage.getItem("styler_cart"));
-    if (savedCart && savedCart.length > 0) return savedCart;
+    try {
+      const savedCart = localStorage.getItem("styler_cart");
+      const parsedCart = savedCart ? JSON.parse(savedCart) : null;
+      if (parsedCart && Array.isArray(parsedCart) && parsedCart.length > 0) return parsedCart;
+    } catch {
+      // Fallback on catch
+    }
     return [
       {
         id: "mock_1",
@@ -64,31 +78,28 @@ export default function Order() {
     ];
   });
 
-  // Note: country and state fields now store ISO CODES (e.g., 'NG', 'LA') internally for accurate API lookup
+  // Delivery Form State
   const [deliveryForm, setDeliveryForm] = useState({
-    fullName: "Mabdullateef80",
+    fullName: user?.name || "Mabdullateef80",
     phone: "",
-    country: "", 
-    state: "",   
-    city: "",    
+    country: "",
+    state: "",
+    city: "",
     address: "",
   });
 
   // Load countries on mount
   useEffect(() => {
     setCountriesList(Country.getAllCountries());
-    if (user && !deliveryForm.fullName) {
-      setDeliveryForm((prev) => ({ ...prev, fullName: user.name || "" }));
-    }
     const timer = setTimeout(() => setLoading(false), 400);
     return () => clearTimeout(timer);
-  }, [user]);
+  }, []);
 
   // Dynamic Cascade Hook: Fetch States when Country updates
   useEffect(() => {
     if (deliveryForm.country) {
       const states = State.getStatesOfCountry(deliveryForm.country);
-      setStatesList(states);
+      setStatesList(states || []);
       setCitiesList([]);
     } else {
       setStatesList([]);
@@ -100,7 +111,7 @@ export default function Order() {
   useEffect(() => {
     if (deliveryForm.country && deliveryForm.state) {
       const cities = City.getCitiesOfState(deliveryForm.country, deliveryForm.state);
-      setCitiesList(cities);
+      setCitiesList(cities || []);
     } else {
       setCitiesList([]);
     }
@@ -109,14 +120,19 @@ export default function Order() {
   const handleDeliveryChange = (e) => {
     setFormError("");
     const { name, value } = e.target;
-    
+
     if (name === "country") {
-      setDeliveryForm(prev => ({ ...prev, country: value, state: "", city: "" }));
+      setDeliveryForm((prev) => ({ ...prev, country: value, state: "", city: "" }));
     } else if (name === "state") {
-      setDeliveryForm(prev => ({ ...prev, state: value, city: "" }));
+      setDeliveryForm((prev) => ({ ...prev, state: value, city: "" }));
     } else {
-      setDeliveryForm(prev => ({ ...prev, [name]: value }));
+      setDeliveryForm((prev) => ({ ...prev, [name]: value }));
     }
+  };
+
+  const handlePhoneChange = (value) => {
+    setFormError("");
+    setDeliveryForm((prev) => ({ ...prev, phone: value }));
   };
 
   const updateQty = (id, delta) => {
@@ -132,7 +148,7 @@ export default function Order() {
 
   // Base Calculations
   const baseSubtotal = cart.reduce((acc, item) => acc + (Number(item.price) || 0) * (item.qty || 1), 0);
-  const currentCurrency = CURRENCY_CONFIG[currency];
+  const currentCurrency = CURRENCY_CONFIG[currency] || CURRENCY_CONFIG.NGN;
   const calculatedSubtotal = baseSubtotal * currentCurrency.rate;
   const calculatedShipping = currentCurrency.shipping;
   const calculatedTotal = calculatedSubtotal + calculatedShipping;
@@ -141,24 +157,23 @@ export default function Order() {
     const fractionalDigits = ["NGN", "JPY"].includes(currency) ? 0 : 2;
     return `${currentCurrency.symbol}${value.toLocaleString(undefined, {
       minimumFractionDigits: fractionalDigits,
-      maximumFractionDigits: fractionalDigits
+      maximumFractionDigits: fractionalDigits,
     })}`;
   };
 
   const finalizeOrder = async () => {
     if (
-      !deliveryForm.fullName || 
-      !deliveryForm.phone || 
-      !deliveryForm.country || 
-      !deliveryForm.state || 
-      !deliveryForm.city || 
+      !deliveryForm.fullName ||
+      !deliveryForm.phone ||
+      !deliveryForm.country ||
+      !deliveryForm.state ||
       !deliveryForm.address
     ) {
-      setFormError("Please fill out all delivery and location fields before authorizing your order.");
+      setFormError("Please fill out all required delivery and location fields before authorizing your order.");
       window.scrollTo({ top: 200, behavior: "smooth" });
       return;
     }
-    
+
     setFormError("");
     setIsSubmitting(true);
 
@@ -227,8 +242,10 @@ export default function Order() {
                 )}
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  
+                  {/* Full Name */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Full Name</label>
+                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Full Name *</label>
                     <input
                       type="text"
                       name="fullName"
@@ -238,21 +255,44 @@ export default function Order() {
                       placeholder="Enter full name"
                     />
                   </div>
+
+                  {/* International Phone Input */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Phone Number</label>
-                    <input
-                      type="tel"
-                      name="phone"
+                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Phone Number *</label>
+                    <PhoneInput
+                      country={deliveryForm.country ? deliveryForm.country.toLowerCase() : "ng"}
                       value={deliveryForm.phone}
-                      onChange={handleDeliveryChange}
-                      placeholder="e.g. +234 801 234 5678"
-                      className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-blue-500 text-white"
+                      onChange={handlePhoneChange}
+                      enableSearch={true}
+                      placeholder="Enter phone number"
+                      inputStyle={{
+                        width: "100%",
+                        height: "52px",
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                        color: "#ffffff",
+                        borderColor: "rgba(255, 255, 255, 0.1)",
+                        borderRadius: "0.75rem",
+                        fontSize: "0.875rem",
+                        paddingLeft: "58px",
+                      }}
+                      buttonStyle={{
+                        backgroundColor: "rgba(0, 0, 0, 0.4)",
+                        borderColor: "rgba(255, 255, 255, 0.1)",
+                        borderRadius: "0.75rem 0 0 0.75rem",
+                        padding: "0 8px",
+                      }}
+                      dropdownStyle={{
+                        backgroundColor: "#0b1329",
+                        color: "#ffffff",
+                        borderColor: "rgba(255, 255, 255, 0.2)",
+                        borderRadius: "0.75rem",
+                      }}
                     />
                   </div>
 
                   {/* Country Selector */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Country</label>
+                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Country *</label>
                     <select
                       name="country"
                       value={deliveryForm.country}
@@ -270,7 +310,7 @@ export default function Order() {
 
                   {/* Dynamic Cascading State Selector */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">State / Region</label>
+                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">State / Region *</label>
                     <select
                       name="state"
                       value={deliveryForm.state}
@@ -287,29 +327,40 @@ export default function Order() {
                     </select>
                   </div>
 
-                  {/* Dynamic Cascading City Selector */}
+                  {/* Dynamic Cascading City Selector / Fallback Input */}
                   <div className="md:col-span-2 space-y-2">
                     <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">City / District Area</label>
-                    <select
-                      name="city"
-                      value={deliveryForm.city}
-                      onChange={handleDeliveryChange}
-                      disabled={!deliveryForm.state || citiesList.length === 0}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-blue-500 text-white disabled:opacity-40"
-                    >
-                      <option value="" className="text-zinc-500">
-                        {citiesList.length === 0 && deliveryForm.state ? "No specific cities found" : "Select City / Area"}
-                      </option>
-                      {citiesList.map((city) => (
-                        <option key={city.name} value={city.name} className="bg-neutral-900 text-white">
-                          {city.name}
-                        </option>
-                      ))}
-                    </select>
+                    {citiesList.length > 0 ? (
+                      <select
+                        name="city"
+                        value={deliveryForm.city}
+                        onChange={handleDeliveryChange}
+                        disabled={!deliveryForm.state}
+                        className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-blue-500 text-white disabled:opacity-40"
+                      >
+                        <option value="" className="text-zinc-500">Select City / Area</option>
+                        {citiesList.map((city) => (
+                          <option key={city.name} value={city.name} className="bg-neutral-900 text-white">
+                            {city.name}
+                          </option>
+                        ))}
+                      </select>
+                    ) : (
+                      <input
+                        type="text"
+                        name="city"
+                        value={deliveryForm.city}
+                        onChange={handleDeliveryChange}
+                        disabled={!deliveryForm.state}
+                        placeholder="Enter City or Local District Area"
+                        className="w-full bg-black/40 border border-white/10 rounded-xl p-4 text-sm outline-none focus:border-blue-500 text-white disabled:opacity-40"
+                      />
+                    )}
                   </div>
 
+                  {/* Address */}
                   <div className="md:col-span-2 space-y-2">
-                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Specific House / Apartment Address</label>
+                    <label className="text-[10px] font-black uppercase text-white/30 tracking-widest">Specific House / Apartment Address *</label>
                     <textarea
                       name="address"
                       value={deliveryForm.address}
