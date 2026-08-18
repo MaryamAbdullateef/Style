@@ -24,7 +24,19 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const response = await API.post('/auth/login', { email, password });
+    // Ensure email and password are provided as valid strings before sending
+    const cleanEmail = typeof email === 'string' ? email.trim() : '';
+    const cleanPassword = typeof password === 'string' ? password : '';
+
+    if (!cleanEmail || !cleanPassword) {
+      throw new Error('Please provide both email and password.');
+    }
+
+    const response = await API.post('/auth/login', { 
+      email: cleanEmail, 
+      password: cleanPassword 
+    });
+    
     const userData = response.data?.data || response.data;
 
     setUser(userData);
