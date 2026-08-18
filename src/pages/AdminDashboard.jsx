@@ -1,6 +1,6 @@
 // src/pages/AdminDashboard.jsx
 import React, { useState } from 'react';
-import API from '../api';
+import API from '../utils/axios';
 
 export default function AdminDashboard() {
   const [product, setProduct] = useState({
@@ -33,7 +33,7 @@ export default function AdminDashboard() {
 
     try {
       // Sends data straight to your Express backend API
-      const response = await API.post('/products', {
+      await API.post('/products', {
         ...product,
         price: Number(product.price),
         countInStock: Number(product.countInStock || 0),
@@ -43,7 +43,6 @@ export default function AdminDashboard() {
       // Reset form fields upon successful creation
       setProduct({ name: '', price: '', description: '', image: '', category: 'Men', countInStock: '' });
     } catch (error) {
-      // Enhanced catch statement to easily diagnose network errors vs database schema errors
       if (!error.response) {
         setMessage({ 
           type: 'error', 
@@ -67,7 +66,7 @@ export default function AdminDashboard() {
         <h1 className="text-3xl font-extrabold tracking-tight">
           STYLERSHUB <span className="text-[#0070f3]">ADMIN PORTAL</span>
         </h1>
-        {/* Red Live System Status indicator Badge to capture user focus */}
+        {/* Live System Status indicator Badge */}
         <div className="flex items-center space-x-2 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>

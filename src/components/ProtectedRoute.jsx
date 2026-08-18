@@ -1,37 +1,35 @@
-// src/components/ProtectedRoute.jsx
 import React from "react";
 import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { FiLoader } from "react-icons/fi";
 
-/**
- * ProtectedRoute Component
- * Acts as a gatekeeper for protected Styler Hub pages (Checkout, Orders, Admin, etc.).
- * Leverages AuthContext state for real-time authentication & authorization checks.
- */
-const ProtectedRoute = ({ children, requireAdmin = false }) => {
-  const { user, loading } = useAuth();
+const ProtectedRoute = ({ children, allowedRoles }) => {
   const location = useLocation();
+  const authContext = useAuth?.() || {};
 
-  // 1. Loading Guard: Prevents flickering redirect while checking local storage on refresh
-  if (loading) {
+  // Check token from context or fallback to localStorage directly
+  const token = authContext.token || localStorage.getItem("token");
+  const user = authContext.user || JSON.parse(localStorage.getItem("userInfo") || "null");
+
+  // Show loading spinner if auth state is initializing
+  if (authContext.loading) {
     return (
-      <div className="min-h-screen bg-black text-white flex items-center justify-center font-medium">
-        Verifying authentication...
+      <div className="min-h-screen bg-[#030712] flex items-center justify-center text-white">
+        <FiLoader className="animate-spin text-3xl text-blue-500" />
       </div>
     );
   }
 
-  // 2. Authentication Check: Redirect unauthenticated users to /account
-  if (!user) {
+  // Redirect to login if user is not authenticated
+  if (!token || !user) {
     return <Navigate to="/account" state={{ from: location }} replace />;
   }
 
-  // 3. Authorization Check: Restrict admin routes if user is not an admin
-  if (requireAdmin && user.role !== "admin") {
+  // Optional: Check role authorization
+  if (allowedRoles && !allowedRoles.includes(user.role)) {
     return <Navigate to="/" replace />;
   }
 
-  // 4. Render protected child components when authenticated
   return children;
 };
 

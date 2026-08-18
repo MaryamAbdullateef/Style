@@ -40,7 +40,6 @@ const Account = () => {
 
   const redirectTimeoutRef = useRef(null);
 
-  // Helper to determine target path safely from location state
   const getRedirectPath = () => {
     const from = location.state?.from;
     if (!from) return "/order";
@@ -48,10 +47,10 @@ const Account = () => {
     return from.pathname || "/order";
   };
 
-  // Redirect instantly if user is already logged in
   useEffect(() => {
     const token = localStorage.getItem("token");
-    const user = localStorage.getItem("userInfo") || localStorage.getItem("styler_user");
+    const user =
+      localStorage.getItem("userInfo") || localStorage.getItem("styler_user");
     if (token && user && !showWelcomePopup) {
       navigate(getRedirectPath(), { replace: true });
     }
@@ -59,7 +58,9 @@ const Account = () => {
 
   useEffect(() => {
     return () => {
-      if (redirectTimeoutRef.current) clearTimeout(redirectTimeoutRef.current);
+      if (redirectTimeoutRef.current) {
+        clearTimeout(redirectTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -68,20 +69,34 @@ const Account = () => {
     setFieldErrors({ email: "", password: "" });
   };
 
+  const resetFormValues = () => {
+    setFormData({
+      name: "",
+      email: "",
+      password: "",
+      newPassword: "",
+      rememberMe: false,
+    });
+    setShowPassword(false);
+  };
+
   const handleToggleMode = () => {
     setIsLogin((prev) => !prev);
     clearErrors();
+    resetFormValues();
   };
 
   const handleToggleForgotPassword = (value) => {
     setIsForgotPassword(value);
     clearErrors();
-    setShowPassword(false);
+    resetFormValues();
   };
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
-    clearErrors();
+    if (error || fieldErrors[name]) {
+      clearErrors();
+    }
     setFormData((prev) => ({
       ...prev,
       [name]: type === "checkbox" ? checked : value,
@@ -92,7 +107,6 @@ const Account = () => {
     clearErrors();
     let isValid = true;
     const errors = { email: "", password: "" };
-
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!formData.email) {
@@ -132,14 +146,12 @@ const Account = () => {
 
   const handleAuth = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     setIsLoading(true);
 
     try {
       const endpoint = isLogin ? "/auth/login" : "/auth/register";
-
       const payload = isLogin
         ? { email: formData.email, password: formData.password }
         : {
@@ -149,18 +161,15 @@ const Account = () => {
           };
 
       const response = await API.post(endpoint, payload);
-
       const userData = response.data?.data;
       const token = userData?.token;
 
-      // 1. Store auth credentials locally
       if (token) {
         localStorage.setItem("token", token);
       }
       localStorage.setItem("styler_user", JSON.stringify(userData));
       localStorage.setItem("userInfo", JSON.stringify(userData));
 
-      // 2. Sync React Auth Context if method exists
       if (typeof authContext.login === "function") {
         authContext.login(userData, token);
       } else if (typeof authContext.setUser === "function") {
@@ -172,7 +181,6 @@ const Account = () => {
       setWelcomeName(userData?.name || formData.email.split("@")[0]);
       setShowWelcomePopup(true);
 
-      // 3. Redirect to destination or checkout order page
       redirectTimeoutRef.current = setTimeout(() => {
         const targetPath = getRedirectPath();
         navigate(targetPath, { replace: true });
@@ -205,7 +213,6 @@ const Account = () => {
 
   const handleResetPassword = async (e) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     try {
@@ -214,13 +221,8 @@ const Account = () => {
         email: formData.email,
         newPassword: formData.newPassword,
       });
-      alert("Password changed successfully!");
-      setIsForgotPassword(false);
-      setFormData((prev) => ({
-        ...prev,
-        password: "",
-        newPassword: "",
-      }));
+
+      handleToggleForgotPassword(false);
     } catch (err) {
       const backendMessage =
         err.response?.data?.message || "Failed to reset password.";

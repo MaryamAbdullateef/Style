@@ -1,3 +1,4 @@
+// src/utils/axios.js
 import axios from 'axios';
 
 // Dynamically resolve API URL across Vite, Create React App, or default fallback
@@ -8,6 +9,7 @@ const getBaseURL = () => {
   if (typeof process !== 'undefined' && process.env?.REACT_APP_API_URL) {
     return process.env.REACT_APP_API_URL;
   }
+  // Fallback for local development backend running on port 5000
   return 'http://localhost:5000/api';
 };
 
@@ -16,16 +18,33 @@ const API = axios.create({
   headers: {
     'Content-Type': 'application/json',
   },
+  withCredentials: true,
 });
 
 // Attach JWT token from browser localStorage on every outgoing request
 API.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      config.headers = config.headers || {};
-      config.headers.Authorization = `Bearer ${token}`;
+    let token = localStorage.getItem('token');
+
+    if (!token) {
+      try {
+        const userInfo = localStorage.getItem('userInfo');
+        if (userInfo) {
+          token = JSON.parse(userInfo)?.token;
+        }
+      } catch (err) {
+        console.error('Error parsing userInfo from localStorage:', err);
+      }
     }
+
+    if (token) {
+      if (config.headers.set) {
+        config.headers.set('Authorization', `Bearer ${token}`);
+      } else {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+    }
+
     return config;
   },
   (error) => Promise.reject(error)
